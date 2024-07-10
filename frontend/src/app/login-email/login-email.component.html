@@ -4,19 +4,28 @@
 
     <!-- image on the left -->
      <div class="login-image">
-        <img src=" " alt="login-gif">
+        <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="login-gif">
      </div>
 
 
     <!-- form on th right -->
-     <div class="login-form">
+     <div class="main-section">
         <!-- navigating back arrow -->
-        <label>
-            <i> WZ </i>
+        <label class="back-arrow">
+            <i class='bx bx-arrow-back bx-md'></i>
         </label>
 
-        <form>
+        <form class="login-form">
             <h2> Login to citizenConnect360 </h2>
+
+            <p class="google-button">
+                <button><i class='bx bxl-google' ></i> Login with Google </button>
+            </p>
+
+            <p class="divider">
+                or
+            </p>
+
             <!-- <fieldset> -->
 
                 <div class="form-group">
@@ -41,11 +50,13 @@
                     </button>
                 </div>
     
-                <div class="form-group">
+                <div class="terms">
                     <input type="checkbox">
-                    i agree with citizenConnect360's <a href="#">terms of Service</a>, 
-                    <a href="#">privacy policy</a> and default <a href="#">notification 
-                    settings</a>
+                    <label>
+                        i agree with citizenConnect360's <a href="#">terms of Service</a>, 
+                        <a href="#">privacy policy</a> and default <a href="#">notification 
+                        settings</a>
+                    </label>
                 </div>
 
 
@@ -53,16 +64,6 @@
                 <p class="redirect-login">
                     Don't have an account yet? <a href="#"> Signup </a>
                 </p>
-
-                <p class="divider">
-                    or
-                </p>
-
-                <p class="google-button">
-                    <button> Login with Google </button>
-                </p>
-    
-
     
     
             <!-- </fieldset> -->
