@@ -1,0 +1,44 @@
+
+.navbar{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	height: 5vw;
+	margin-bottom: 1rem;
+	padding: 10px;
+	align-items: center;
+}
+
+.menu ul{
+	display:inline-flex;
+	list-style: none;
+	text-decoration: none;
+	margin-right: 2rem;
+    /* background-color: red; */
+}
+
+.menu li a{
+	text-decoration: none;
+	color: var(--medium-gray);
+}
+
+.menu li a:hover{
+	cursor: pointer;
+}
+
+.auth-buttons li{
+	display:inline-flex;
+	align-items: center;
+	color: var(--medium-gray);
+	margin-right: 2rem;
+}
+
+.auth-buttons li:hover{
+	cursor: pointer;
+}
+
+#register{
+	border:1.9px solid;
+	padding: 5px;
+	border-radius: 10px;
+}
