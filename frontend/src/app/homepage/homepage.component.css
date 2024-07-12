@@ -30,6 +30,10 @@
     align-items: center; */
 }
 
+.text.second-text{
+    color: var(--primary);
+}
+
 .text.second-text:before{
     content: ""; /*make it nothing intitially*/
     width: 100%;
@@ -53,8 +57,8 @@
 }
 
 .hero .left .text-explanation{
-    font-size: 23px;
-    text-transform: lowercase;
+    font-size: 20px;
+    /* text-transform: lowercase; */
     letter-spacing: .1rem;
 }
 

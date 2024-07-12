@@ -3,76 +3,108 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	height: 7vw;
+	align-items: baseline;
+	height: 15vh;
 	background-color: var(--primary);
-	/* border: 1px solid red; */
 	margin-bottom: 1rem;
 	padding: 10px;
-	align-items: center;
+	/* align-items: center; */
 }
 
+/* ************************	 */
+/* to style the navbar logo later */
 .navbar .logo{
 	/* border: 1px solid; */
-	padding: 1rem;
+	padding: .2rem;
+	display: inline-flex;
+	justify-content: baseline;
 }
 
 .logo img{
 	border: 1px solid;
-	height: 100px;	/*need to change this later*/
-	width: 100px;
+	width: 90px;
+	height: 70px;
+
 }
+/* ********************* */
 
 .logo label{
-	font-size: larger;
+	font-size: xx-large;
 	font-family:Verdana, Geneva, Tahoma, sans-serif;
 	color: var(--white);
 	font-weight: 700;
 }
 
-.menu ul{
-	display:inline-flex;
-	list-style: none;
-	text-decoration: none;
-	margin-right: 2rem;
-    /* background-color: red; */
+  .menu ul{
+    display: flex;
+	align-items: baseline;
+    margin: .4rem;
+    list-style: none;
+  }
+  
+  .menu li{
+    text-decoration: none;
 }
 
 .menu li a{
+	margin: .9rem;
 	text-decoration: none;
 	text-transform: capitalize;
 	font-weight: 600;
-	font-size: large;
+	font-size: larger;
 	color: var(--white);
 }
 
-
-
 .menu li a:hover{
 	cursor: pointer;
+	text-decoration: underline;
+    text-underline-offset: .5rem;
+	text-decoration-thickness: .1rem;
+}
+
+.auth-buttons ul{
+	display:inline-flex;
+	align-items: baseline;
+	list-style: none;
 }
 
 .auth-buttons li{
-	display:inline-flex;
-	align-items: center;
-	color: var(--medium-gray);
-	margin-right: 2rem;
+	text-decoration: none;
+	margin: .9rem;
+	text-transform: capitalize;
+	font-weight: 600;
+	font-size: larger;
+	color: var(--white);
 }
 
 .auth-buttons li:hover{
 	cursor: pointer;
+	text-decoration: underline;
+    text-underline-offset: .5rem;
+	text-decoration-thickness: .1rem;
 }
 
 #register{
 	border:1.9px solid;
-	padding: 5px;
+	padding: 5px 9px;
 	border-radius: 10px;
+	text-decoration: none !important;
 }
+
+#register:hover{
+	color: var(--primary);
+	background-color: var(--white);
+
+}
+
 
 /* style the active class later */
 .active{
-	/* border: 1px solid red; */
-	text-decoration: underline;
-	text-decoration-thickness: .1rem;
-	text-decoration-color: var(--white);
-    text-underline-offset: .5rem;
+  /* these dont work?Being overun by rest of styling. add important tags */
+  color: var(--black) !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-underline-offset: .5rem !important;
+  text-decoration-thickness: .1rem !important;
+
 }
