@@ -1,0 +1,88 @@
+.container{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.hero{
+    /* background-color: yellowgreen; */
+    height: calc(100vh - 7vh);
+    display: flex;
+    /* incase you prefer the image to be in the background   */
+    /* background: url("https://i.pinimg.com/736x/cd/81/0c/cd810cae82755271f943011a1d912db2.jpg") center/cover no-repeat;
+    background-color: hsla(0, 0%, 0%, .55);  */
+}
+
+.hero .left{
+    width: 45%;
+    font-size: 45px;
+    /* padding-top: 4rem; */
+    padding: 5rem 0rem 1rem 2rem;
+}
+
+.left .text{
+    position: relative;
+    font-size: larger;
+    font-weight: 700;
+    text-transform: capitalize;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.text.second-text:before{
+    content: ""; /*make it nothing intitially*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    border-left: 3px solid var(--primary);
+    animation: animate 4s steps(10) infinite;
+}
+
+/* add the keyframes for typewriter effect animation */
+@keyframes animate{
+    40%, 60% {
+        left:100%
+    }
+    100%{
+        left: 0%
+    }
+}
+
+.hero .left .text-explanation{
+    font-size: 23px;
+    text-transform: lowercase;
+    letter-spacing: .1rem;
+}
+
+.hero label{
+    width: 20%;
+    border: 1px solid var(--primary);
+    border-radius: 5%;
+    padding: .7rem;
+    text-transform: capitalize;
+    font-size: large;
+    font-weight: 600;
+    padding: .7rem 4rem;
+}
+
+.hero label:hover{
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+
+
+.hero .right{
+    width: 55%;
+    /* background-color: red; */
+    overflow: hidden;
+}
+
+.right img{
+    height: 98%;
+    width: 98%;
+}

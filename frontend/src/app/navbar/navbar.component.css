@@ -3,10 +3,30 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	height: 5vw;
+	height: 7vw;
+	background-color: var(--primary);
+	/* border: 1px solid red; */
 	margin-bottom: 1rem;
 	padding: 10px;
 	align-items: center;
+}
+
+.navbar .logo{
+	/* border: 1px solid; */
+	padding: 1rem;
+}
+
+.logo img{
+	border: 1px solid;
+	height: 100px;	/*need to change this later*/
+	width: 100px;
+}
+
+.logo label{
+	font-size: larger;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	color: var(--white);
+	font-weight: 700;
 }
 
 .menu ul{
@@ -19,8 +39,13 @@
 
 .menu li a{
 	text-decoration: none;
-	color: var(--medium-gray);
+	text-transform: capitalize;
+	font-weight: 600;
+	font-size: large;
+	color: var(--white);
 }
+
+
 
 .menu li a:hover{
 	cursor: pointer;
@@ -45,5 +70,9 @@
 
 /* style the active class later */
 .active{
-	border: 1px solid red;
+	/* border: 1px solid red; */
+	text-decoration: underline;
+	text-decoration-thickness: .1rem;
+	text-decoration-color: var(--white);
+    text-underline-offset: .5rem;
 }
