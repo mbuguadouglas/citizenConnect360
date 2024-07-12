@@ -6,5 +6,8 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), provideEffects()]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }),
+              provideRouter(routes),
+              provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+            ]
 };

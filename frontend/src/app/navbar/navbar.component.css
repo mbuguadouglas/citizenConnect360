@@ -42,3 +42,8 @@
 	padding: 5px;
 	border-radius: 10px;
 }
+
+/* style the active class later */
+.active{
+	border: 1px solid red;
+}

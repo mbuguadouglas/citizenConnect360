@@ -15,7 +15,7 @@
         <div class="menu">
             <ul>
                 <li> 
-                    <a href="#"> home</a> 
+                    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> home</a> 
                 </li>
             </ul>
 
@@ -42,8 +42,8 @@
         <!-- far right login buttons -->
         <div class="auth-buttons">
             <ul>
-                <li id="login"> login </li>
-                <li id="register"> register </li>
+                <li routerLink="/auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" id="login"> login </li>
+                <li routerLink="/auth/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" id="register"> register </li>
             </ul>
         </div>
 
