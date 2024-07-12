@@ -6,7 +6,7 @@
 
 .hero{
     /* background-color: yellowgreen; */
-    height: calc(100vh - 7vh);
+    height: calc(100vh - 30vh); /*reduce space taken up to hook user to continue scrolling*/
     display: flex;
     /* incase you prefer the image to be in the background   */
     /* background: url("https://i.pinimg.com/736x/cd/81/0c/cd810cae82755271f943011a1d912db2.jpg") center/cover no-repeat;
@@ -64,6 +64,7 @@
 
 .hero label{
     width: 20%;
+    /* color: var(--primary); */
     border: 1px solid var(--primary);
     border-radius: 5%;
     padding: .7rem;
@@ -87,6 +88,40 @@
 }
 
 .right img{
-    height: 98%;
-    width: 98%;
+    /* research how to make this bigger */
+    border: 1px solid;
+    height: 100%;
+    width: 100%;
 }
+
+
+/* begin on the trustees div */
+.trustees{
+    /* background-color: red; */
+    border: 1px solid;
+    height: 20vh;
+    background-color: #f3efef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .2rem;
+}
+
+.trustees h3{
+    display: flex;
+    justify-content: center;
+    color: var(--medium-gray);
+    font-size: larger;
+    text-transform: capitalize;
+}
+
+.trustees .partners{
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.partners label{
+    width: 100px;
+    height: 100px;
+}
+/* end the trustees div */
