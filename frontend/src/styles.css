@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 :root{
 	/* --almost-white: hsl(0, 0%, 98%); */
 	--medium-gray: hsl(0, 0%, 41%);
@@ -7,7 +9,7 @@
 	--ligth-cyan: #E0F7FA;
 	--white: #ffffff;
 	--primary: #08BDBA;
-	--medium-blue: #0288D1;
+	--navy-blue: #33353d;
 }
 
 *{

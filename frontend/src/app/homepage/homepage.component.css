@@ -89,7 +89,7 @@
 
 .right img{
     /* research how to make this bigger */
-    border: 1px solid;
+    /* border: 1px solid; */
     height: 100%;
     width: 100%;
 }
@@ -98,12 +98,14 @@
 /* begin on the trustees div */
 .trustees{
     /* background-color: red; */
-    border: 1px solid;
+    /* border: 1px solid; */
+    padding: 1rem;
     height: 20vh;
     background-color: #f3efef;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center;
+    align-items: center; */
     gap: .2rem;
 }
 
@@ -124,4 +126,245 @@
     width: 100px;
     height: 100px;
 }
+
 /* end the trustees div */
+
+/* begin the footer div styling */
+.footer{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary);
+}
+
+.footer .top{
+    display: flex;
+    padding: .7rem;
+    justify-content: space-around;
+    /* border-bottom: 1px solid var(--white); */
+}
+
+.footer .top .section{
+    /* border: 1px solid; */
+    padding: .4rem;
+}
+
+.footer .top .section h2{
+    color: var(--white);
+}
+
+.footer .top .section-1 .logo img{
+    width: 60px;
+    height: 50px;
+}
+
+.footer .top .section-1 .logo label{
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    /* border: 1px solid white; */
+    flex-wrap: wrap;
+    color: var(--white);
+    text-decoration: line-through;
+}
+
+.footer .section-1{
+    width: 40%;
+    color: var(--white);
+}
+
+.footer .section-1 .desc{
+    font-weight: 300;
+    letter-spacing: .1rem;
+}
+
+.footer .section-1 .socials{
+    display: inline-flex;
+    /* justify-content: space-around; */
+    padding: .3rem;
+}
+
+.footer .section-1 .bx{
+    /* border: 1px solid; */
+    font-size: larger;
+    padding: .3rem;
+}
+
+.footer .section-2{
+    width: 25%;
+    padding: .4rem;
+}
+
+.footer .section-2 ul li{
+    text-decoration: none;
+    list-style: none;
+    color: var(--white);
+}
+
+.footer .section-2 li a{
+    color: var(--white);
+    text-decoration: none;
+}
+
+
+.footer .section-3{
+    width: 25%;
+    padding: .4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .newsletter{
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.footer .newsletter input{
+    height: 2rem;
+    border: 0px;
+    border-radius: 2px ;
+    padding: .2rem;
+}
+
+.footer .newsletter button{
+    width: 100%;
+    margin: 0px auto;
+    background-color: var(--primary);
+    border: 1px solid var(--white);
+    padding: 4px;
+    color: var(--white);
+    font-weight: 700;
+}
+
+.footer .newsletter button:hover{
+    background-color: var(--navy-blue);
+    border: 1px solid var(--navy-blue);
+}
+
+.footer .newsletter p{
+    display: inline-flex;
+    justify-content: center;
+    align-items: baseline;
+    color: var(--white);
+}
+
+.footer .newsletter p span{
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.footer .bottom{
+    /* border: 1px solid; */
+    padding: .4rem;
+    font-weight: 500;
+    color: var(--white);
+    background-color: var(--royal-purple);
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.footer .bottom .bx{
+    padding: .4rem;
+    border-radius: 10px;
+}
+.footer .bottom .bx:hover{
+    background-color: var(--white);
+    color: var(--royal-purple);
+}
+.footer .bottom .bx{
+    color: var(--white);
+
+}
+/* end the footer div styling */
+
+
+
+.footer hr
+{
+  /* border-top-color:#bbb; */
+  color: var(--white);
+  width: 90%;
+  margin: 0px auto;
+  opacity:0.5
+}
+
+.footer .bottom .social-icons
+{
+  text-align:right
+}
+.footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:var(--navy-blue)
+}
+
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+
+.social-icons a{
+  background-color:#33353d;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  /* color:#fff; */
+  /* background-color:#29aafe */
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+.social-icons a.whatsapp:hover
+{
+  background-color:#47e461
+}
+.social-icons a.discord:hover
+{
+  background-color:#9045d6
+}
+

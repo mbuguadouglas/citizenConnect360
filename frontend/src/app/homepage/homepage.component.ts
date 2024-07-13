@@ -47,7 +47,6 @@ export class HomepageComponent implements AfterViewInit{
     this.textLoad()
   }
 
-
   
   }
   
