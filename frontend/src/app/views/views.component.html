@@ -74,6 +74,10 @@
             <input type="text" placeholder="Search...">
         </div>
 
+        <div class="title">
+            <h2> trending views </h2>
+        </div>
+
         <div class="bottom">
 
             <!-- card 1 -->
@@ -136,6 +140,7 @@
 
      <div class="detailed">
 
+        <!-- <div class="button-section" *ngIf="role === citizen"> -->
         <div class="button-section">
             <label id="my-view"> my views </label>
             <label id="add-view"> add view </label>
@@ -180,6 +185,39 @@
                     top edge and hide the bottom edge.
                 </p>
              </div>
+
+             
+             <div class="priviledges">
+
+                <!-- allow for users to like comment and dislike -->
+                 <!-- *ngIf="role === citizen"> -->
+                <div class="action">
+                    <i class='bx bx-like'></i>
+                    <label> 100</label>
+                </div>
+                <div class="action">
+                    <i class='bx bx-dislike'></i>
+                    <label> 100</label>
+                </div>
+                <div class="action">
+                    <i class='bx bx-chat'></i>
+                    <label> 100</label>
+                </div>
+
+                <!-- this will be for both users and governemnt officials -->
+                <div class="action">
+                    <i class='bx bx-bookmark-alt' ></i>
+                    <label> 100</label>
+                </div>
+
+                <!-- *ngIf="role === official"> -->
+                <div class="action">
+                    <label id="get-summary"> get summary </label>
+                </div>
+
+            
+            </div>
+
 
         </div>
 

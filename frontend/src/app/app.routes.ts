@@ -24,8 +24,7 @@ export const routes: Routes = [
     {path:'incidents/:id', component:IncidentsComponent},
     {path:'polls/:id', component:PollsComponent},
     {path:'educate/:id', component:EducateComponent},
-
-
+    // {path:'eadmin/:id', component:EducateComponent},
 
     // add the error 4040 route
     {path:'**', component:Error404Component}
