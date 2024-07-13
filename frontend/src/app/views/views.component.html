@@ -143,7 +143,7 @@
         <!-- <div class="button-section" *ngIf="role === citizen"> -->
         <div class="button-section">
             <label id="my-view"> my views </label>
-            <label id="add-view"> add view </label>
+            <label (click)="addView()" id="add-view"> add view </label>
         </div>
 
         <div class="board">
@@ -212,7 +212,7 @@
 
                 <!-- *ngIf="role === official"> -->
                 <div class="action">
-                    <label id="get-summary"> get summary </label>
+                    <label (click)="getSummary()" id="get-summary"> get summary </label>
                 </div>
 
             
@@ -227,4 +227,31 @@
     <!-- end the main page -->
 
  </div>
+
+
+ <!-- adding a view popup. to appear when button is clicked -->
+<div  class="popup" id="popup-1">
+    <div class="overlay"></div>
+       <div class="content">
+          <div class="close-btn" (click)="addView()">&times;</div>
+          <h1> Add View Form </h1>
+             <form>
+                content will be placed hapa
+ 
+             </form>
+       </div>
+  </div>
+
+  <!-- getting the summary popup -->
+  <div  class="popup" id="popup-2">
+    <div class="overlay"></div>
+       <div class="content">
+          <div class="close-btn" (click)="getSummary()">&times;</div>
+          <h1> Getting summary form </h1>
+             <form>
+                getting the summary form
+ 
+             </form>
+       </div>
+  </div>
 
