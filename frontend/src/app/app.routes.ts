@@ -10,6 +10,7 @@ import { ViewsComponent } from './views/views.component';
 import { IncidentsComponent } from './incidents/incidents.component';
 import { PollsComponent } from './polls/polls.component';
 import { EducateComponent } from './educate/educate.component';
+import { EducateChatComponent } from './educate-chat/educate-chat.component';
 
 export const routes: Routes = [
     {path:'', component:HomepageComponent},
@@ -23,7 +24,10 @@ export const routes: Routes = [
     {path:'views/:id', component:ViewsComponent},
     {path:'incidents/:id', component:IncidentsComponent},
     {path:'polls/:id', component:PollsComponent},
-    {path:'educate/:id', component:EducateComponent},
+    {path:'educate', children: [
+        {path:'', component:EducateComponent},
+        {path:':id', component:EducateChatComponent}
+    ]},
     // {path:'eadmin/:id', component:EducateComponent},
 
     // add the error 4040 route

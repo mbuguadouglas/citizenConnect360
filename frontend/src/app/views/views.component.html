@@ -213,6 +213,7 @@
                 <!-- *ngIf="role === official"> -->
                 <div class="action">
                     <label (click)="getSummary()" id="get-summary"> get summary </label>
+                    <!-- <a routerLink="/educate/:id"  id="get-summary"> get summary </a> -->
                 </div>
 
             
@@ -250,6 +251,11 @@
           <h1> Getting summary form </h1>
              <form>
                 getting the summary form
+
+                <div class="action">
+                    <a routerLink="/educate/:id" id="get-summary"> comprehensive summary </a>
+                </div>
+
  
              </form>
        </div>
