@@ -1,5 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 
+
+declare var Swiper: any;
+
+
 @Component({
   selector: 'app-homepage',
   standalone: true,
@@ -45,6 +49,37 @@ export class HomepageComponent implements AfterViewInit{
   ngAfterViewInit(): void {
     this.typedText = document.querySelector('.second-text')
     this.textLoad()
+
+    // get the swiper text working
+    const swiper = new Swiper('.slide-content', {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      loop: true,
+      centeredSlides: true,
+      effect: 'fade',
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        520: {
+          slidesPerView: 2,
+        },
+        950: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  
   }
 
   
