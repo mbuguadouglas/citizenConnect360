@@ -6,13 +6,14 @@ import { ForgotPasswordComponent } from "./forgot-password/forgot-password.compo
 import { HomepageComponent } from "./homepage/homepage.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { RegisterChoiceComponent } from "./register-choice/register-choice.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, RegisterEmailComponent, LoginEmailComponent, ForgotPasswordComponent, HomepageComponent, NavbarComponent, RegisterChoiceComponent]
+    imports: [RouterOutlet, RegisterEmailComponent, LoginEmailComponent, ForgotPasswordComponent, HomepageComponent, NavbarComponent, RegisterChoiceComponent, DashboardComponent]
 })
 export class AppComponent {
   title = 'frontend';

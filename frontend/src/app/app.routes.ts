@@ -5,15 +5,17 @@ import { RegisterEmailComponent } from './register-email/register-email.componen
 import { RegisterChoiceComponent } from './register-choice/register-choice.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { Error404Component } from './error-404/error-404.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
+    {path:'', component:HomepageComponent},
     {path:'auth',children:[
         {path:'', component:RegisterChoiceComponent},
         {path:'login',component:LoginEmailComponent},
         {path:'register', component:RegisterEmailComponent},
         {path:'forgot-password', component:ForgotPasswordComponent}
     ]},
-    {path:'', component:HomepageComponent},
+    {path:':id', component:DashboardComponent},
 
 
 

@@ -1,8 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 
-
 declare var Swiper: any;
-
 
 @Component({
   selector: 'app-homepage',
@@ -17,6 +15,7 @@ export class HomepageComponent implements AfterViewInit{
 
   // worked on the typewriter effect in the hero page
   typedText: HTMLElement | null = null;
+  Swiper:any
 
   textLoad(){
     setTimeout(() => {

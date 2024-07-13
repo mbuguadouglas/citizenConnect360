@@ -14,7 +14,8 @@
 
         <!-- menu items -->
         <div class="menu">
-            <ul>
+            <!-- to be displayed if not authenticated -->
+            <!-- <ul >
                 <li> 
                     <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> home</a> 
                 </li>
@@ -24,22 +25,59 @@
                 </li>
 
                 <li> 
-                    <!-- basically how it works imeomoka -->
                     <a href="#"> pillars </a> 
                 </li>
  
                 <li> 
                     <a href="#"> contact us </a>
                 </li>
+            </ul> -->
+
+            <!-- to be displayed it theyre a citizen -->
+            <ul >
+                <li> 
+                    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> dashboard </a> 
+                </li>
+
+                <li> 
+                    <a href="#"> views </a>
+                </li>
+
+                <li> 
+                    <a href="#"> incidents </a> 
+                </li>
+ 
+                <li> 
+                    <a href="#"> polls </a>
+                </li>
+
+                <li> 
+                    <a href="#"> educate </a>
+                </li>
             </ul>
         </div>
 
         <!-- far right login buttons -->
         <div class="auth-buttons">
-            <ul>
+            <!-- to be displayed if not logged in -->
+            <!-- <ul>
                 <li routerLink="/auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" id="login"> login </li>
                 <li routerLink="/auth/register" routerLinkActive="active"  id="register"> register </li>
-            </ul>
+            </ul> -->
+
+            <!-- else show this -->   
+                <ul>
+                  <li class="has-dropdown">
+                      <a  class="item">Account</a>
+                      <i class='bx bx-chevron-down'></i>
+                      <section class="dropdown-items">
+                        <a ><i class='bx bx-user-circle'></i>Profile</a>
+                        <a ><i class='bx bx-chat' ></i>FAQ<sub>'s</sub></a>
+                        <a  routerLink=""><i class='bx bx-log-out-circle'></i>Logout</a>  
+                      </section>
+                    </li>
+                </ul>
+      
         </div>
 
     </div>
