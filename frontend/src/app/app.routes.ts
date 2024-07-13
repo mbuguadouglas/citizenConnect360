@@ -6,10 +6,10 @@ import { RegisterChoiceComponent } from './register-choice/register-choice.compo
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { Error404Component } from './error-404/error-404.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CitizenViewsComponent } from './citizen-views/citizen-views.component';
-import { CitizenIncidentsComponent } from './citizen-incidents/citizen-incidents.component';
-import { CitizenPollsComponent } from './citizen-polls/citizen-polls.component';
-import { CitizenEducateComponent } from './citizen-educate/citizen-educate.component';
+import { ViewsComponent } from './views/views.component';
+import { IncidentsComponent } from './incidents/incidents.component';
+import { PollsComponent } from './polls/polls.component';
+import { EducateComponent } from './educate/educate.component';
 
 export const routes: Routes = [
     {path:'', component:HomepageComponent},
@@ -19,14 +19,11 @@ export const routes: Routes = [
         {path:'register', component:RegisterEmailComponent},
         {path:'forgot-password', component:ForgotPasswordComponent}
     ]},
-    {path:':id', component:DashboardComponent},
-    {path:'citizen/:id', children:[
-        {path:'views', component:CitizenViewsComponent},
-        {path:'incidents', component:CitizenIncidentsComponent},
-        {path:'polls', component:CitizenPollsComponent},
-        {path:'educate', component:CitizenEducateComponent}
-    ]},
-
+    {path:'dashboard/:id', component:DashboardComponent},
+    {path:'views/:id', component:ViewsComponent},
+    {path:'incidents/:id', component:IncidentsComponent},
+    {path:'polls/:id', component:PollsComponent},
+    {path:'educate/:id', component:EducateComponent},
 
 
 

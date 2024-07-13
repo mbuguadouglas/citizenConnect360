@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CitizenPollsComponent } from './citizen-polls.component';
+import { EducateComponent } from './educate.component';
 
-describe('CitizenPollsComponent', () => {
-  let component: CitizenPollsComponent;
-  let fixture: ComponentFixture<CitizenPollsComponent>;
+describe('EducateComponent', () => {
+  let component: EducateComponent;
+  let fixture: ComponentFixture<EducateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CitizenPollsComponent]
+      imports: [EducateComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CitizenPollsComponent);
+    fixture = TestBed.createComponent(EducateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
