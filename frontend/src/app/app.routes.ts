@@ -11,6 +11,7 @@ import { IncidentsComponent } from './incidents/incidents.component';
 import { PollsComponent } from './polls/polls.component';
 import { EducateComponent } from './educate/educate.component';
 import { EducateChatComponent } from './educate-chat/educate-chat.component';
+import { AdminComponent } from './admin/admin.component';
 
 export const routes: Routes = [
     {path:'', component:HomepageComponent},
@@ -28,7 +29,7 @@ export const routes: Routes = [
         {path:'', component:EducateComponent},
         {path:':id', component:EducateChatComponent}
     ]},
-    // {path:'eadmin/:id', component:EducateComponent},
+    {path:'admin/:id', component:AdminComponent},
 
     // add the error 4040 route
     {path:'**', component:Error404Component}

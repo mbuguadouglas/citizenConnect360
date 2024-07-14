@@ -3,124 +3,157 @@
 <div class="container">
 
     <!-- place the sidebar here -->
-    <!-- <nav class="sidebar">
-        <header>
-          <div class="image-text">
-            <span class="image">
-              <img src="https://cdn.pixabay.com/photo/2021/11/05/12/25/woman-6771278_640.jpg" alt="logo" />
-            </span>
-            <div class="text header-text">
-              <span class="main">Username</span>
-              <span class="sub">user id</span>
-            </div>
-          </div>
-          <i (click)="displaySidebar()" class="bx bx-chevron-right toggle"></i>
-        </header>
-  
-        <div class="menu-bar">
-          <div class="menu">
-              <li class="search-bar">
-                <i class="bx bx-search icons"></i>
-                <input type="search" placeholder="Search..." />
-              </li>
+    <div #sidebar class="sidebar">
 
-            <div class="segments">
+      <!-- top most section -->
+      <div class="top">
+        <div class="logo">
+          <i class="bx bxl-codepen"></i>
+          <span> code commerce </span>
 
-                <div class="today"> <span> today </span>
-                    <ul class="history-links">
-                        <label> what will i have for...</label>
-                        <label> what is science ..</label>
-                        <label> why do we dream?...</label>
-                    </ul>
-                </div>
+        </div>
 
-                <div class="yesterday"> <span> yesterday </span>
-                    <ul class="history-links">
-                        <label> what will i have for...</label>
-                        <label> what is science ..</label>
-                        <label> why do we dream?...</label>
-                    </ul>
-                </div>
+        <!-- toggle button -->
+          <i (click)="showSidebar()" class="bx bx-menu" id="btn"></i>
+      </div>
 
-                <div class="last-week"> <span> last 7 days </span>
-                    <ul class="history-links">
-                        <label> what will i have for...</label>
-                        <label> what is science ..</label>
-                        <label> why do we dream?...</label>
-                    </ul>
-                </div>
+      <!-- user section -->
+      <div class="user">
+        <img src="https://cdn.pixabay.com/photo/2015/02/19/13/15/man-642075_640.jpg" alt="user-avatar" class="user-img">
+        <div>
+          <p class="user-name"> mkuu </p>
+          <p class="user-role"> admin </p>
+        </div>
 
-            </div>
-          </div>
-  
-          <div class="bottom-content">
-            <li class="nav-link">
+      </div>
+
+        <!-- list of menu items -->
+        <ul>
+      
+          <li>
               <a href="#">
-                <i class="bx bx-log-out icons"></i>
-                <span class="text nav-text">Log Out</span>
+                  <i class='bx bx-home-alt-2'></i>
+                  <span class="nav-item"> Dashboard </span>
               </a>
-            </li>
+              <span class="tooltip"> Dashboard </span>
+          </li>
 
-          </div>
+          <li>
+              <a href="#">
+                  <i class='bx bx-search'></i>
+                  <span class="nav-item"> Views </span>
+              </a>
+              <span class="tooltip"> Views </span>
+          </li>
 
-        </div>
+          <li>
+              <a href="#">
+                  <i class='bx bx-bell'></i>
+                  <span class="nav-item"> Polls </span>
+              </a>
+              <span class="tooltip"> Polls </span>
+          </li>
 
-      </nav> -->
+          <li>
+              <a href="#">
+                  <i class='bx bx-chat'></i>
+                  <span class="nav-item"> Users </span>
+              </a>
+              <span class="tooltip"> Users </span>
+          </li>
 
-    <!-- this is the main chatting page -->
-    <section class="msger">
-        <header class="msger-header">
-        <div class="msger-header-title">
-            <i class="fas fa-comment-alt"></i> bill name
-        </div>
-        <div class="msger-header-options">
-            <span><i class="fas fa-cog"></i></span>
-        </div>
-        </header>
-    
-        <main class="msger-chat">
-        <div class="msg left-msg">
-            <div
-            class="msg-img"
-            style="background-image: url(https://i.pinimg.com/236x/b3/e4/ad/b3e4adac3c66e6fc17f9025e17a514a3.jpg)"
-            ></div>
-    
-            <div class="msg-bubble">
-            <div class="msg-info">
-                <div class="msg-info-name">BOT</div>
-                <div class="msg-info-time">12:45</div>
+          <li>
+              <a href="#">
+                  <i class='bx bx-user'></i>
+                  <span class="nav-item">Profile </span>
+              </a>
+              <span class="tooltip"> Dashboard </span>
+          </li>
+
+
+          <li>
+              <a href="#">
+                  <i class='bx bx-message-rounded-dots'></i>
+                  <span class="nav-item">More </span>
+              </a>
+              <span class="tooltip"> Dashboard </span>
+          </li>
+
+          <li>
+              <a href="#">
+                  <i class='bx bx-log-out-circle'></i>
+                  <span class="nav-item"> Logout </span>
+              </a>
+              <span class="tooltip"> Dashboard </span>
+          </li>
+
+      </ul>
+
+
+
+    </div>
+
+    <div class="main-content">
+         <!-- this is the main chatting page -->
+         <section class="msger">
+          <header class="msger-header">
+            <div class="msger-header-title">
+              <i class="fas fa-comment-alt"></i> SimpleChat
             </div>
-    
-            <div class="msg-text">
-                Hi, welcome to citizenConnect360. Which bill will we be
-                discussing today? 😄
+            <div class="msger-header-options">
+              <span><i class="fas fa-cog"></i></span>
             </div>
+          </header>
+        
+          <main class="msger-chat" #msgerChat>
+            <div class="msg left-msg">
+              <div
+               class="msg-img"
+               style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+              ></div>
+        
+              <div class="msg-bubble">
+                <div class="msg-info">
+                  <div class="msg-info-name">BOT</div>
+                  <div class="msg-info-time">12:45</div>
+                </div>
+        
+                <div class="msg-text">
+                  Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                </div>
+              </div>
             </div>
-        </div>
-    
-        <div class="msg right-msg">
-            <div
-            class="msg-img"
-            style="background-image: url(https://cdn.pixabay.com/photo/2020/06/08/09/01/hair-5273705_640.jpg)"
-            ></div>
-    
-            <div class="msg-bubble">
-            <div class="msg-info">
-                <div class="msg-info-name"> citizen name</div>
-                <div class="msg-info-time">12:46</div>
+        
+            <div class="msg right-msg">
+              <div
+               class="msg-img"
+               style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+              ></div>
+        
+              <div class="msg-bubble">
+                <div class="msg-info">
+                  <div class="msg-info-name">Sajad</div>
+                  <div class="msg-info-time">12:46</div>
+                </div>
+        
+                <div class="msg-text">
+                  You can change your name in JS section!
+                </div>
+              </div>
             </div>
-    
-            <div class="msg-text">
-                id like to learn about the finance bill!
-            </div>
-            </div>
-        </div>
-        </main>
-    
-        <form class="msger-inputarea">
-        <input type="text" class="msger-input" placeholder="Enter your message...">
-        <button type="submit" class="msger-send-btn">Send</button>
-        </form>
-    </section>
+          </main>
+        
+          <form class="msger-inputarea" #msgerForm>
+            <input type="text" class="msger-input" placeholder="Enter your message..." #msgerInput>
+            <button type="submit" class="msger-send-btn">Send</button>
+          </form>
+        </section>
+        
+        
+
+    </div>
   
 </div>
+
+
+
