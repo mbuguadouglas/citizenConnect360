@@ -10,6 +10,22 @@
 	--white: #ffffff;
 	--primary: #08BDBA;
 	--navy-blue: #33353d;
+
+	/* for the chatbot page */
+	--body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --msger-bg: #fff;
+    --border: 2px solid #ddd;
+    --left-msg-bg: #ececec;
+    --right-msg-bg: #579ffb;
+
+	/* ?sidebar */
+	--text-color: #707070;
+
+  
+	--trans-02: all 0.2s ease;
+	--trans-03: all 0.3s ease;
+	--trans-04: all 0.4s ease;
+	--trans-04: all 0.5s ease;
 }
 
 *{
