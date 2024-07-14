@@ -1,1 +1,181 @@
-<p>polls works!</p>
+<!-- <p>polls works!</p> -->
+
+<div class="container">
+
+    <!-- create the main page -->
+     <!-- brief sneak peek of all existing views -->
+     <div class="brief">
+
+        <div class="search">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="title">
+            <h2> trending polls </h2>
+        </div>
+
+        <div class="bottom">
+
+            <!-- card 1 -->
+            <div class="card">
+                <!-- top part -->
+                <div class="top-text">
+                    <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
+                    <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
+                    <section>
+                        <p class="title"> finance bill poll </p>
+                        <p class="created-by"> by kimani ichungwa </p>
+                        <p class="created-when"> 1 week ago </p>
+                    </section>
+                </div>
+
+                <!-- bottom part -->
+                 <div class="bottom-text">
+
+                    <section class="description">
+                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
+                        <p>
+                            <span> vote </span>
+                        </p>
+                    </section>
+                 </div>
+
+
+            </div>
+            <!-- end card 1 -->
+
+            <!-- card 2 -->
+            <div class="card">
+                <!-- top part -->
+                <div class="top-text">
+                    <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
+                    <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
+                    <section>
+                        <p class="title"> finance bill poll </p>
+                        <p class="created-by"> by kimani ichungwa </p>
+                        <p class="created-when"> 1 week ago </p>
+                    </section>
+                </div>
+
+                <!-- bottom part -->
+                 <div class="bottom-text">
+
+                    <section class="description">
+                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
+                        <p>
+                            <span> vote </span>
+                        </p>
+                    </section>
+                 </div>
+
+
+            </div>
+            <!-- end card 2 -->
+
+            <!-- card 3 -->
+            <div class="card">
+                <!-- top part -->
+                <div class="top-text">
+                    <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
+                    <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
+                    <section>
+                        <p class="title"> finance bill poll </p>
+                        <p class="created-by"> by kimani ichungwa </p>
+                        <p class="created-when"> 1 week ago </p>
+                    </section>
+                </div>
+
+                <!-- bottom part -->
+                 <div class="bottom-text">
+
+                    <section class="description">
+                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
+                        <p>
+                            <span> vote </span>
+                        </p>
+                    </section>
+                 </div>
+
+
+            </div>
+            <!-- end card 3 -->
+
+
+        </div>
+
+
+     </div>
+
+     <div class="detailed">
+
+        <!-- <div class="button-section" *ngIf="role === citizen"> -->
+        <div class="button-section">
+            <label id="my-incident"> my polls </label>
+            <label (click)="addIncident()" id="add-incident"> add poll </label>
+        </div>
+
+        <div class="board">
+
+        <!-- poll section card -->
+        <div class="wrapper">
+
+
+        </div>
+
+
+             <div class="priviledges">
+
+                <!-- *ngIf="role === official"> -->
+                <div class="action">
+                    <label  (click)="submitPoll()" class="decision" id="submit-vote"> submit vote </label>
+                </div>
+
+                <!-- *ngIf="role === official"> -->
+                <div class="action">
+                    <label  class="decision" id="delete-poll"> delete poll </label>
+                </div>
+
+            
+            </div>
+
+
+        </div>
+
+     </div>
+     
+
+    <!-- end the main page -->
+
+ </div>
+
+
+ <!-- adding a view popup. to appear when button is clicked -->
+<div  class="popup" id="popup-1">
+    <div class="overlay"></div>
+       <div class="content">
+          <div class="close-btn" (click)="addIncident()">&times;</div>
+          <h1> Add Poll </h1>
+             <form>
+                content will be placed hapa
+ 
+             </form>
+       </div>
+  </div>
+
+<!-- adding a succesfully voted popup. to appear when button is clicked -->
+<div  class="popup" id="popup-2">
+    <div class="overlay"></div>
+       <div class="content">
+          <div class="close-btn" (click)="submitPoll()">&times;</div>
+          <h1> Add Poll </h1>
+             <form>
+                yay. your poll has been submitted
+ 
+             </form>
+       </div>
+  </div>
+
+
+
+
+
