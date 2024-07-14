@@ -5,12 +5,12 @@
 }
 
 .hero{
-    /* background-color: yellowgreen; */
     height: calc(100vh - 30vh); /*reduce space taken up to hook user to continue scrolling*/
     display: flex;
     /* incase you prefer the image to be in the background   */
-    /* background: url("https://i.pinimg.com/736x/cd/81/0c/cd810cae82755271f943011a1d912db2.jpg") center/cover no-repeat;
-    background-color: hsla(0, 0%, 0%, .55);  */
+    /* background: url("https://img.freepik.com/free-vector/seamless-gray-halftone-pattern-white-background_1409-1691.jpg?size=626&ext=jpg&ga=GA1.2.1599625090.1720911774&semt=sph") center/cover no-repeat; */
+    /* background: url("https://img.freepik.com/free-vector/white-background-with-wavy-lines-copy-space_23-2148822145.jpg?size=626&ext=jpg&ga=GA1.2.1599625090.1720911774&semt=sph") center/cover no-repeat; */
+    background: url("https://img.freepik.com/free-vector/black-wavy-halftone-white-background-vector_53876-67246.jpg?size=626&ext=jpg") center/cover no-repeat;
 }
 
 .hero .left{
