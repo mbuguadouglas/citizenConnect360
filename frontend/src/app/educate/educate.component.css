@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    background-image: var(--body-bg);
 }
 
 .container .brief .search{
@@ -62,6 +63,8 @@
     /* border: 1px solid; */
     border-radius: 15px;
     box-shadow: 1px 1px 4px;
+    background-color: var(--white);
+
 }
 
 .container .brief .bottom .card .top-image{
@@ -85,6 +88,7 @@
     flex-direction: column;
     gap: .3rem;
     justify-content: center;
+    /* background-color: var(--white); */
 }
 
 .brief .bottom .card .bottom-text .heading{

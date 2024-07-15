@@ -16,8 +16,10 @@
     /* margin-top: -50px; */
     overflow: hidden;
     position: relative;
+    
     /* this is supposed to create an dark overlay. not working man */
     background-color: hsla(0, 0%, 0%, .55);
+
 }
 
 .carousel .list .item{

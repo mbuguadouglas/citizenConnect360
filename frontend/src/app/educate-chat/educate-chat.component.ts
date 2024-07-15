@@ -11,17 +11,9 @@ export class EducateChatComponent implements AfterViewInit{
 
   constructor() {}
 
-  @ViewChild('sidebar') sidebar!: ElementRef;
   @ViewChild('msgerForm') msgerForm!: ElementRef<HTMLFormElement>;
   @ViewChild('msgerInput') msgerInput!: ElementRef<HTMLInputElement>;
   @ViewChild('msgerChat') msgerChat!: ElementRef<HTMLDivElement>;
-
-  showSidebar() {
-    if(this.sidebar){
-      this.sidebar.nativeElement.classList.toggle('active')
-
-    }
-  }
 
 
   BOT_MSGS: string[] = [

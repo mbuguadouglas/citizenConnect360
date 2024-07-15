@@ -3,72 +3,45 @@
 <div class="container">
 
     <!-- place the sidebar here -->
-    <div #sidebar class="sidebar">
+    <div class="sidebar">
 
-      <!-- top most section -->
-      <div class="top">
-        <!-- toggle button -->
-          <i (click)="showSidebar()" class="bx bx-menu" id="btn"></i>
-      </div>
+      <label> user history </label>
 
-      <!-- user section -->
-      <div class="user">
-        <img src="https://cdn.pixabay.com/photo/2015/02/19/13/15/man-642075_640.jpg" alt="user-avatar" class="user-img">
-        <div>
-          <p class="user-name"> Sir Lancelot </p>
-          <p class="user-role"> citizen </p>
+      <div class="time-stamps">
+
+        <!-- todays history -->
+        <div class="stamp stamp-1">
+          <label> today </label>
+          <ul>
+            <li> what is superposition? </li>
+            <li> did the finance bill in kenya... </li>
+            <li> good currencies to trade right now </li>
+          </ul>
         </div>
 
-      </div>
+        <!-- yesterday search -->
+         <div class="stamp stamp-2">
+          <label> yesterday </label>
+          <ul>
+            <li> how to center a div... </li>
+            <li> lifespan of kenyan male </li>
+            <li> what happens when we die? </li>
+          </ul>
+         </div>
 
-      <div class="main-sidebar">
-                <!-- list of menu items -->
-              <ul class="top">
-                  <li>
-                    <a href="#">
-                        <i class='bx bx-home-alt-2'></i>
-                        <span class="nav-item"> today </span>
-                    </a>
-                    <span class="tooltip"> today </span>
-                    
-                </li>
-        
-                <li>
-                    <a href="#">
-                        <i class='bx bx-search'></i>
-                        <span class="nav-item"> yesterday </span>
-                    </a>
-                    <span class="tooltip"> yesterday </span>
-                </li>
-        
-                <li>
-                    <a href="#">
-                        <i class='bx bx-bell'></i>
-                        <span class="nav-item"> previous 7 days </span>
-                    </a>
-                    <span class="tooltip"> previous 7 days </span>
-                </li>
-                </ul>
-        
-                <ul class="bottom">
-                  <li>
-                    <a href="#">
-                        <i class='bx bx-message-rounded-dots'></i>
-                        <span class="nav-item">settings </span>
-                    </a>
-                    <span class="tooltip"> settings </span>
-                </li>
-        
-                <li>
-                    <a href="#">
-                        <i class='bx bx-log-out-circle'></i>
-                        <span class="nav-item"> logout </span>
-                    </a>
-                    <span class="tooltip"> logout </span>
-                </li>
-                </ul>
+
+        <!-- last 7 dayssearch -->
+         <div class="stamp stamp-3">
+          <label> previous 7 days </label>
+          <ul>
+            <li> good new and cheap laptop brands </li>
+            <li> when will haileys comet come again? </li>
+            <li> heroes sn 4 plot </li>
+          </ul>
+         </div>
+
       </div>
-      
+     
 
     </div>
 

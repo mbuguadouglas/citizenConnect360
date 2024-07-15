@@ -11,7 +11,7 @@
     flex-direction: column;
     gap: 1rem;
     max-height: 100vh;
-    /* position: relative; */
+    background-image: var(--body-bg);
 }
 
 .container .brief .search{
@@ -83,11 +83,11 @@
 
 .container .brief .bottom .card{
     height: 12rem;
-    /* border: 1px solid; */
+    background-color: var(--white);
     border-radius: 15px;
-    /* padding: .4rem; */
     box-shadow: 1px 1px 4px;
-    /* border:5px solid red; */
+    z-index: 1;
+
 }
 
 .container .brief .bottom .card .top-image{
