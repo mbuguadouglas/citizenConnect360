@@ -1,302 +1,300 @@
-* {
-    margin: 0;
-    padding: 0;
-    text-transform: capitalize;
-    font-family:'ubuntu';
-}
-.tab {
-    overflow: hidden;
+
+/* Header section */
+
+.container{
+    display: flex;
+    background-color: red;
 }
 
-.tab button {
-    float: left;
+header{
+    width: 100%; 
+    max-width: 100%;
+    padding-left: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+header nav a{
+    color: #fff;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+a.active{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+a:hover{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+/* Header section */
+
+
+
+/* carousel */
+
+.carousel{
+    width: 100vw;
+    height: 85vh;
+    /* margin-top: -50px; */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list .item{
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list .item:nth-child(3){
+    left: 67%;
+}
+
+.carousel .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+
+.carousel .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+
+.carousel .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7){
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+
+
+
+.list .item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.list .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .title{
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content .name{
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+.content .btn{
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+.content .btn button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+
+.content .btn button:nth-child(1){
+    margin-right: 15px;
+}
+
+.content .btn button:nth-child(2){
+    background: transparent;
+    color: #14ff72cb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover{
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Carousel */
+
+
+
+
+
+
+/* next prev arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
     border: none;
     outline: none;
-    padding: 14px 16px;
-    transition: 0.3s;
-    background-color: transparent;
-    border-bottom: 3px solid transparent;
-    font-weight: 600;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
 }
 
-.tab button.active {
-    color: #0287CD;
-    border-bottom-color:#0287CD;
-}
-
-.tabcontent {
-    padding: 15px 35px;
-}
-
-body {
-    background-color: #F6F8FA;
-    height:100vh;
+.arrows button:hover{
+    background: #fff;
+    color: #000;
 }
 
 
-body > .container {
-    display: flex;
-    height:100%;
-    flex-direction: column;
-}
-body > .container header{
-    flex-basis:1%;
-    display: flex;
-    background-color: white;
-    align-items: center;
-    justify-content: center;
-}
-body > .container header img{
-    width:50px;
-    height:50px;
+/* time running */
+.carousel .timeRunning{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
 }
 
-body > .container header div:nth-child(1){
-    flex-basis: 10%;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-body > .container header div:nth-child(1) span{
-    font-weight: 700;
-}
-body > .container header div:nth-child(2){
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-basis: 90%;
-}
-body .container .allContent {
-    flex-basis: 99%;
-    display: flex;
-}
-body > .container aside:nth-child(1){
-    flex-basis: 15%;
-    padding: 8px;
-}
-body > .container aside:nth-child(2){
-    flex-basis: 85%;
-}
-body > .container header{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
+@keyframes runningTime {
+    
+    from{width: 0%;}
+    to{width: 100%;}
 
-body > .container aside:nth-child(1) nav ul{
-    font-weight: 900;
-    padding:10px 20px;
-    text-align: center;
-    font-size: larger;
-}
-body > .container aside:nth-child(1) nav ul.active {
-    color: #0287CD;
 }
 
 
-/* CARDS */
-.cardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    gap:4%;
-}
+/* Responsive Design */
 
-.card {
-    padding: 30px;
-    border-radius: 15px;
-    background-color: white;
-    width: 150px;
-    min-height:30px;
-    color: grey;
-    margin:15px 0;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-.card div{
-    float:right;
-    width:60%;
-    height: 100%;
-}
-.card i {
-    background: #b3f0ff;
-    color: #00a3cc;
-    border-radius: 50%;
-    text-align: center;
-    padding: 10px;
-    font-size:25px;
-    display: block;
-    float: left;
-}
-.card span {
-    color:black;
-    font-weight: 900;
-    font-size:25px;
-}
-/* CARDS */
-
-.circleChart {
-    flex-basis:48%;
-}
-.chartContainer > div {    
-    background-color: white;
-    border-radius: 5%;
-    padding:15px 0;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-.barChart {
-    flex-basis: 48%;
-    display: flex;
-    justify-content: center;
-}
-.chartContainer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    height:400px;
-    width: 100%;
-}
-canvas {
-    width: 100%;
-    height: 100%;
-    margin: 10px 0;
-    text-transform: capitalize;
-}
-.tabcontent:last-child{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.tabcontent:last-child .chartContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-.tabcontent:last-child .chartContainer .lineChart{
-    margin:15px 0;
-    flex-basis: 80%;
-    align-self: stretch;
-    padding:15px;
-}
-
-@media (max-width: 1000px) {
-    .chartContainer{
-        align-items:stretch;
+@media screen and (max-width: 999px){
+    
+    header{
+        padding-left: 50px;
     }
-    .chartContainer > div {
-        flex-basis: 100%;
-        margin-bottom: 25px;
+
+    .list .item .content{
+        left: 50px;
     }
-    body > .container aside:nth-child(1) nav ul span{
-        display: none;
+
+    .content .title, .content .name{
+        font-size: 70px;
     }
-    body > .container aside:nth-child(1){
-        flex-basis: 5%;
+
+    .content .des{
+        font-size: 16px;
     }
-    .cardContainer {
-        justify-content: center;
+
+}
+
+@media screen and (max-width: 690px){
+    header nav a{
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list .item .content{
+        top: 40%;
+    }
+
+    .content .title, .content .name{
+        font-size: 45px;
+    }
+
+    .content .btn button{
+        padding: 10px 15px;
+        font-size: 14px;
     }
 }
-/* start claim */
-
-#claims {
-  display:none;
-    width: 100%;
-    height: 100%;
-    flex-basis:85%;
-}
-#claims .claimsContainer {
-    margin-top: 20px;
-    padding: 15px;
-    width: 90%;
-    margin: 0 auto;
-    min-height:400px;
-    display: flex;
-    flex-direction: column;
-    gap:5%;
-}
-#claims .claimsContainer .claim {
-    background-color: white;
-    color: rgb(79, 78, 78);
-    margin-bottom:15px;
-    min-height:200px;
-    flex-basis:80%;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    gap:10px;
-}
-#claims .claimsContainer span{
-    padding:5px 0;
-}
-#claims .claimsContainer .oneLine img{
-    width: 48%;
-    height:200px;
-    object-fit: cover;
-}
-
-#claims .claimsContainer .claim .oneLine:first-child div span:first-child{
-    padding:5px;
-    background-color:black;
-    color:white;
-}
-#claims .claimsContainer .claim .oneLine:first-child div:first-child span:last-child{
-    background-color:rgb(131, 226, 63);
-    padding:5px;
-    color: white;
-}
-#claims .claimsContainer .claim .oneLine:first-child div:last-child span:last-child{
-    background-color:rgb(250, 128, 40);
-    color: white;
-    padding:5px;
-}
-#claims .claimsContainer .claim div{
-    justify-content: space-between;
-    display: flex;
-}
-#claims .claimsContainer .claim .description{
-    display: flex;
-    gap:8px;
-    flex-direction: column;
-    padding:8px;
-}
-#claims .claimsContainer .claim .date{
-    padding:5px;
-    background-color:black;
-    color:white;
-}
-#claims .claimsContainer .claim .status{
-    padding:5px;
-}
-#claims .claimsContainer .claim .solved{
-    background-color:#2dea7c;
-    color:white;
-}
-#claims .claimsContainer .claim .pending{
-    background-color:#ff0000;
-    color:white;
-}
-
-@media (max-width: 1250px) {
-    #claims .claimsContainer {
-        justify-content: space-around;
-    }
-    .claim {
-        flex-basis: 40% !important;
-    }
-}
-@media (max-width: 800px) {
-    .claim {
-        flex-basis: 100% !important;
-    }
-}
-/*end claim */
-
-/* حذيفة، المغرب */

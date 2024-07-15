@@ -1,5 +1,5 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
-import { Chart } from 'chart.js';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,245 +8,106 @@ import { Chart } from 'chart.js';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
-export class DashboardComponent {
+export class DashboardComponent implements AfterViewInit{
 
+  // @ViewChild('nextButton', { static: true }) nextButton!: ElementRef;
+  // @ViewChild('prevButton', { static: true }) prevButton!: ElementRef;
+  // @ViewChild('slideContainer', { static: true }) slideContainer!: ElementRef;
 
-  // constructor(private el: ElementRef, private renderer: Renderer2) {}
+  // constructor() {}
 
-  // ngAfterViewInit(): void {
-  //   this.initializeCharts();
-  //   this.initializeTabs();
+  // ngAfterViewInit() {
+  //   const next = this.nextButton.nativeElement;
+  //   const prev = this.prevButton.nativeElement;
+  //   const slide = this.slideContainer.nativeElement;
+
+  //   next.addEventListener('click', () => {
+  //     const items = slide.querySelectorAll('.item') as NodeListOf<HTMLElement>;
+  //     if (items.length > 0) {
+  //       slide.appendChild(items[0]);
+  //     }
+  //   });
+
+  //   prev.addEventListener('click', () => {
+  //     const items = slide.querySelectorAll('.item') as NodeListOf<HTMLElement>;
+  //     if (items.length > 0) {
+  //       slide.prepend(items[items.length - 1]);
+  //     }
+  //   });
+    
   // }
 
-  // initializeTabs(): void {
-  //   const firstTabLink = this.el.nativeElement.querySelector('#statistics .tablinks:first-child');
-  //   if (firstTabLink) {
-  //     firstTabLink.click();
-  //   }
-  //   const firstNavLink = this.el.nativeElement.querySelector('aside nav ul:first-child');
-  //   if (firstNavLink) {
-  //     firstNavLink.click();
-  //   }
-  // }
 
-  // openCity(evt: Event, cityName: string): void {
-  //   const tabcontent = this.el.nativeElement.getElementsByClassName('tabcontent');
-  //   for (let i = 0; i < tabcontent.length; i++) {
-  //     tabcontent[i].style.display = 'none';
-  //   }
+  // slider 2
+  @ViewChild('nextBtn', { static: true }) nextBtn!: ElementRef;
+  @ViewChild('prevBtn', { static: true }) prevBtn!: ElementRef;
+  @ViewChild('carousel', { static: true }) carousel!: ElementRef;
+  @ViewChild('list', { static: true }) list!: ElementRef;
+  @ViewChild('runningTime', { static: true }) runningTime!: ElementRef;
 
-  //   const tablinks = this.el.nativeElement.getElementsByClassName('tablinks');
-  //   for (let i = 0; i < tablinks.length; i++) {
-  //     tablinks[i].className = tablinks[i].className.replace(' active', '');
-  //   }
+  timeRunning = 3000;
+  timeAutoNext = 7000;
+  runTimeOut: number | undefined;
+  runNextAuto: number | undefined;
 
-  //   const cityElement = this.el.nativeElement.querySelector(`#${cityName}`);
-  //   if (cityElement) {
-  //     cityElement.style.display = 'block';
-  //   }
-  //   (evt.currentTarget as HTMLElement).className += ' active';
-  // }
+  constructor() {}
 
-  // openSection(evt: Event, sectionName: string): void {
-  //   const sectioncontent = this.el.nativeElement.getElementsByClassName('sectioncontent');
-  //   for (let i = 0; i < sectioncontent.length; i++) {
-  //     sectioncontent[i].style.display = 'none';
-  //   }
+  ngAfterViewInit() {
+    const next = this.nextBtn.nativeElement;
+    const prev = this.prevBtn.nativeElement;
+    const carousel = this.carousel.nativeElement;
+    const list = this.list.nativeElement;
+    const runningTime = this.runningTime.nativeElement;
 
-  //   const sectionlinks = this.el.nativeElement.getElementsByClassName('sectionlinks');
-  //   for (let i = 0; i < sectionlinks.length; i++) {
-  //     sectionlinks[i].className = sectionlinks[i].className.replace(' active', '');
-  //   }
+    next.onclick = () => {
+      this.showSlider('next');
+    };
 
-  //   const sectionElement = this.el.nativeElement.querySelector(`#${sectionName}`);
-  //   if (sectionElement) {
-  //     sectionElement.style.display = 'block';
-  //   }
-  //   (evt.currentTarget as HTMLElement).className += ' active';
-  // }
+    prev.onclick = () => {
+      this.showSlider('prev');
+    };
 
-  // initializeCharts(): void {
-  //   // Circle chart of the professions of all job seekers
-  //   let xValues1 = ["drawer", "constructor", "mechanic", "carpenter", "blacksmith"];
-  //   xValues1 = xValues1.map(x => x.charAt(0).toUpperCase() + x.slice(1));
-  //   const yValues1 = [55, 49, 44, 24, 190];
-  //   const barColors1 = ["#66ff66", "#00ffcc", "#b3b3b3", "#ffbf80", "#6666ff"];
+    this.runNextAuto = window.setTimeout(() => {
+      next.click();
+    }, this.timeAutoNext);
 
-  //   new Chart("chart1", {
-  //     type: "doughnut",
-  //     data: {
-  //       labels: xValues1,
-  //       datasets: [{
-  //         label: "amount of workers",
-  //         backgroundColor: barColors1,
-  //         data: yValues1
-  //       }]
-  //     },
-  //     options: {
-  //       title: {
-  //         display: true
-  //       }
-  //     }
-  //   });
+    this.resetTimeAnimation();
+  }
 
-  //   // Bar chart of the cities of all job seekers
-  //   let xValues2 = ["laayoune", "agadir", "guelmim", "dakhla", "marrakesh", "tangier"];
-  //   xValues2 = xValues2.map(x => x.charAt(0).toUpperCase() + x.slice(1));
-  //   const yValues2 = [55, 49, 44, 24, 15, 60];
-  //   const barColors2 = "#00ccff";
+  resetTimeAnimation() {
+    const runningTime = this.runningTime.nativeElement;
+    runningTime.style.animation = 'none';
+    runningTime.offsetHeight; /* trigger reflow */
+    runningTime.style.animation = null;
+    runningTime.style.animation = 'runningTime 7s linear 1 forwards';
+  }
 
-  //   new Chart("chart2", {
-  //     type: "bar",
-  //     data: {
-  //       labels: xValues2,
-  //       datasets: [{
-  //         label: "city",
-  //         backgroundColor: barColors2,
-  //         data: yValues2
-  //       }]
-  //     },
-  //     options: {
-  //       legend: { display: false },
-  //       title: {
-  //         display: true
-  //       },
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
+  showSlider(type: string) {
+    const list = this.list.nativeElement;
+    const carousel = this.carousel.nativeElement;
+    const sliderItemsDom = list.querySelectorAll('.carousel .list .item') as NodeListOf<HTMLElement>;
 
-  //   // Inside the tab of the JOB
-  //   // Circle chart of the professions of all job seekers
-  //   let xValues3 = ["drawer", "constructor", "mechanic", "carpenter", "blacksmith"];
-  //   xValues3 = xValues3.map(x => x.charAt(0).toUpperCase() + x.slice(1));
-  //   const yValues3 = [30, 80, 60, 14, 50];
-  //   const barColors3 = ["#66ff66", "#00ffcc", "#b3b3b3", "#ffbf80", "#6666ff"];
+    if (type === 'next') {
+      list.appendChild(sliderItemsDom[0]);
+      carousel.classList.add('next');
+    } else {
+      list.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
+      carousel.classList.add('prev');
+    }
 
-  //   new Chart("chart3", {
-  //     type: "doughnut",
-  //     data: {
-  //       labels: xValues3,
-  //       datasets: [{
-  //         label: "amount of jobs",
-  //         backgroundColor: barColors3,
-  //         data: yValues3
-  //       }]
-  //     },
-  //     options: {
-  //       title: {
-  //         display: true
-  //       }
-  //     }
-  //   });
+    clearTimeout(this.runTimeOut);
 
-  //   // Bar chart of the cities of all job seekers
-  //   let xValues4 = ["laayoune", "agadir", "guelmim", "dakhla", "marrakesh", "tangier"];
-  //   xValues4 = xValues4.map(x => x.charAt(0).toUpperCase() + x.slice(1));
-  //   const yValues4 = [20, 20, 78, 10, 50, 24];
-  //   const barColors4 = "#00ccff";
+    this.runTimeOut = window.setTimeout(() => {
+      carousel.classList.remove('next');
+      carousel.classList.remove('prev');
+    }, this.timeRunning);
 
-  //   new Chart("chart4", {
-  //     type: "bar",
-  //     data: {
-  //       labels: xValues4,
-  //       datasets: [{
-  //         label: "city",
-  //         backgroundColor: barColors4,
-  //         data: yValues4
-  //       }]
-  //     },
-  //     options: {
-  //       legend: { display: false },
-  //       title: {
-  //         display: true
-  //       },
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
+    clearTimeout(this.runNextAuto);
+    this.runNextAuto = window.setTimeout(() => {
+      this.nextBtn.nativeElement.click();
+    }, this.timeAutoNext);
 
-  //   // Inside the progress tab
-  //   let xMonths = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-  //   xMonths = xMonths.map(x => x.charAt(0).toUpperCase() + x.slice(1));
-  //   const yValues5 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
-
-  //   new Chart("chart5", {
-  //     type: "line",
-  //     data: {
-  //       labels: xMonths,
-  //       datasets: [{
-  //         label: "registered clients progress",
-  //         fill: false,
-  //         lineTension: 0,
-  //         backgroundColor: "#0287CD",
-  //         borderColor: "#0099ff",
-  //         data: yValues5
-  //       }]
-  //     },
-  //     options: {
-  //       legend: { display: true },
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
-
-  //   const yValues6 = [1, 20, 2, 15, 12, 19, 2, 3, 6, 8, 10];
-
-  //   new Chart("chart6", {
-  //     type: "line",
-  //     data: {
-  //       labels: xMonths,
-  //       datasets: [{
-  //         label: "registered seekers progress",
-  //         fill: false,
-  //         lineTension: 0,
-  //         backgroundColor: "#0287CD",
-  //         borderColor: "#0099ff",
-  //         data: yValues6
-  //       }]
-  //     },
-  //     options: {
-  //       legend: { display: true },
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
-
-  //   const yValues7 = [6, 4, 3, 2, 5, 8, 12, 15, 10, 9, 12];
-  //   new Chart("chart7", {
-  //     type: "line",
-  //     data: {
-  //       labels: xMonths,
-  //       datasets: [{
-  //         label: "Job Advancements",
-  //         fill: false,
-  //         lineTension: 0,
-  //         backgroundColor: "#0287CD",
-  //         borderColor: "#0099ff",
-  //         data: yValues7
-  //       }]
-  //     },
-  //     options: {
-  //       legend: { display: true },
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
-  // }
+    this.resetTimeAnimation(); // Reset the running time animation
+  }
 
 }
