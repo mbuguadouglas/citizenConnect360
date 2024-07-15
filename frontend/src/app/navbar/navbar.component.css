@@ -197,14 +197,11 @@
   /* add responsiveness using media queries */
   
 /* Responsive Styles */
-@media only screen and (max-width: 1024px) {
-
-  .navbar{
-    /* background-color: red; */
-  }
+/* @media only screen and (max-width: 1024px) {
 
 
-}
+
+} */
 
 @media only screen and (max-width: 768px) {
 
@@ -268,7 +265,5 @@
   .menu li a{
     margin: 1px;
   }
-
-}
 
 }

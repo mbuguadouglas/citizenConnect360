@@ -1,121 +1,72 @@
-<!-- <div class="container">
-
-    <div #slideContainer class="slide">
-
-        
-        <div class="item" style="background-image: url(https://i.ibb.co/qCkd9jS/img1.jpg);">
-            <div class="content">
-                <div class="name">Views</div>
-                <div class="des">
-                    Stay informed with curated citizen views and expert opinions.
-                    Our platform highlights critical areas and fosters an informed
-                    community through transparent and accessible information sharing.
-                </div>
-                <button>See More</button>
-            </div>
-        </div>
-
-        <div class="item" style="background-image: url(https://i.ibb.co/jrRb11q/img2.jpg);">
-            <div class="content">
-                <div class="name">Incidents</div>
-                <div class="des">
-                    Report incidents in real-time, allowing authorities to respond 
-                    quickly and efficiently. Empower your community by keeping it 
-                    informed and safe with a straightforward reporting system.
-                </div>
-                <button>See More</button>
-            </div>
-        </div>
-
-        <div class="item" style="background-image: url(https://i.ibb.co/NSwVv8D/img3.jpg);">
-            <div class="content">
-                <div class="name">Polls</div>
-                <div class="des">
-                    Engage with your community by participating in polls to vote on 
-                    local and national bills, giving you a voice in the legislative 
-                    process and helping shape the future.
-                </div>
-                <button>See More</button>
-            </div>
-        </div>
-
-        <div class="item" style="background-image: url(https://i.ibb.co/Bq4Q0M8/img4.jpg);">
-            <div class="content">
-                <div class="name">A.I Education </div>
-                <div class="des">
-                    Leverage advanced AI technology to educate citizens by 
-                    summarizing and presenting key information from government 
-                    documents, making complex policies accessible and understandable.
-                </div>
-                <button>See More</button>
-            </div>
-        </div>
-
-
-    </div>
-
-    <div class="button">
-        <button #prevButton class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-        <button #nextButton class="next"><i class="fa-solid fa-arrow-right"></i></button>
-    </div>
-
-</div> -->
-
-
 <div class="container">
     <div #carousel class="carousel">
 
         <div #list class="list">
 
-            <div class="item" style="background-image: url(https://cdn.pixabay.com/photo/2015/10/06/04/44/food-973852_640.jpg);">
+            <div class="item" style="background-image: url(https://images.unsplash.com/photo-1624480839864-3461fce2abfe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9saWNlJTIwcmVwb3J0fGVufDB8fDB8fHww);">
                 <div class="content">
-                    <div class="title">views</div>
-                    <div class="name">EAGLE</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <!-- <div class="title">views</div> -->
+                    <div class="name">share views</div>
+                    <div class="des">
+                        Stay informed with curated citizen views and expert opinions.
+                        Our platform highlights critical areas and fosters an informed
+                        community through transparent and accessible information sharing.
+                    </div>
                     <div class="btn">
-                        <button>See More</button>
-                        <button>Subscribe</button>
+                        <button routerLink="/views/:id" >See More</button>
+                        <!-- <button>Subscribe</button> -->
                     </div>
                 </div>
             </div>
 
-            <div class="item" style="background-image: url(https://cdn.pixabay.com/photo/2020/06/02/15/11/black-lives-matter-5251408_640.jpg);">
+            <div class="item" style="background-image: url(https://images.unsplash.com/photo-1587817020884-6a2f41f97e38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHJlcG9ydCUyMGluY2lkZW50fGVufDB8fDB8fHww);">
                 
                 <div class="content">
-                    <div class="title">incidents</div>
-                    <div class="name">OWL</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <!-- <div class="title">incidents</div> -->
+                    <div class="name">incident reporting</div>
+                    <div class="des">
+                        Report incidents in real-time, allowing authorities to respond 
+                        quickly and efficiently. Empower your community by keeping it 
+                        informed and safe with a straightforward reporting system.
+                    </div>
                     <div class="btn">
-                        <button>See More</button>
-                        <button>Subscribe</button>
+                        <button routerLink="/incidents/:id">See More</button>
+                        <!-- <button>Subscribe</button> -->
                     </div>
                 </div>
 
             </div>
 
-            <div class="item" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/15/10/43/polling-station-2643466_640.jpg);">
+            <div class="item" style="background-image: url(https://images.unsplash.com/photo-1494172892981-ce47ca685eea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGFrZSUyMHBvbGx8ZW58MHx8MHx8fDA%3D);">
 
                 <div class="content">
-                    <div class="title">polls</div>
-                    <div class="name">CROW</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <!-- <div class="title">polls</div> -->
+                    <div class="name">poll participation</div>
+                    <div class="des">
+                        Engage with your community by participating in polls to vote on 
+                        local and national bills, giving you a voice in the legislative 
+                        process and helping shape the future.
+                    </div>
                     <div class="btn">
-                        <button>See More</button>
-                        <button>Subscribe</button>
+                        <button routerLink="/polls/:id">See More</button>
+                        <!-- <button>Subscribe</button> -->
                     </div>
                 </div>
 
             </div>
 
-            <div class="item" style="background-image: url(https://cdn.pixabay.com/photo/2016/11/12/23/34/learn-1820039_640.jpg);">
+            <div class="item" style="background-image: url(https://images.unsplash.com/photo-1495055154266-57bbdeada43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YWklMjBsZWFybmluZ3xlbnwwfHwwfHx8MA%3D%3D);">
                 
                 <div class="content">
-                    <div class="title">A.I Learning</div>
-                    <div class="name">BUTTERFLY</div>
-                    <div class="des">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis culpa similique consequuntur, reprehenderit dicta repudiandae.</div>
+                    <!-- <div class="title">A.I Learning</div> -->
+                    <div class="name">artificial intelligence</div>
+                    <div class="des">
+                        Leverage advanced AI technology to educate citizens by 
+                        summarizing and presenting key information from government 
+                        documents, making complex policies accessible and understandable.
+                        </div>
                     <div class="btn">
-                        <button>See More</button>
-                        <button>Subscribe</button>
+                        <button routerLink="/educate">See More</button>
                     </div>
                 </div>
 

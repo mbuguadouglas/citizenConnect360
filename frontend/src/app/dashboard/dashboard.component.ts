@@ -1,41 +1,15 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements AfterViewInit{
-
-  // @ViewChild('nextButton', { static: true }) nextButton!: ElementRef;
-  // @ViewChild('prevButton', { static: true }) prevButton!: ElementRef;
-  // @ViewChild('slideContainer', { static: true }) slideContainer!: ElementRef;
-
-  // constructor() {}
-
-  // ngAfterViewInit() {
-  //   const next = this.nextButton.nativeElement;
-  //   const prev = this.prevButton.nativeElement;
-  //   const slide = this.slideContainer.nativeElement;
-
-  //   next.addEventListener('click', () => {
-  //     const items = slide.querySelectorAll('.item') as NodeListOf<HTMLElement>;
-  //     if (items.length > 0) {
-  //       slide.appendChild(items[0]);
-  //     }
-  //   });
-
-  //   prev.addEventListener('click', () => {
-  //     const items = slide.querySelectorAll('.item') as NodeListOf<HTMLElement>;
-  //     if (items.length > 0) {
-  //       slide.prepend(items[items.length - 1]);
-  //     }
-  //   });
-    
-  // }
 
 
   // slider 2

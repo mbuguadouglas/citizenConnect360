@@ -236,3 +236,100 @@
     background-color: var(--primary);
 
 }
+
+
+/* responsive design */
+@media only screen and (max-width: 1024px) {
+    .container .brief{
+        padding: .3rem;
+        gap: .4rem;
+
+    }
+
+    .container .brief .bottom .card{
+        height: fit-content;
+    }
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+    /* .container{
+        background-color: red;
+    } */
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .container .brief .bottom .card .top-image{
+        display: none;
+    }
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+
+    .container .main-content .card .content .info .proposed{
+        font-size: medium;
+    }
+    .container .main-content .card .content .info .tabled{
+        font-size: medium;
+    }
+    .container .main-content .card .content .chat{
+        letter-spacing: 0px;
+    }
+    .container .main-content .card .content .chat{
+        width: fit-content;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    .container .brief{
+        width: 99%;
+        padding: .4rem;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .container .brief .bottom .card .top-image{
+        display: flex;
+    }
+
+    .container  .brief .bottom{
+        padding: .5rem;
+        position: relative;
+    }
+
+
+    .container .main-content{
+        display: none;
+    }
+
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+
+    .container .brief .button-section{
+        display: flex;
+    }
+
+    .container .brief .button-section label{
+        width: fit-content;
+        /* font-size: small; */
+    }
+
+
+
+}
+
+
+
+
+
