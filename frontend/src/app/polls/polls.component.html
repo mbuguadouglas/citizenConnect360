@@ -10,6 +10,13 @@
             <input type="text" placeholder="Search...">
         </div>
 
+
+        <!-- <div class="button-section" *ngIf="role === citizen"> -->
+            <div class="button-section">
+                <label id="my-incident"> my polls </label>
+                <label (click)="addPoll()" id="add-incident"> add poll </label>
+            </div>
+            
         <div class="title">
             <h2> trending polls </h2>
         </div>
@@ -169,7 +176,7 @@
         <!-- <div class="button-section" *ngIf="role === citizen"> -->
         <div class="button-section">
             <label id="my-incident"> my polls </label>
-            <label (click)="addIncident()" id="add-incident"> add poll </label>
+            <label (click)="addPoll()" id="add-incident"> add poll </label>
         </div>
 
         <div class="board">
@@ -256,7 +263,7 @@
 <div  class="popup" id="popup-1">
     <div class="overlay"></div>
        <div class="content">
-          <div class="close-btn" (click)="addIncident()">&times;</div>
+          <div class="close-btn" (click)="addPoll()">&times;</div>
           <h1> Add Poll </h1>
              <form>
                 content will be placed hapa

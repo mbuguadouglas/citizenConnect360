@@ -29,6 +29,32 @@
     box-shadow:0 1px 3px 0 hsl(0 ,3% ,3% ,.2);
 }
 
+
+.container .brief .button-section{
+    display: none;
+    width: 100%;
+    padding: .4rem;
+    justify-content: right;
+    gap: 1rem;
+    align-items: center;
+}
+
+.container .brief .button-section label{
+    width: 20%;
+    padding: .4rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.container .brief .button-section label:hover{
+    color: var(--white);
+    background-color: var(--primary);
+}
+
 .container .brief .title{
     /* background-color: red; */
     display: inline-flex;
@@ -376,6 +402,90 @@
 
 /* start getting summary popup */
 /* end getting summary popup */
+
+
+/* responsive design */
+@media only screen and (max-width: 1024px) {
+    .container .brief{
+        padding: .3rem;
+        gap: .4rem;
+
+    }
+
+    .container .brief .bottom .card{
+        height: fit-content;
+    }
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .container .brief .bottom .card .top-image{
+        display: none;
+    }
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    /* .container{
+        background-color: red;
+    } */
+
+    .container .brief{
+        width: 99%;
+        padding: .4rem;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .container  .brief .bottom{
+        padding: .5rem;
+        position: relative;
+    }
+
+
+    .container .detailed{
+        display: none;
+    }
+
+    .container .brief .bottom .card .top-image{
+        display: flex;
+    }
+
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+
+    .container .brief .button-section{
+        display: flex;
+    }
+
+    .container .brief .button-section label{
+        width: fit-content;
+        /* font-size: small; */
+    }
+
+    .popup .content{
+        width: 90%;
+    }
+
+
+
+
+}
 
 
 

@@ -19,7 +19,7 @@ export class PollsComponent implements OnInit, OnChanges,AfterViewInit{
 
 
   // function for update popup
-  addIncident(): void {
+  addPoll(): void {
     const popup = document.getElementById("popup-1")! as HTMLDivElement
     if (popup) {
       popup.classList.toggle("active");
@@ -41,7 +41,7 @@ export class PollsComponent implements OnInit, OnChanges,AfterViewInit{
     
     ngOnChanges(changes: SimpleChanges): void {
       // create and remove the update popup
-      this.addIncident()
+      this.addPoll()
       
     }
 

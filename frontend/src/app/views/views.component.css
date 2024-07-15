@@ -11,12 +11,38 @@
     flex-direction: column;
     gap: 1rem;
     max-height: 100vh;
+    /* position: relative; */
 }
 
 .container .brief .search{
     display: flex;
     justify-content: center;
     align-items: baseline;
+}
+
+.container .brief .button-section{
+    display: none;
+    width: 100%;
+    padding: .4rem;
+    justify-content: right;
+    gap: 1rem;
+    align-items: center;
+}
+
+.container .brief .button-section label{
+    width: 20%;
+    padding: .4rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.container .brief .button-section label:hover{
+    color: var(--white);
+    background-color: var(--primary);
 }
 
 .container .brief .search input{
@@ -61,6 +87,7 @@
     border-radius: 15px;
     /* padding: .4rem; */
     box-shadow: 1px 1px 4px;
+    /* border:5px solid red; */
 }
 
 .container .brief .bottom .card .top-image{
@@ -121,8 +148,11 @@
     font-weight: 600;
     font-size: small;
     color: var(--white);
-    padding: .1rem;
+    padding: .3rem;
     background-color: var(--medium-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .brief .bottom .card .bottom-text .description{
@@ -182,6 +212,7 @@
 .detailed .board{
     /* background-color: red; */
     /* border: 1px solid; */
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     width: 95%;
@@ -375,5 +406,87 @@
 /* start getting summary popup */
 /* end getting summary popup */
 
+/* making the page responsive */
+/* Responsive Styles */
+@media only screen and (max-width: 1024px) {
+    .container .brief{
+        padding: .3rem;
+        gap: .4rem;
 
+    }
+
+    .container .brief .bottom .card{
+        height: fit-content;
+    }
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .container .brief .bottom .card .top-image{
+        display: none;
+    }
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    /* .container{
+        background-color: red;
+    } */
+
+    .container .brief{
+        width: 99%;
+        padding: .4rem;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .container  .brief .bottom{
+        padding: .5rem;
+        position: relative;
+    }
+
+
+    .container .detailed{
+        display: none;
+    }
+
+    .container .brief .bottom .card .top-image{
+        display: flex;
+    }
+
+
+    .brief .bottom .card .bottom-text .heading span{
+        padding: .2rem .3rem;
+        margin: auto;
+    }
+
+    .container .brief .button-section{
+        display: flex;
+    }
+
+    .container .brief .button-section label{
+        width: fit-content;
+        /* font-size: small; */
+    }
+
+    .popup .content{
+        width: 90%;
+    }
+
+
+
+
+}
 
