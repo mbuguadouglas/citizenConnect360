@@ -6,10 +6,12 @@
 	align-items: baseline;
 	height: 15vh;
 	background-color: var(--primary);
-	margin-bottom: 1rem;
+	/* margin-bottom: 1rem; */
 	padding: 10px;
 	/* align-items: center; */
 }
+
+
 
 /* ************************	 */
 /* to style the navbar logo later */
@@ -191,3 +193,82 @@
     display: block;
   }
   
+
+  /* add responsiveness using media queries */
+  
+/* Responsive Styles */
+@media only screen and (max-width: 1024px) {
+
+  .navbar{
+    /* background-color: red; */
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .navbar{
+    /* background-color: yellow; */
+    padding: 1px;
+    display: block;
+  }
+
+  .navbar .logo{
+    /* padding: 0px ; */
+    gap: .1rem;
+  }
+
+  .logo svg{
+    width: 30px;
+    height: 20px;
+  }
+
+  .logo label{
+    font-size: large;
+  }
+
+  .menu ul{
+    margin: .1rem;
+
+  }
+
+  .menu li a{
+    margin: .3rem;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  .navbar{
+    /* background-color: purple; */
+    display: block;
+  }
+
+  .navbar .logo{
+    /* padding: 0px ; */
+    gap: 0px;
+  }
+
+  .logo svg{
+    width: 10px;
+    height: 10px;
+  }
+
+  .logo label{
+    font-size: medium;
+  }
+
+  .menu ul{
+    margin: 1px;
+
+  }
+
+  .menu li a{
+    margin: 1px;
+  }
+
+}
+
+}

@@ -7,6 +7,7 @@
 .hero{
     height: calc(100vh - 30vh); /*reduce space taken up to hook user to continue scrolling*/
     display: flex;
+    /* height: fit-content; */
     /* incase you prefer the image to be in the background   */
     /* background: url("https://img.freepik.com/free-vector/seamless-gray-halftone-pattern-white-background_1409-1691.jpg?size=626&ext=jpg&ga=GA1.2.1599625090.1720911774&semt=sph") center/cover no-repeat; */
     /* background: url("https://img.freepik.com/free-vector/white-background-with-wavy-lines-copy-space_23-2148822145.jpg?size=626&ext=jpg&ga=GA1.2.1599625090.1720911774&semt=sph") center/cover no-repeat; */
@@ -17,7 +18,10 @@
     width: 45%;
     font-size: 45px;
     /* padding-top: 4rem; */
-    padding: 5rem 0rem 1rem 2rem;
+    padding: 3rem 2rem 2rem 2rem;
+    overflow: hidden;
+    /* height: fit-content; */
+    /* background-color: red; */
 }
 
 .left .text{
@@ -44,6 +48,8 @@
     background-color: var(--white);
     border-left: 3px solid var(--primary);
     animation: animate 4s steps(10) infinite;
+    overflow: hidden;
+
 }
 
 /* add the keyframes for typewriter effect animation */
@@ -68,7 +74,6 @@
     /* color: var(--primary); */
     border: 1px solid var(--primary);
     border-radius: 5%;
-    padding: .7rem;
     text-transform: capitalize;
     font-size: large;
     font-weight: 600;
@@ -367,6 +372,7 @@
     color: var(--medium-gray);
     font-size: larger;
     text-transform: capitalize;
+    text-align: center;
 }
 
 .trustees .partners{
@@ -616,3 +622,112 @@
   background-color:#9045d6
 }
 
+
+/* Responsive Styles */
+@media only screen and (max-width: 1100px) {
+
+  .hero{
+    /* padding: 2rem 1rem; */
+    height: fit-content;
+    background: none;
+
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  /* .container{
+    border: 2px solid red;
+  } */
+  .hero{
+    background: none;
+    height: fit-content;
+  }
+  .hero .left{
+    padding: 2rem 1rem;
+    height: fit-content;
+
+  }
+  .hero .left .text{
+    font-size: larger;
+  }
+  .hero .left .text-explanation{
+    font-size: medium;
+  }
+
+  .about-us .cards-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  .hero{
+    background: none;
+    height: fit-content;
+  }
+  .hero .left{
+    width: 90%;
+    padding: 2rem 1rem;
+  }
+  .hero .right{
+    display: none;
+  }
+  .hero .left .text{
+    font-size: larger;
+  }
+  .hero .left .text-explanation{
+    font-size: medium;
+  }
+
+  .about-us .cards-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cards-section .card{
+    width: 90%;
+  }
+
+  .trustees{
+    height: fit-content;
+  }
+
+  .trustees h3{
+    font-size: medium;
+  }
+
+  .trustees .partners{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer .top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer .section{
+    /* background-color: red; */
+    width: 90%;
+  }
+
+  .footer .bottom{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+}
