@@ -336,4 +336,194 @@
 /* end getting summary popup */
 
 
+/* work on the polls */
+.wrapper{
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  }
+  .wrapper header{
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .wrapper .poll-area{
+    margin: 20px 0 15px 0;
+  }
+  .poll-area label{
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 8px 15px;
+    border: 2px solid #e6e6e6;
+    transition: all 0.2s ease;
+  }
+  /* .poll-area label:hover{
+    border-color: #ddd;
+  } */
+  /* .poll-area label.selected{
+    border-color: #6665ee!important;
+  } */
+  .poll-area label .row{
+    display: flex;
+    pointer-events: none;
+    justify-content: space-between;
+  }
+  .poll-area label .row .column{
+    display: flex;
+    align-items: center;
+  }
+  .poll-area label .row .circle{
+    height: 19px;
+    width: 19px;
+    display: block;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+  }
+  /* .poll-area label.selected .row .circle{
+    border-color: #6665ee;
+  }
+  .poll-area label .row .circle::after{
+    content: "";
+    height: 11px;
+    width: 11px;
+    background: #6665ee;
+    border-radius: inherit;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    display: none;
+  } */
+  .poll-area label:hover .row .circle::after{
+    display: block;
+    background: #e6e6e6;
+  }
+ /* .poll-area label.selected .row .circle::after{
+    display: block;
+    background: #6665ee!important;
+  } */
+ .poll-area label .row span{
+    font-size: 16px;
+    font-weight: 500;
+  }
+ .poll-area label .row .percent{
+    display: none;
+  }
+ .poll-area label .progress{
+    height: 7px;
+    width: 100%;
+    position: relative;
+    background: #f0f0f0;
+    margin: 8px 0 3px 0;
+    border-radius: 30px;
+    display: none;
+    pointer-events: none;
+  }
+ /* .poll-area label .progress:after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    background: #ccc;
+    width: calc(1% * var(--w));
+    border-radius: inherit;
+    transition: all 0.2s ease;
+  } */
+ /* .poll-area label.selected .progress::after{
+    background: #6665ee;
+  } */
+ .poll-area label.selectall .progress,
+ .poll-area label.selectall .row .percent{
+    display: block;
+  }
+  input[type="radio"],
+  input[type="checkbox"]{
+    display: none;
+  }
+
+  /*------AND IS THIS?!?!?!----- */
+.poll-area label .progress::after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: calc(1% * var(--w));
+    border-radius: inherit;
+    transition: all 0.5s ease;
+}
+
+.poll-area label.selectall .progress,
+.poll-area label.selectall .row .percent{
+    display: block;
+}
+
+label.opt-1.selected{
+    border: 2px solid #cf2d00;
+}
+label.opt-2.selected{
+    border: 2px solid #4bcc00;
+}
+label.opt-3.selected{
+    border: 2px solid #cfbd00;
+}
+label.opt-4.selected{
+    border: 2px solid #01638c;
+}
+
+label.opt-1.selected .progress::after{
+    border: 2px solid #cf2d00;
+}
+label.opt-2.selected .progress::after{
+    border: 2px solid #4bcc00;
+}
+label.opt-3.selected .progress::after{
+    border: 2px solid #cfbd00;
+}
+label.opt-4.selected .progress::after{
+    border: 2px solid #01638c;
+}
+
+.poll-area div#pstyle1::after{
+    background: #cf2d00;
+}
+.poll-area div#pstyle2::after{
+    background: #4bcc00;
+}
+.poll-area div#pstyle3::after{
+    background: #cfbd00;
+}
+.poll-area div#pstyle1::after{
+    background: #01638c;
+}
+
+label.opt-1.selected .row .circle{
+    border-color: #cf2d00;
+}
+label.opt-2.selected .row .circle{
+    border-color: #4bcc00;
+}
+label.opt-3.selected .row .circle{
+    border-color: #cfbd00;
+}
+label.opt-4.selected .row .circle{
+    border-color: #01638c;
+}
+
+label.opt-1 .row .circle::after{
+    border-color: #cf2d00;
+}
+label.opt-2 .row .circle::after{
+    border-color: #4bcc00;
+}
+label.opt-3 .row .circle::after{
+    border-color: #cfbd00;
+}
+label.opt-4 .row .circle::after{
+    border-color: #01638c;
+}
+
+
+
 

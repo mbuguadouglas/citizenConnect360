@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -10,10 +10,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './polls.component.html',
   styleUrl: './polls.component.css'
 })
-export class PollsComponent implements OnInit, OnChanges{
+export class PollsComponent implements OnInit, OnChanges,AfterViewInit{
 
 
-  constructor() {}
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   form!: FormGroup
 
@@ -43,6 +43,47 @@ export class PollsComponent implements OnInit, OnChanges{
       // create and remove the update popup
       this.addIncident()
       
+    }
+
+    ngAfterViewInit(): void {
+      const options = this.el.nativeElement.querySelectorAll('.choice');
+      options.forEach((option: HTMLElement, i: number) => {
+        this.renderer.listen(option, 'click', () => {
+          options.forEach((opt: HTMLElement, j: number) => {
+            if (opt.classList.contains('selected')) {
+              this.renderer.removeClass(opt, 'selected');
+            }
+          });
+  
+          this.renderer.addClass(option, 'selected');
+          options.forEach((opt: HTMLElement, k: number) => {
+            this.renderer.addClass(opt, 'selectall');
+          });
+  
+          const forVal = option.getAttribute('for');
+          const selectInput: HTMLInputElement = this.el.nativeElement.querySelector(`#${forVal}`);
+          const getAtt = selectInput.getAttribute('type');
+          if (getAtt === 'checkbox') {
+            selectInput.setAttribute('type', 'radio');
+          } else if (selectInput.checked) {
+            this.renderer.removeClass(option, 'selected');
+            selectInput.setAttribute('type', 'checkbox');
+          }
+  
+          const selectedIndices: number[] = [];
+          options.forEach((opt: HTMLElement, l: number) => {
+            if (opt.classList.contains('selected')) {
+              selectedIndices.push(l);
+            }
+          });
+  
+          if (selectedIndices.length === 0) {
+            options.forEach((opt: HTMLElement) => {
+              opt.removeAttribute('class');
+            });
+          }
+        });
+      });
     }
 
 }

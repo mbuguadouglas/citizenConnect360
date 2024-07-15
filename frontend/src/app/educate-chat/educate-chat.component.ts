@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-educate-chat',
@@ -96,6 +96,7 @@ export class EducateChatComponent implements AfterViewInit{
   random(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min) + min);
   }
+
 
 
 }
