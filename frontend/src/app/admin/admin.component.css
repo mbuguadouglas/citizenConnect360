@@ -196,11 +196,21 @@
   
   */
 
+  /* hr { -->INITIAL SETTINGS FOR A HR TAG<--
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+  } */
+
   .main-content hr{
     width: 90%;
+    border-width: .1rem;
+    border-style: dashed;
     margin: 0px auto;
-    font-size: large;
-    height: 1rem;
     color: var(--primary);
   }
 

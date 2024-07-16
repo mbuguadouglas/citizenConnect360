@@ -17,7 +17,7 @@
                   <ul>
                 
                     <li>
-                        <a href="#">
+                        <a >
                             <i class='bx bx-grid-alt'></i>
                             <span class="nav-item"> dashboard </span>
                         </a>
@@ -25,32 +25,32 @@
                     </li>
         
                     <li>
-                        <a href="#">
+                        <a>
                             <i class='bx bx-user-voice'></i>
-                            <span class="nav-item"> views </span>
+                            <span routerLink="/views/:id" class="nav-item"> views </span>
                         </a>
                         <span class="tooltip"> views </span>
                     </li>
         
                     <li>
-                        <a href="#">
+                        <a >
                             <i class='bx bx-poll' ></i>
-                            <span class="nav-item"> polls </span>
+                            <span routerLink="/polls/:id" class="nav-item"> polls </span>
                         </a>
                         <span class="tooltip"> polls </span>
                     </li>
         
                     
                     <li>
-                        <a href="#">
+                        <a >
                             <i class='bx bx-map'></i>
-                            <span class="nav-item">incidents </span>
+                            <span routerLink="/incidents/:id" class="nav-item">incidents </span>
                         </a>
                         <span class="tooltip"> incidents </span>
                     </li>
                     
                     <li>
-                        <a href="#">
+                        <a >
                             <i class='bx bx-user'></i>
                             <span class="nav-item"> users </span>
                         </a>
@@ -58,7 +58,7 @@
                     </li>
         
                     <li>
-                        <a href="#">
+                        <a>
                             <i class='bx bx-log-out-circle'></i>
                             <span class="nav-item"> Logout </span>
                         </a>
@@ -81,7 +81,7 @@
                         <div class="polls">
                             <div class="top">
                                 <label class="title"> trending polls </label>
-                                <label class="btn"> view all <i class="bx bx-chevron-right"></i></label>
+                                <label routerLink="/polls/:id" class="btn"> view all <i class="bx bx-chevron-right"></i></label>
                             </div>
 
                             <div class="bottom">
@@ -93,14 +93,14 @@
                         </div>
                         <!-- end polls and views section -->
 
-                            <hr/>
+                            <hr />
 
                         <!-- govmt official approvals -->
                         <div class="views">
 
                             <div class="top">
                                 <label class="title"> trending views </label>
-                                <label class="btn"> view all <i class="bx bx-chevron-right"></i></label>
+                                <label routerLink="/views/:id" class="btn"> view all <i class="bx bx-chevron-right"></i></label>
                             </div>
 
                             <div class="bottom">

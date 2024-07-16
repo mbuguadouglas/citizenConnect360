@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+ ----UNCOMMENT HAPA NA CODE YOTE INABREAK----
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
 
 :root{
 	/* --almost-white: hsl(0, 0%, 98%); */
@@ -41,5 +45,5 @@
 
 .container{
     width: 100%;
-    gap:0;
+    /* gap:0; */
 }
