@@ -7,76 +7,54 @@
 
                 <!-- top most section -->
                 <div class="top">
-                  <div class="logo">
-                    <i class="bx bxl-codepen"></i>
-                    <span> code commerce </span>
-        
-                  </div>
         
                   <!-- toggle button -->
-                   <i (click)="showSidebar()" class="bx bx-menu" id="btn"></i>
+                   <i (click)="showSidebar()" class="bx bx-chevron-right" id="btn"></i>
                 </div>
-        
-                <!-- user section -->
-                <div class="user">
-                  <img src="https://cdn.pixabay.com/photo/2015/02/19/13/15/man-642075_640.jpg" alt="user-avatar" class="user-img">
-                  <div>
-                    <p class="user-name"> mkuu </p>
-                    <p class="user-role"> admin </p>
-                  </div>
-        
-                </div>
+
         
                   <!-- list of menu items -->
                   <ul>
                 
                     <li>
                         <a href="#">
-                            <i class='bx bx-home-alt-2'></i>
-                            <span class="nav-item"> Dashboard </span>
+                            <i class='bx bx-grid-alt'></i>
+                            <span class="nav-item"> dashboard </span>
                         </a>
-                        <span class="tooltip"> Dashboard </span>
+                        <span class="tooltip"> dashboard </span>
                     </li>
         
                     <li>
                         <a href="#">
-                            <i class='bx bx-search'></i>
-                            <span class="nav-item"> Views </span>
+                            <i class='bx bx-user-voice'></i>
+                            <span class="nav-item"> views </span>
                         </a>
-                        <span class="tooltip"> Views </span>
+                        <span class="tooltip"> views </span>
                     </li>
         
                     <li>
                         <a href="#">
-                            <i class='bx bx-bell'></i>
-                            <span class="nav-item"> Polls </span>
+                            <i class='bx bx-poll' ></i>
+                            <span class="nav-item"> polls </span>
                         </a>
-                        <span class="tooltip"> Polls </span>
+                        <span class="tooltip"> polls </span>
                     </li>
         
+                    
                     <li>
                         <a href="#">
-                            <i class='bx bx-chat'></i>
-                            <span class="nav-item"> Users </span>
+                            <i class='bx bx-map'></i>
+                            <span class="nav-item">incidents </span>
                         </a>
-                        <span class="tooltip"> Users </span>
+                        <span class="tooltip"> incidents </span>
                     </li>
-        
+                    
                     <li>
                         <a href="#">
                             <i class='bx bx-user'></i>
-                            <span class="nav-item">Profile </span>
+                            <span class="nav-item"> users </span>
                         </a>
-                        <span class="tooltip"> Dashboard </span>
-                    </li>
-        
-        
-                    <li>
-                        <a href="#">
-                            <i class='bx bx-message-rounded-dots'></i>
-                            <span class="nav-item">More </span>
-                        </a>
-                        <span class="tooltip"> Dashboard </span>
+                        <span class="tooltip"> users </span>
                     </li>
         
                     <li>
@@ -88,42 +66,167 @@
                     </li>
         
                 </ul>
-        
-        
+
         
               </div>
+              <!-- end the sidebar -->
       
-            <div class="main-content">
-                The file you just created for this solution instructs the YUM package management
-                system to utilize the official NGINX Open Source package repository. The commands
-                that follow install NGINX Open Source from the official repository, instruct systemd to
-                enable NGINX at boot time, and tell it to start NGINX now. If necessary, the firewall
-                commands open port 80 for the transmission control protocol (TCP), which is the
-                default port for HTTP. The last command reloads the firewall to commit the change
-                Solution
-                You can verify that NGINX is installed and check its version by using the following
-                command:
-                $ nginx -v
-                nginx version: nginx/1.25.3
-                As this example shows, the response displays the version.
-                You can confirm that NGINX is running by using the following command:
-                $ ps -ef | grep nginx
-                root
-                1738
-                1 0 19:54 ? 00:00:00 nginx: master process
-                nginx
-                1739 1738 0 19:54 ? 00:00:00 nginx: worker process
-                The ps command lists running processes. By piping it to grep, you can search for
-                specific words in the output. This example uses grep to search for nginx. The result
-                shows two running processes: a master and worker. If NGINX is running, you will
-                always see a master and one or more worker processes. Note the master process is
-                running as root, as, by default, NGINX needs elevated privileges in order to function
-                properly. For instructions on starting NGINX, refer to the next recipe. To see how to
-                start NGINX as a daemon, use the init.d or systemd methodologies.
-                To verify that NGINX is returning requests correctly, use your browser to make a
-                request to your machine or use curl. When making the request, use the machine’s IP
-                address or hostname. If installed locally, you can use localhost as follows:
-                $ curl localhost
-                You will see the NGINX Welcome default HTML site.
-            </div>
+              <!-- main content div -->
+               <div class="main-content">
+
+                    <!-- begin the main content div -->
+                    <div class="primary-content">
+
+                        <!-- polls and views section -->
+                        <div class="polls">
+                            <div class="top">
+                                <label class="title"> trending polls </label>
+                                <label class="btn"> view all <i class="bx bx-chevron-right"></i></label>
+                            </div>
+
+                            <div class="bottom">
+                                <!-- 
+                                    WHERE I INTEND TO PUT THE SLIDER. ULIZA HIO MAMBO SHOKDE
+                                -->
+                            </div>
+
+                        </div>
+                        <!-- end polls and views section -->
+
+                            <hr/>
+
+                        <!-- govmt official approvals -->
+                        <div class="views">
+
+                            <div class="top">
+                                <label class="title"> trending views </label>
+                                <label class="btn"> view all <i class="bx bx-chevron-right"></i></label>
+                            </div>
+
+                            <div class="bottom">
+                                
+                                <!-- card 1 -->
+                                <div class="card">
+                                    <span> </span>
+
+                                    <div class="image">
+                                        <img src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="view-image">
+                                    </div>
+
+                                    <div class="main-block">
+                                        <label class="title"> title </label>
+                                        <label class="description"> short decription</label>
+                                        <label class="created-when"> 1 week ago </label>
+                                        <p>
+                                            <label class="action"> delete view </label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- end card 1 -->
+
+                                <!-- card 2 -->
+                                <!-- <div class="card">
+                                    <span> </span>
+
+                                    <div class="image">
+                                        <img src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="view-image">
+                                    </div>
+
+                                    <div class="main-block">
+                                        <label class="title"> title </label>
+                                        <label class="description"> short decription</label>
+                                        <label class="created-when"> 1 week ago </label>
+                                        <p>
+                                            <label class="action"> delete view </label>
+                                        </p>
+                                    </div>
+                                </div> -->
+                                <!-- end card 2 -->
+
+                            </div>
+
+                        </div>
+                        <!-- end govmt official approvals -->
+            
+                    </div>
+                    <!-- end the main content div -->
+
+
+                    <!-- start the secondary content div -->
+                    <div class="secondary-content">
+
+                        <!-- admin creds -->
+                        <div class="credentials">
+                            <div class="details">
+                                <label class="name"> sir lancelot </label>
+                                <label class="role"> admin </label>
+                                <label class="id"> fesd9w8ohyw3ol </label>
+                            </div>
+                            <div class="image">
+                                <img src="https://cdn.pixabay.com/photo/2015/02/19/13/15/man-642075_640.jpg" alt="admin-avatar">
+                            </div>
+                        </div>
+                        <!-- end admin creds -->
+
+                        <!-- begin approvals section -->
+                        <div class="govmt-approvals">
+                            <div class="top">
+                                <label class="title"> awaiting approval </label>
+                                <label class="btn"> view all <i class="bx bx-chevron-right"></i></label>
+    
+                            </div>
+
+                            <div class="bottom">
+
+                                <!-- cards to be listed here -->
+                                <div class="card">
+
+                                    <span> </span>
+
+                                    <div class="image">
+                                        <img src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="view-image">
+                                    </div>
+
+                                    <div class="details">
+                                        <label class="name"> kangata </label>
+                                        <label class="id"> fwe78fy </label>
+                                        <p class="actions">
+                                            <label id="approve"> approve </label>
+                                            <label id="deny"> deny </label>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+                                <!-- end the card here -->
+
+                                <!-- cards to be listed here -->
+                                <div class="card">
+
+                                    <span> </span>
+
+                                    <div class="image">
+                                        <img src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="view-image">
+                                    </div>
+
+                                    <div class="details">
+                                        <label class="name"> kangata </label>
+                                        <label class="id"> fwe78fy </label>
+                                        <p class="actions">
+                                            <label id="approve"> approve </label>
+                                            <label id="deny"> deny </label>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+                                <!-- end the card here -->
+
+                            </div>
+
+                        </div>
+                        <!-- end approvals section -->
+                    </div>
+                    <!-- end the secondary content div -->
+
+               </div>
+              <!-- end main content div -->
 </div>

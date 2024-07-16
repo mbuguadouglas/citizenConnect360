@@ -8,7 +8,6 @@
     /* background-image: var(--body-bg); */
     font-family: Helvetica, sans-serif;
     position: relative;
-    transition: var(--trans-02);
     width: 100%;
   }
   
@@ -71,7 +70,6 @@
     /* background-color: white; */
     min-height: 100vh;
     padding: 2rem;
-    transition: all 0.5s ease;
     width: calc(100% - 250px);
     display: flex;
     justify-content: center;

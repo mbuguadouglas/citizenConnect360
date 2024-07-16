@@ -9,9 +9,11 @@
     left: 0;
     height: 100vh; 
     width: 80px;
-    background-color: #12171e;
+    background-image: var(--body-bg);
     transition:  all 0.5s ease;
     padding: .4rem .8rem;
+
+    border-right: 1px solid #12171e;
   }
   
   .sidebar.active ~ .main-content{
@@ -27,67 +29,36 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid var(--medium-gray);
     /* background-color: red; */
   }
   
   .sidebar #btn{
     position: absolute;
-    color: white;
+    /* color: white; */
     top: .4rem;
-    left: 50%;
+    left: 85%;
     font-size: large;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     cursor: pointer;
+
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: black;
+    color: var(--white);
+    font-weight: 700;
+    z-index: 1;
+    padding: .1rem;
   }
   
   .sidebar.active #btn{
-    left: 80%;
+    left: 95%;
   }
   
-  .sidebar .top .logo{
-    color: white;
-    display: flex;
-    height: 50px;
-    width: 100%;
-    align-items: center;
-    pointer-events: none;
-    opacity: 0;
+  .sidebar .top {
+    margin-bottom: 2rem;
   }
   
-  .sidebar.active .top .logo{
-    opacity: 1;
-  }
-  
-  .sidebar .top .logo i{
-    font-size: 2rem;
-    margin-right: 5px;
-  }
-  
-  .sidebar .user{
-    /* background-color: red; */
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-  }
-  
-  .sidebar .user div p{
-    color: white;
-    opacity: 1;
-    margin-left: 1rem;
-  }
-  
-  .sidebar .user div .user-name {
-    font-weight: 600;
-    text-transform: capitalize;
-  }
-  
-  .sidebar .user div{
-    opacity: 0;
-  }
-  .sidebar.active .user div{
-    opacity: 1;
-  }
   
   .sidebar ul li{
     position: relative;
@@ -99,7 +70,7 @@
   }
   
   .sidebar ul li a{
-    color: white;
+    /* color: white; */
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -107,7 +78,7 @@
   }
   
   .sidebar ul li a:hover{
-    background-color: white;
+    background-color: rgb(190, 184, 184);
     color: #12171e;
   }
   
@@ -139,26 +110,434 @@
     line-height: 1.8rem;
     z-index: 20;
     opacity: 0;
+    display: none;
   }
   
   .sidebar ul li:hover .tooltip{
     opacity: 1;
+    display: flex;
   }
   
   .sidebar.active ul li .tooltip{
     display: none;
   }
+  /* end the sidebar styling */
   
+  /* begin the main content styling */
   .main-content{
     position: relative;
-    /* background-color: white; */
+    background-color: white;
     min-height: 100vh;
     top: 0;
     left: 80px;
     transition: all 0.5s ease;
     width: calc(100% - 80px);
     padding: 1rem;
+    display: flex;
+    gap: 1rem;
   }
+  
+  /* primary content styling */
+  .main-content .primary-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 55%;
+    /* background-color: red; */
+  }
+
+
+  /* polls div styling */
+  .main-content .primary-content .polls{
+    /* background-color: teal; */
+    padding: .4rem;
+    /* border: 1px solid; */
+    /* box-shadow:12px 3px 10px rgba(32, 32, 32, 0.8); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 98%;
+    height: 49%;
+    /* align-items: center; */
+  }
+
+  .main-content .primary-content .polls .top{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .main-content .primary-content .polls .top .title{
+    font-size: large;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+  }
+  .main-content .primary-content .polls .top .btn{
+    padding: .2rem;
+    width: 25%;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+
+  .main-content .primary-content .polls .top .btn:hover{
+    color: var(--white);
+    background-color: var(--primary);
+  }
+
+  /* 
+    .main-content .primary-content .polls .bottom{}
+    THIS SECTION WILL BE FOR THE POLLS SLIDER
+    RESEARCH ON THIS TOMMOROW
+  
+  */
+
+  .main-content hr{
+    width: 90%;
+    margin: 0px auto;
+    font-size: large;
+    height: 1rem;
+    color: var(--primary);
+  }
+
+  /* views div styling */
+  .main-content .primary-content .views{
+    /* background-color: teal; */
+    padding: .5rem;
+    /* box-shadow:0 15px 35px 0 hsla(0 ,0% ,0% ,.4); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 98%;
+    min-height: 49%;
+    max-height: fit-content;
+    /* align-items: center; */
+  }
+
+
+  .main-content .primary-content .views .top{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .main-content .primary-content .views .top .title{
+    font-size: large;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+  }
+  .main-content .primary-content .views .top .btn{
+    padding: .2rem;
+    width: 25%;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+
+  .main-content .primary-content .views .top .btn:hover{
+    color: var(--white);
+    background-color: var(--primary);
+  }
+
+  .main-content .primary-content .views .bottom{
+    /* border: 1px solid; */
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .2rem;
+  }
+
+  .main-content .primary-content .views .bottom .card{
+    /* border: 1px solid; */
+    display: flex;
+    min-height: 60%;
+    max-height: fit-content;
+    gap: .2rem;
+    border-radius:  0px 15px 15px 0px;
+    box-shadow:0 1px 3px 0 hsl(0 ,3% ,3% ,.7);
+
+  }
+
+  .main-content .primary-content .views .bottom .card span{
+    background-color: var(--primary);
+    height: 100%;
+    width: .4rem;
+  }
+
+  .main-content .primary-content .views .bottom .card .image{
+    display: flex;
+    position: relative;
+    object-fit: cover;
+    width: 20%;
+    height: 80%;
+    margin: auto 0px;
+    /* background-color: red; */
+  }
+  
+  .main-content .primary-content .views .bottom .card .image img{
+    padding: .1rem;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--medium-gray);
+  }
+
+  .main-content .primary-content .views .bottom .card .main-block{
+    display: flex;
+    flex-direction: column;
+    padding: .4rem;
+    /* background-color: red; */
+    width: calc(100% - 25%);
+  }
+
+  .main-content .primary-content .views .bottom .card .main-block .title{
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+  .main-content .primary-content .views .bottom .card .main-block .created-when{
+    font-size: medium;
+    color: var(--medium-gray);
+  }
+  .main-content .primary-content .views .bottom .card .main-block .description{
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+  }
+
+  .main-content .primary-content .views .bottom .card .main-block p{
+    display: flex;
+    justify-content: right;
+    /* background-color: red; */
+    width: 100%;
+  }
+
+  .main-content .primary-content .views .bottom .card .main-block .action{
+    padding: .2rem;
+    width: fit-content;
+      border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+
+  .main-content .primary-content .views .bottom .card .main-block .action:hover{
+    color: var(--white);
+    background-color: var(--primary);
+  }
+  
+/* secondary content styling */
+  .main-content .secondary-content{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* background-color: yellow; */
+  }
+
+  /* admin details section */
+  .secondary-content .credentials{
+    height: 15%;
+    display: flex;
+    justify-content: end;
+    gap: .7rem;
+    /* background-color: red; */
+    /* box-shadow:0 1px 3px 0 hsl(0 ,3% ,3% ,.7); */
+
+  }
+  .secondary-content .credentials .details{
+    display: inline-flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: end;
+  }
+  .secondary-content .credentials .details .name{
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: var(--medium-gray);
+  }
+  .secondary-content .credentials .details .role{
+    font-size: larger;
+    text-transform: capitalize;
+  }
+  .secondary-content .credentials .details .id{
+    font-size: medium;
+    font-weight: 700;
+    /* color: var(--medium-gray); */
+    /* text-transform: uppercase; */
+  }
+  .secondary-content .credentials .image{
+    object-fit: cover;
+    position: relative;
+    width: 20%;
+    height: 100%;
+
+  }
+  .secondary-content .credentials .image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: .1rem;
+    border: 2px solid var(--primary);
+  }
+
+
+  /* governemnt approvals section */
+  .secondary-content .govmt-approvals{
+    box-shadow:0 1px 3px 0 hsl(0 ,3% ,3% ,.7);
+    border-radius: 10px;
+    height: 85%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .secondary-content .govmt-approvals .top{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+    /* background-color: red; */
+  }
+
+  .secondary-content .govmt-approvals .top .title{
+    font-size: large;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+  }
+  .secondary-content .govmt-approvals .top .btn{
+    padding: .2rem;
+    min-width: 25%;
+    max-width: fit-content;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+  .secondary-content .govmt-approvals .top .btn:hover{
+    color: var(--white);
+    background-color: var(--primary);
+  }
+
+  .secondary-content .govmt-approvals .bottom{
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .4rem;
+  }
+
+  .secondary-content .govmt-approvals .bottom .card{
+       /* border: 1px solid; */
+       display: flex;
+       min-height: 40%;
+       max-height: fit-content;
+       gap: .2rem;
+       border-radius:  0px 15px 15px 0px;
+       box-shadow:0 1px 3px 0 hsl(0 ,3% ,3% ,.7);
+  }
+  .secondary-content .govmt-approvals .bottom .card span{
+    background-color: var(--primary);
+    height: 100%;
+    width: .4rem;
+    
+  }
+  .secondary-content .govmt-approvals .bottom .card .image{
+    display: flex;
+    position: relative;
+    object-fit: cover;
+    width: 20%;
+    height: 80%;
+    margin: auto 0px;
+    /* background-color: red; */
+    /* background-color: red; */
+  }
+  .secondary-content .govmt-approvals .bottom .card .image img{
+    padding: .1rem;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--medium-gray);
+  }
+  .secondary-content .govmt-approvals .bottom .card .details{
+    display: flex;
+    flex-direction: column;
+    padding: .4rem;
+    /* background-color: red; */
+    width: calc(100% - 25%);
+    /* background-color: red; */
+  }
+  .secondary-content .govmt-approvals .bottom .card .details .name{
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+  .secondary-content .govmt-approvals .bottom .card .details .id{
+    font-size: medium;
+    color: var(--medium-gray);
+  }
+  .secondary-content .govmt-approvals .bottom .card .details .actions{
+    display: flex;
+    justify-content: right;
+    gap: 10%;
+  }
+
+  .secondary-content .govmt-approvals .bottom .card .details .actions #approve,
+  .secondary-content .govmt-approvals .bottom .card .details .actions #deny{
+    padding: .2rem;
+    min-width: 30%;
+    max-width: fit-content;
+    border: 1px solid black;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+  .secondary-content .govmt-approvals .bottom .card .details .actions #approve{
+    border: 1px solid green;
+    color: green;
+
+  }
+  .secondary-content .govmt-approvals .bottom .card .details .actions #deny{
+    border: 1px solid red;
+    color: red;
+
+  }
+
+  .secondary-content .govmt-approvals .bottom .card .details .actions #approve:hover{
+    color: var(--white);
+    background-color: green;
+
+  }
+  .secondary-content .govmt-approvals .bottom .card .details .actions #deny:hover{
+    color: var(--white);
+    background-color: red;
+
+  }
+
+
+
+
+  /* end the main content styling */
   
   
   
