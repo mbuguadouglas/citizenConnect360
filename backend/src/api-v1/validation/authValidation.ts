@@ -16,10 +16,17 @@ export const registerSchema = Joi.object({
 
 })
 
-export const updatePasswordSchema = Joi.object({
+// whereby user remebers old password and voluntarily wants to change it
+export const changePasswordSchema = Joi.object({
     email:Joi.string().email().required(),
     oldPassword:Joi.string().min(6).max(10).required(),
     newPassword:Joi.string().min(6).max(10).required(),
-    // confirmNewPassword:Joi.ref('newPassword')
 
+})
+
+// whereby user doesnt rememeber old password and wants to set anew
+export const forgotPasswordSchema = Joi.object({
+    email:Joi.string().email().required(),
+    newPassword:Joi.string().min(6).max(10).required(),
+    confirmNewPassword:Joi.ref('newPassword')
 })

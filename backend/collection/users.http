@@ -23,21 +23,31 @@ Content-Type: application/json
 
 
 ######################
-# reset user password
+# change user password
 POST http://localhost:4000/auth/change-password
 Content-Type: application/json
 
 {
     "email": "lancelot@gmail.com",
-    "oldPassword": "radaaba",
-    "newPassword": "amazon17"
+    "oldPassword": "amazon17",
+    "newPassword": "qwerty12"
+}
+
+#######################
+# forgot password
+POST http://localhost:4000/auth/forgot-password
+Content-Type: application/json
+
+{
+    "email": "lancelot@gmail.com",
+    "newPassword": "rick17",
+    "confirmNewPassword": "rick17"
 }
 
 
 ######################
 # get all the users in the db
 GET http://localhost:4000/auth/users
-
 
 
 
@@ -57,8 +67,8 @@ Content-Type: application/json
 
 
 ######################
-# update a users credentials
-PATCH http://localhost:4000/auth/update/
+# update a users credentials. with id
+PATCH http://localhost:4000/auth/20996421-aab2-4c6f-ad01-10e8186f8081
 Content-Type: application/json
 
 {
@@ -67,11 +77,9 @@ Content-Type: application/json
     "password": "qwerty12"
 }
 
-######################
-DELETE http://localhost:4000/auth/
 
 ######################
+DELETE http://localhost:4000/auth/50d95164-8999-4834-901b-5213390f8c90
+
 ######################
-######################
-######################
-######################
+

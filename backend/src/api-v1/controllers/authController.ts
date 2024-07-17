@@ -6,7 +6,7 @@ import path from 'path'
 import dotenv from 'dotenv'
 
 import { DbHelper } from '../databaseHelpers'
-import { registerSchema, updatePasswordSchema } from '../validation/authValidation'
+import { changePasswordSchema, forgotPasswordSchema, registerSchema } from '../validation/authValidation'
 import { Roles, User, UserPayload } from '../models/authModel'
 dotenv.config({path:path.resolve(__dirname,"../../.env")})
 
@@ -108,11 +108,11 @@ export async function loginUser (request:Request, response:Response){
     }
 } 
 
-
+// user intentionally wants to change password
 export async function changePassword (request:Request, response:Response){
     
     const {email, oldPassword, newPassword} = request.body
-    const { error } = updatePasswordSchema.validate(request.body)
+    const { error } = changePasswordSchema.validate(request.body)
 
     try{
         if(error){
@@ -146,6 +146,46 @@ export async function changePassword (request:Request, response:Response){
     
             } else {
                 return response.status(400).send({message:"what here?"}) 
+            }
+    
+        }
+    } catch(error){
+        return response.status(400).send(error)
+    }
+}
+
+
+// user forgot old password an is now reseting a new one
+export async function forgotPassword (request:Request, response:Response){
+    
+    const {email, newPassword, confirmNewPassword} = request.body
+    const { error } = forgotPasswordSchema.validate(request.body)
+
+    try{
+        if(error){
+            return response.status(400).send(error.details[0].message)
+        } else {
+
+            const user = (await db.exec('getUserByEmail',{
+                email:email
+            })).recordset as Array<User>
+    
+            // console.log(user[0])
+    
+            // if the user exists
+            if(user){
+    
+                const newHashedPassword = await bcrypt.hash(confirmNewPassword,9)
+    
+                await db.exec('updatePassword',{
+                    id: user[0].id,
+                    password:newHashedPassword,
+                })
+
+                return response.status(200).send({message:"Congratulations! You have reset your password succesfully"})
+    
+            } else {
+                return response.status(400).send({message:"Oops! Looks like that user doesn't exist. Try again?"}) 
             }
     
         }
@@ -221,58 +261,60 @@ export async function getUserByEmail (request:Request,response:Response){
 export async function updateUser  (request:Request<{id:string}>,response:Response){
     try{
         const id = request.params.id
+        const {name,email,password} = request.body
         const role = Roles.User     //change if admin needs to update themselves
-        // console.log(id)
-        const user = (await db.exec('getUser',{
+
+        const user = (await db.exec('getUserById',{
             id:id
         })).recordset[0] as Array<User>
 
 
         if (user){
-            const {name,email,password} = request.body
+            const hashedPassword = await bcrypt.hash(password, 9)
+
             db.exec('updateUser',{
                 id: id,
                 name: name,
                 email:email,
-                password:password,
+                password:hashedPassword,
                 role:role
             })
 
-            response.status(200).send({message:"Existing user updated succesfully!"})
+            response.status(200).send({message:"The user has been updated succesfully!"})
 
         } else {
-            response.status(200).send({message:"User not found. review the id and try again?"})
+            response.status(200).send({message:"Oh no! Looks like the user does not exist. Review the id and try again?"})
         }
 
 
     } catch(error) {
-        response.status(500).send(error)
+        response.status(400).send(error)
     }}
 
 
 
-// export async function deleteUser (request:Request<{id:string}>,response:Response){
-//     try{
-//         const id = request.params.id
-//         const user = (await db.exec('getUser',{
-//             id:id
-//         })).recordset[0] as Array<User>
+export async function deleteUser (request:Request<{id:string}>,response:Response){
+    try{
+        const id = request.params.id
+        const user = (await db.exec('getUserById',{
+            id:id
+        })).recordset[0] as Array<User>
         
-//         if (user){
-//             await db.exec('deleteUser',{
-//                 id:id
-//             })
+        if (user){
+            await db.exec('deleteUser',{
+                id:id
+            })
 
-//             response.status(200).send({message:"user deleted succesfully!"})
+            response.status(200).send({message:"The user has been deleted succesfully!"})
             
-//         } else {
-//             response.status(200).send({message:"User not found. review the id and try again?"})
-//         }
+        } else {
+            response.status(200).send({message:"Oh no! Looks like the user does not exist. Review the id and try again?"})
+        }
 
 
-//     } catch(error) {
-//         response.status(500).send(error)
-//     }
-// }
+    } catch(error) {
+        response.status(400).send(error)
+    }
+}
 
 

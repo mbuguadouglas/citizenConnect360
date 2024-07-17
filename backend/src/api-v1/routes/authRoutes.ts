@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { changePassword, getUserByEmail, getUserById, getUsers, loginUser, registerUser, resetPassword } from '../controllers/authController'
+import { changePassword, deleteUser, forgotPassword, getUserByEmail, getUserById, getUsers, loginUser, registerUser, resetPassword, updateUser } from '../controllers/authController'
 // import { verifyAuthToken } from '../middleware/authMiddleware'
 
 const authRouter = Router()
@@ -7,11 +7,12 @@ const authRouter = Router()
 authRouter.post("/register",registerUser)
 authRouter.post("/login",loginUser)
 authRouter.post("/change-password",changePassword)
+authRouter.post("/forgot-password",forgotPassword)
 authRouter.get("/users",getUsers)
 authRouter.get("/user-email",getUserByEmail)
-// authRouter.post("/user",updateUser)
-// authRouter.post("/:id",deleteUser)
 authRouter.get("/:id",getUserById)
+authRouter.patch("/:id",updateUser)
+authRouter.delete("/:id",deleteUser)
 
 
 export default authRouter
