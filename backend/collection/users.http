@@ -1,0 +1,58 @@
+#####################
+# register a new user
+POST  http://localhost:4000/auth/register
+Content-Type: application/json
+
+{
+    "name": "lancelot",
+    "email": "lancelot@gmail.com",
+    "password": "qwerty12",
+    "acceptTos": "yes"
+}
+
+
+######################
+# login an existing user
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+    "email": "lancelt@gmail.com",
+    "password": "qwerty12" 
+}
+
+
+######################
+# get a specific user by email
+GET http://localhost:4000/auth/user
+Content-Type: application/json
+
+{
+    "email": "blue@gmail.com"
+}
+
+
+######################
+# get a specific user by id
+GET http://localhost:4000/auth/
+
+
+######################
+# update a users credentials
+PATCH http://localhost:4000/auth/update/
+Content-Type: application/json
+
+{
+    "name": "mr.blue",
+    "email": "blue@gmail.com",
+    "password": "qwerty12"
+}
+
+######################
+DELETE http://localhost:4000/auth/
+
+######################
+######################
+######################
+######################
+######################
