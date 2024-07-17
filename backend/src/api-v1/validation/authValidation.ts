@@ -15,3 +15,11 @@ export const registerSchema = Joi.object({
     // )
 
 })
+
+export const updatePasswordSchema = Joi.object({
+    email:Joi.string().email().required(),
+    oldPassword:Joi.string().min(6).max(10).required(),
+    newPassword:Joi.string().min(6).max(10).required(),
+    // confirmNewPassword:Joi.ref('newPassword')
+
+})

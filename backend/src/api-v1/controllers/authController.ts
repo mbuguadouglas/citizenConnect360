@@ -6,7 +6,7 @@ import path from 'path'
 import dotenv from 'dotenv'
 
 import { DbHelper } from '../databaseHelpers'
-import { registerSchema } from '../validation/authValidation'
+import { registerSchema, updatePasswordSchema } from '../validation/authValidation'
 import { Roles, User, UserPayload } from '../models/authModel'
 dotenv.config({path:path.resolve(__dirname,"../../.env")})
 
@@ -54,7 +54,7 @@ export async function registerUser(request:Request,response:Response) {
         }
 
     } catch(error){
-        response.status(400).send(error)
+        return response.status(400).send(error)
     }
 }
 
@@ -95,7 +95,6 @@ export async function loginUser (request:Request, response:Response){
 
                 // return response.status(200).send({message:"login successful!"})
                 // above works well. but need to pass token to allow for roleBased authentication
-                // return response.status(200).send({message:"login successful!",token:token,decodedToken:decodedToken})
                 return response.status(200).send({message:"You have succesfully logged in!",decodedToken:decodedToken})
             } else{
                 // instance wherby the email matches. but incorrect password
@@ -105,77 +104,150 @@ export async function loginUser (request:Request, response:Response){
 
     } catch(error){
         //for instances whereby the email doesnt exist
-        response.status(400).send({message:"Ohh no! Seems like the email entered does not exist.Try a different email?"})
+        return response.status(400).send({message:"Ohh no! Seems like the email entered does not exist.Try a different email?"})
     }
 } 
 
 
+export async function changePassword (request:Request, response:Response){
+    
+    const {email, oldPassword, newPassword} = request.body
+    const { error } = updatePasswordSchema.validate(request.body)
 
-// export async function getUsers (request:Request,response:Response){
-//     try{
-//         const users = (await db.get('getUsers')).recordset as Array<User>
+    try{
+        if(error){
+            return response.status(400).send(error.details[0].message)
+        } else {
 
-//         response.status(200).send(users)
+            const user = (await db.exec('getUserByEmail',{
+                email:email
+            })).recordset as Array<User>
+    
+            // console.log(user[0])
+    
+            // if the user exists
+            if(user){
+    
+                // check if password inputted matches that in db
+                const isValid = await bcrypt.compare(oldPassword, user[0].password)
+                // create new hashed password
+                const newHashedPassword = await bcrypt.hash(newPassword,9)
+    
+                if(isValid){
+                    await db.exec('updatePassword',{
+                        id: user[0].id,
+                        password:newHashedPassword,
+                    })
 
-//     } catch(error) {
-//         response.status(500).send(error)
-//     }
-
-// }
-
-
-// export async function getUser (request:Request<{id:string}>,response:Response){
-//     try{
-//         const id = request.params.id
-//         const user = (await db.exec('getUser',{
-//             id:id
-//         })).recordset[0] as Array<User>
-//         // console.log(user)
-
-//         if (user ){
-//             response.status(200).send(user)
-
-//         } else {
-//             response.status(200).send({message:"User not found. review the id and try again?"})
-//         }
-
-
-//     } catch(error) {
-//         response.status(500).send(error)
-//     }
-// }
-
-
-// export async function updateUser  (request:Request<{id:string}>,response:Response){
-//     try{
-//         const id = request.params.id
-//         const role = Roles.User     //change if admin needs to update themselves
-//         // console.log(id)
-//         const user = (await db.exec('getUser',{
-//             id:id
-//         })).recordset[0] as Array<User>
-
-
-//         if (user){
-//             const {name,email,password} = request.body
-//             db.exec('updateUser',{
-//                 id: id,
-//                 name: name,
-//                 email:email,
-//                 password:password,
-//                 role:role
-//             })
-
-//             response.status(200).send({message:"Existing user updated succesfully!"})
-
-//         } else {
-//             response.status(200).send({message:"User not found. review the id and try again?"})
-//         }
+                    return response.status(200).send({message:"Congratulations! You have updated your password succesfully"})
+                } else {
+                    return response.status(400).send({message:"Ohh no! Seems like the password you entered doesnt match your old one. Try forgot password instead?"}) 
+                }
+    
+            } else {
+                return response.status(400).send({message:"what here?"}) 
+            }
+    
+        }
+    } catch(error){
+        return response.status(400).send(error)
+    }
+}
 
 
-//     } catch(error) {
-//         response.status(500).send(error)
-//     }}
+export async function getUsers (request:Request, response:Response){
+    // do not remove either the request or the response even though they are not being used!
+    try{
+        const users = (await db.get('getUsers')).recordset as Array<User>
+
+        if(users){
+            
+            return response.status(200).send(users)
+        } else {
+            return response.status(200).send({message:'Oops! Looks like the system currently has no users'})
+        }
+
+    } catch(error) {
+        return response.status(400).send(error)
+    }
+
+}
+
+
+export async function getUserById (request:Request<{id:string}>,response:Response){
+    try{
+        const id = request.params.id
+        const user = (await db.exec('getUserById',{
+            id:id
+        })).recordset[0] as Array<User>
+        // console.log(user)
+
+        if (user ){
+            return response.status(200).send(user)
+
+        } else {
+            return response.status(200).send({message:"Oops! Looks like that user doesn't exist. Review the id and try again?"})
+        }
+
+
+    } catch(error) {
+        return response.status(400).send(error)
+    }
+}
+
+export async function getUserByEmail (request:Request,response:Response){
+    const {email} = request.body
+
+    try{
+        const user = (await db.exec('getUserByEmail',{
+            email:email
+        })).recordset[0] as Array<User>
+        console.log(user)
+
+        if (user ){
+            return response.status(200).send(user)
+
+        } else {
+            return response.status(200).send({message:"Oops! Looks like that user doesn't exist. Review the email and try again?"})
+        }
+
+
+    } catch(error) {
+        return response.status(400).send(error)
+    }
+}
+
+
+export async function updateUser  (request:Request<{id:string}>,response:Response){
+    try{
+        const id = request.params.id
+        const role = Roles.User     //change if admin needs to update themselves
+        // console.log(id)
+        const user = (await db.exec('getUser',{
+            id:id
+        })).recordset[0] as Array<User>
+
+
+        if (user){
+            const {name,email,password} = request.body
+            db.exec('updateUser',{
+                id: id,
+                name: name,
+                email:email,
+                password:password,
+                role:role
+            })
+
+            response.status(200).send({message:"Existing user updated succesfully!"})
+
+        } else {
+            response.status(200).send({message:"User not found. review the id and try again?"})
+        }
+
+
+    } catch(error) {
+        response.status(500).send(error)
+    }}
 
 
 
