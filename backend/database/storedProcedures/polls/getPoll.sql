@@ -1,0 +1,12 @@
+USE citizenConnect;
+
+CREATE OR ALTER PROCEDURE getPoll(
+    @id VARCHAR(255)
+)
+
+AS
+BEGIN 
+SELECT * FROM polls WHERE id=@id AND isApproved=1
+END;
+
+GO;
