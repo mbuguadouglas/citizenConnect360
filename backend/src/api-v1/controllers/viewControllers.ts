@@ -59,7 +59,7 @@ export async function getViews (request:Request, response:Response){
             
             return response.status(200).send(views)
         } else {
-            return response.status(200).send({message:'Oops! Looks like the system currently has no users'})
+            return response.status(200).send({message:'Oops! Looks like the system currently has no views'})
         }
 
     } catch(error) {

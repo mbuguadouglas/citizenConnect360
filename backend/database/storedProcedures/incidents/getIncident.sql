@@ -6,7 +6,7 @@ CREATE OR ALTER PROCEDURE getIncident(
 
 AS
 BEGIN 
-SELECT * FROM incidents WHERE id=@id AND isApproved=1
+SELECT * FROM incidents WHERE id=@id AND isApproved=1 AND isDeleted=0
 END;
 
 GO;

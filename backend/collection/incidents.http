@@ -1,0 +1,42 @@
+#####################
+# add a new incident
+POST  http://localhost:4000/incidents/add-incident
+Content-Type: application/json
+
+{
+    "userId" : "3739f68c-f5bf-4a78-ad8f-1367e66e3dc6",
+    "title" : "season finale",
+    "description" : "is there an alternate ending to G.O.T?",
+    "body" : "To verify that NGINX is returning requests correctly, use your browser to make a request to your machine or use curl.",
+    "location" : "Avengers HQ",
+    "imageUrl" : "https://picha-noma"
+}
+
+
+#########################
+# get all incidents in db
+GET http://localhost:4000/incidents
+
+
+#########################
+# get an incident using a specific id
+#incident must have isDeleted=0 and isApproved=1
+GET http://localhost:4000/incidents/a744a103-c2a5-411d-9775-b1c2cdcc9177
+
+
+
+#########################
+#changes isApproved=0
+# sensor a view using a specific id
+PATCH http://localhost:4000/incidents/sensor-incident/8c85c06a-8fbb-4553-9dc9-4f6b19a882c4
+
+
+#########################
+#changes isApproved=0
+# sensor a view using a specific id
+DELETE http://localhost:4000/incidents/a9977993-79c9-4da6-bf7e-eed17e8a6c79
+
+
+
+
+

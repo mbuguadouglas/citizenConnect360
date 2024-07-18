@@ -8,7 +8,8 @@ export interface View{
     description:string,
     body:string,
     location:string,
-    image?:string,
+    imageUrl?:string,
+    createdAt?:string,
     isDeleted?:number,
     isApproved?:string,
     isModified?:number
