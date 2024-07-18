@@ -1,4 +1,3 @@
-import {Request} from 'express'
 
 
 export interface Incident{
@@ -13,16 +12,5 @@ export interface Incident{
     isDeleted?:number,
     isApproved?:string,
     isModified?:number
-}
-
-export interface IncidentPayload{
-    id: string,
-    userId:string,
-    title:string,
-    // createdAt:string,
-}
-
-export interface ExtendedRequest extends Request{
-    info?: IncidentPayload
 }
 

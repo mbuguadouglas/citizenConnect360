@@ -1,7 +1,5 @@
 import {Request, Response } from 'express'
 import {v4 as uid} from 'uuid' 
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
 import path from 'path'
 import dotenv from 'dotenv'
 
@@ -18,10 +16,6 @@ const db = new DbHelper()
 export async function addPoll(request:Request,response:Response) {
     const id = uid()
     const {title,description,userId} = request.body
-    /*
-     in the normal application, userId will be received from the token payload 
-     of logged in user. how will that be achieved?
-    */
 
     const { error } = pollSchema.validate(request.body)
 
@@ -75,16 +69,6 @@ export async function getPoll (request:Request<{id:string}>,response:Response){
         // console.log(poll)
 
         if (poll){
-            // HOW WILL THE USER KNOW THEIR VIEWS,INCIDENTS AND POLLS JUST FROM TOKENS?
-            
-            // const payload:ViewPayload = {
-            //     id: view[0].id,
-            //     userId:view[0].userId,
-            //     title:view[0].title
-            // }
-
-            // const token = jwt.sign(payload,process.env.SECRET as string,{expiresIn:'20d'})
-            // const decodedToken = jwt.verify(token, process.env.SECRET as string) as ViewPayload
 
             return response.status(200).send(poll)
 

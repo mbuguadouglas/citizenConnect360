@@ -20,5 +20,5 @@ app.use("/polls", pollRouter)
 
 // start the application
 app.listen(4000,()=>{
-    console.log('Wagwan. Server inarun...')
+    console.log('Mashallah! The server is running...')
 })

@@ -1,5 +1,3 @@
-import {Request} from 'express'
-
 
 export interface Poll{
     id:string,
@@ -13,14 +11,5 @@ export interface Poll{
     userId:string
 }
 
-export interface PollPayload{
-    id: string,
-    userId:string,
-    title:string,
-    // description:string,
-}
 
-export interface ExtendedRequest extends Request{
-    info?: PollPayload
-}
 

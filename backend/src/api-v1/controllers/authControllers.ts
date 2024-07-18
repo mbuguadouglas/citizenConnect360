@@ -95,7 +95,7 @@ export async function loginUser (request:Request, response:Response){
 
                 // return response.status(200).send({message:"login successful!"})
                 // above works well. but need to pass token to allow for roleBased authentication
-                return response.status(200).send({message:"You have succesfully logged in!",decodedToken:decodedToken})
+                return response.status(200).send({message:"You have succesfully logged in!",token:token,decodedToken:decodedToken})
             } else{
                 // instance wherby the email matches. but incorrect password
                 return response.status(400).send({message:"Ohh no! Seems like you entered an invalid password.try again?"})

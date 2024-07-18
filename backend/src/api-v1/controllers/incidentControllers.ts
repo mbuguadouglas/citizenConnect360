@@ -1,7 +1,5 @@
 import {Request, Response } from 'express'
 import {v4 as uid} from 'uuid' 
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
 import path from 'path'
 import dotenv from 'dotenv'
 

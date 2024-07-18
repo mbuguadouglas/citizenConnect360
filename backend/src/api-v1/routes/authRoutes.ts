@@ -1,6 +1,7 @@
 import {Router} from 'express'
-import { changePassword, deleteUser, forgotPassword, getUserByEmail, getUserById, getUsers, loginUser, registerUser, resetPassword, updateUser } from '../controllers/authControllers'
-// import { verifyAuthToken } from '../middleware/authMiddleware'
+import { changePassword, deleteUser, forgotPassword, getUserByEmail, getUserById, getUsers, loginUser, registerUser, updateUser } from '../controllers/authControllers'
+import { roleBasedToken } from '../middleware'
+
 
 const authRouter = Router()
 
@@ -8,11 +9,11 @@ authRouter.post("/register",registerUser)
 authRouter.post("/login",loginUser)
 authRouter.post("/change-password",changePassword)
 authRouter.post("/forgot-password",forgotPassword)
-authRouter.get("/users",getUsers)
-authRouter.get("/user-email",getUserByEmail)
-authRouter.get("/:id",getUserById)
+authRouter.get("/users", roleBasedToken, getUsers)
+authRouter.get("/user-email", roleBasedToken, getUserByEmail)
+authRouter.get("/:id", roleBasedToken, getUserById)
 authRouter.patch("/:id",updateUser)
-authRouter.delete("/:id",deleteUser)
+authRouter.delete("/:id", roleBasedToken, deleteUser)
 
 
 export default authRouter

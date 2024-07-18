@@ -1,4 +1,3 @@
-import {Request} from 'express'
 
 
 export interface View{
@@ -15,14 +14,5 @@ export interface View{
     isModified?:number
 }
 
-export interface ViewPayload{
-    id: string,
-    userId:string,
-    title:string,
-    // description:string,
-}
 
-export interface ExtendedRequest extends Request{
-    info?: ViewPayload
-}
 
