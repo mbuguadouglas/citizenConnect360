@@ -6,13 +6,14 @@ CREATE OR ALTER PROCEDURE addView(
     @title VARCHAR(50),
     @description VARCHAR(100),
     @body VARCHAR(255),
-    @location VARCHAR(50)
+    @location VARCHAR(50),
+    @imageUrl VARCHAR(250)
 
 )
 AS
 BEGIN 
-INSERT INTO views(id,userId,title,description,body,location)
-VALUES (@id,@userId,@title,@description,@body,@location)
+INSERT INTO views(id,userId,title,description,body,location,imageUrl )
+VALUES (@id,@userId,@title,@description,@body,@location,@imageUrl)
 END
 
 GO;

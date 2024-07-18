@@ -6,6 +6,7 @@ CREATE TABLE views (
     description VARCHAR(100) NOT NULL,
     body VARCHAR(255) NOT NULL,
     location VARCHAR(50) NOT NULL,
+    imageUrl VARCHAR(255),
     createdAt DATETIME DEFAULT GETDATE(),
     isDeleted INT DEFAULT 0,
     isApproved INT DEFAULT 1,

@@ -7,7 +7,7 @@ import dotenv from 'dotenv'
 
 import { DbHelper } from '../databaseHelpers'
 import { changePasswordSchema, forgotPasswordSchema, registerSchema } from '../validation/authValidation'
-import { Roles, User, UserPayload } from '../models/authModel'
+import { Roles, User, UserPayload } from '../models/authModels'
 dotenv.config({path:path.resolve(__dirname,"../../.env")})
 
 
@@ -17,7 +17,7 @@ const db = new DbHelper()
 
 export async function registerUser(request:Request,response:Response) {
     const id = uid()
-    const role = Roles.User   //change when you need to add admin
+    const role = Roles.Citizen   //change when you need to add admin
     const {name,email,password,acceptTos} = request.body
 
     // abort early false ensure entire body is authenticated, despite error on the first one
@@ -262,7 +262,7 @@ export async function updateUser  (request:Request<{id:string}>,response:Respons
     try{
         const id = request.params.id
         const {name,email,password} = request.body
-        const role = Roles.User     //change if admin needs to update themselves
+        const role = Roles.Citizen     //change if admin needs to update themselves
 
         const user = (await db.exec('getUserById',{
             id:id

@@ -1,6 +1,6 @@
 USE citizenConnect;
 
-CREATE OR ALTER PROCEDURE approveView(
+CREATE OR ALTER PROCEDURE sensorView(
     @id VARCHAR(255)
 )   
 AS

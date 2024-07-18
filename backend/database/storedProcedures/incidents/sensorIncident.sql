@@ -1,6 +1,6 @@
 USE citizenConnect;
 
-CREATE OR ALTER PROCEDURE approveIncident(
+CREATE OR ALTER PROCEDURE sensorIncident(
     @id VARCHAR(255)
 )   
 AS

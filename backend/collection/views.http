@@ -1,0 +1,55 @@
+#####################
+# register a new view
+POST  http://localhost:4000/views/add-view
+Content-Type: application/json
+
+{
+    "userId" : "3739f68c-f5bf-4a78-ad8f-1367e66e3dc6",
+    "title" : "Viewers of GOT claim they want a better season finale",
+    "description" : "is there an alternate ending to G.O.T?",
+    "body" : "To verify that NGINX is returning requests correctly, use your browser to make a request to your machine or use curl.",
+    "location" : "Avengers HQ",
+    "imageUrl" : "https://picha-noma"
+}
+
+
+#########################
+# get all views in db
+GET http://localhost:4000/views
+
+
+#########################
+#view must have isDeleted=0 and isApproved=1
+# get all a view using a specific id
+GET http://localhost:4000/views/071f575f-b59d-4f1f-82aa-085512c4c50b
+
+
+#####################
+#changes isModified to 1
+# update an existing view
+PATCH  http://localhost:4000/views/update-view/8002f705-d295-4e5d-b6bf-ff21239d0086
+Content-Type: application/json
+
+{
+    "userId" : "3739f68c-f5bf-4a78-ad8f-1367e66e3dc6",
+    "title" : "Viewers of GOT claim they want a better season finale",
+    "description" : "is there an alternate ending to G.O.T?",
+    "body" : "To verify that NGINX is returning requests correctly, use your browser to make a request to your machine or use curl.",
+    "location" : "Winterfell",
+    "imageUrl" : "https://picha-zii"
+}
+
+
+#########################
+#changes isApproved=0
+# sensor a view using a specific id
+PATCH http://localhost:4000/views/sensor-view/a757cab2-67fe-4fb6-8f41-732cd40eb580
+
+
+
+#########################
+# delete a view using a specific id
+DELETE http://localhost:4000/views/8002f705-d295-4e5d-b6bf-ff21239d0086
+
+
+

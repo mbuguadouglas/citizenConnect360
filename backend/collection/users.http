@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
     "name": "lancelot",
-    "email": "lancelot@gmail.com",
+    "email": "hiro@gmail.com",
     "password": "qwerty12",
     "acceptTos": "yes"
 }
@@ -79,7 +79,7 @@ Content-Type: application/json
 
 
 ######################
-DELETE http://localhost:4000/auth/50d95164-8999-4834-901b-5213390f8c90
+DELETE http://localhost:4000/auth/3739f68c-f5bf-4a78-ad8f-1367e66e3dc6
 
 ######################
 

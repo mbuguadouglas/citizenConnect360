@@ -6,7 +6,7 @@ CREATE OR ALTER PROCEDURE getView(
 
 AS
 BEGIN 
-SELECT * FROM views WHERE id=@id AND isApproved=1
+SELECT * FROM views WHERE id=@id AND isApproved=1 AND isDeleted=0
 END;
 
 GO;

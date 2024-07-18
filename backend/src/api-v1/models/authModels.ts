@@ -2,9 +2,9 @@ import {Request} from 'express'
 
 // create an enum for user roles
 export enum Roles {
-    Admin = 'admin',
-    User = 'user',
-    Guest = 'guest'
+    Citizen = 'citizen',
+    Official = 'official',
+    Admin = 'admin'
 }
 
 export interface User{
