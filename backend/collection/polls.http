@@ -1,0 +1,25 @@
+#####################
+# register a new user
+POST  http://localhost:4000/polls/add-poll
+Content-Type: application/json
+
+{
+    "userId": "cf0ed8e5-c96b-4b52-b7d9-02b3aa253e95",
+    "title": "do dragons exist?",
+    "description": "in this poll we try to find out whether dragons do really exist or are they just another myth"
+}
+
+
+######################
+# get all polls in the db
+GET http://localhost:4000/polls
+
+
+######################
+# get a specific poll by id
+GET http://localhost:4000/polls/
+
+
+######################
+# delete a poll in the db
+DELETE http://localhost:4000/polls/
