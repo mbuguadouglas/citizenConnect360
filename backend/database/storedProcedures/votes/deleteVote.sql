@@ -5,7 +5,7 @@ CREATE OR ALTER PROCEDURE deleteVote(
 )   
 AS
 BEGIN
-UPDATE pollVotes SET isDeleted=1 
+UPDATE votes SET isDeleted=1 
 WHERE id=@id
 END 
 

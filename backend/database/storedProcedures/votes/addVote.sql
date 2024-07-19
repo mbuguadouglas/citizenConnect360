@@ -1,6 +1,6 @@
 USE citizenConnect;
 
-CREATE OR ALTER PROCEDURE addPoll(
+CREATE OR ALTER PROCEDURE addVote(
     @id VARCHAR(255),
     @choiceMade VARCHAR(255),
 
@@ -9,7 +9,7 @@ CREATE OR ALTER PROCEDURE addPoll(
     )
 AS
 BEGIN 
-INSERT INTO pollVotes(id,choiceMade,pollId,userId)
+INSERT INTO votes(id,choiceMade,pollId,userId)
 VALUES (@id,@choiceMade,@pollId,@userId)
 END
 

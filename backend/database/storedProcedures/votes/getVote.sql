@@ -6,7 +6,8 @@ CREATE OR ALTER PROCEDURE getVote(
 
 AS
 BEGIN 
-SELECT * FROM pollVotes WHERE id=@id AND isDeleted=0
-END;
+SELECT * FROM votes WHERE id=@id
+END
 
 GO;
+

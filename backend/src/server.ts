@@ -4,6 +4,7 @@ import authRouter from './api-v1/routes/authRoutes'
 import viewRouter from './api-v1/routes/viewRoutes'
 import incidentRouter from './api-v1/routes/incidentRoutes'
 import pollRouter from './api-v1/routes/pollRoutes'
+import voteRouter from './api-v1/routes/voteRoutes'
 
 const app = express()   // initialize the application
 
@@ -16,6 +17,7 @@ app.use("/auth", authRouter)
 app.use("/views", viewRouter)
 app.use("/incidents", incidentRouter)
 app.use("/polls", pollRouter)
+app.use("/votes",voteRouter)
 
 
 // start the application

@@ -12,15 +12,6 @@ export interface Poll{
     userId:string
 }
 
-export interface PollVotes{
-    id:string,
-    userId:string,
-    pollId:string,
-    answer:string,
-    isOpen?:number,
-    createdAt?:string,
-    isDeleted?:number
-}
 
 // use an array instead
 // interface PossibleChoices{

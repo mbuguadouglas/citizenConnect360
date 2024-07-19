@@ -289,7 +289,8 @@ export async function updateUser  (request:Request<{id:string}>,response:Respons
 
     } catch(error) {
         response.status(400).send(error)
-    }}
+    }
+}
 
 
 
