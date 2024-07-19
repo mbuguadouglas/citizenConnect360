@@ -15,20 +15,26 @@ const db = new DbHelper()
 
 export async function addPoll(request:Request,response:Response) {
     const id = uid()
-    const {title,description,userId} = request.body
+    const {title,description,userId,choices} = request.body
+    const choicesString = choices.join(",") //convert choices array into a CSV for storage in DB with NVARCHAR(max)
+    // console.log(choices)
+    // console.log(choicesString)
 
     const { error } = pollSchema.validate(request.body)
 
     try{
         if(error){
-            return response.status(400).send(error.details[0].message)
+            // return response.status(400).send(error.details[0].message)
+            // return response.status(400).send(error)
+            return response.status(400).send({message:"we ishia msee"})
         } else {
 
             await db.exec('addPoll',{
                 id: id,
+                userId:userId,
                 title:title,
                 description:description,
-                userId:userId
+                choices:choicesString
             })
 
 
@@ -108,7 +114,8 @@ export async function closePoll  (request:Request<{id:string}>,response:Response
 
     } catch(error) {
         return response.status(400).send(error)
-    }}
+    }
+}
 
 
 

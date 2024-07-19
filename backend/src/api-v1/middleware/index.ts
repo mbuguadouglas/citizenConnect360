@@ -18,8 +18,8 @@ export async function roleBasedToken (request:ExtendedRequest, response:Response
             // 3.read the token
             const decodedToken = jwt.verify(token, process.env.SECRET as string) as UserPayload
             request.info = decodedToken
-            console.log('...')
-            console.log(decodedToken)
+            // console.log('...')
+            // console.log(decodedToken)
             // return response.status(200).send({message:"Wagwan Bazzuuu",decodedToken})
 
         }
