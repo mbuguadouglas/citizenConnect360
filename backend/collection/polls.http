@@ -8,7 +8,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxYmFhMDA0LWI1Y2YtNDVlOS05N
     "userId": "cf0ed8e5-c96b-4b52-b7d9-02b3aa253e95",
     "title": "advanced choices to see how they work",
     "description": "in this poll we try to find out are your views on the finance bill. should it be passed, or rejected?",
-    "choices": ["yes, i am certain","no. id like it that way","unsure","maybe"]
+    "choices": ["no. id like it that way","unsure, i think","maybe"]
 }
 
 

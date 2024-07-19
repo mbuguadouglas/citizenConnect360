@@ -26,7 +26,7 @@ export async function addPoll(request:Request,response:Response) {
         if(error){
             // return response.status(400).send(error.details[0].message)
             // return response.status(400).send(error)
-            return response.status(400).send({message:"we ishia msee"})
+            return response.status(400).send(error.details[0].message)
         } else {
 
             await db.exec('addPoll',{
