@@ -8,7 +8,7 @@ const voteRouter = Router()
 voteRouter.post("/add-vote",roleBasedToken, addVote)
 voteRouter.get("",getVotes)
 voteRouter.get("/:id", getSpecificPollVotes)
-voteRouter.patch("/update-Vote/:id", updateVote)
+voteRouter.patch("/update-vote/:id", updateVote)
 voteRouter.delete("/:id",roleBasedToken, deleteVote)
 
 

@@ -1,5 +1,5 @@
 import {Request, Response } from 'express'
-import {v4 as uid} from 'uuid' 
+import {stringify, v4 as uid} from 'uuid' 
 import path from 'path'
 import dotenv from 'dotenv'
 
@@ -71,8 +71,13 @@ export async function getPoll (request:Request<{id:string}>,response:Response){
         const id = request.params.id
         const poll = (await db.exec('getPoll',{
             id:id
-        })).recordset[0] as Array<Poll>
-        // console.log(poll)
+        })).recordset as Array<Poll>
+        console.log(poll[0].choices)
+
+        // looking for a way to split up the choices string on the commas
+        // const pollChoices = JSON.stringify(poll[0].choices).split
+        // console.log('......')
+        // console.log(pollChoices)
 
         if (poll){
 
