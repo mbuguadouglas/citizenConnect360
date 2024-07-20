@@ -1,7 +1,11 @@
 import ejs from 'ejs'
+import dotenv from 'dotenv'
+import path from 'path'
 import { User, UserEmail } from '../models/userModels'
-import { sendWelcomeEmail } from '../helpers'
 import { DbHelper } from '../databaseHelpers'
+import { sendWelcomeEmail } from '../helpers'
+dotenv.config({path:path.resolve(__dirname,"../../.env")})
+
 
 // instatitate the database helpers class
 const db = new DbHelper()
@@ -18,14 +22,15 @@ export async function newUser(){
         users.forEach( (user)=>{
 
             // build the message to be sent
-            ejs.renderFile("templates/register.ejs", {
-                title:"Registration Success!",
+            ejs.renderFile("templates/welcome.ejs", {
+                title:"Welcome to citizenConnect360!",
                 name:user.name,
                 message:"Thanks for signing up to our website. We're very excited to have you on board.",
-                confirmation_url : "www.citizenConnect.co.ke",
+                get_started_url : "www.citizenConnect.co.ke",
                 company_name:"citizenConnect360"},
                 async (err,data)=>{
                     // console.log(data)    //-> confirm ejs is modified
+                    // console.log(err)
 
                     let messageOptions:UserEmail = {
                         to:user.email,
@@ -34,8 +39,6 @@ export async function newUser(){
                         html: data
                     }
 
-                    console.log(messageOptions)
-                    // send the email
                     sendWelcomeEmail(messageOptions) 
 
                     // update emails sent to prevent continous loop
