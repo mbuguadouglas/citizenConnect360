@@ -4,11 +4,20 @@ GET http://127.0.0.1:5000/users
 
 
 ######################
-POST http://127.0.0.1:5000/add-user
+# get  a specific user
+GET http://127.0.0.1:5000/users/057392d7-7533-4faa-8eb7-d6d88a2df523
+
+
+
+######################
+POST http://127.0.0.1:5000/users/add-user
 Content-Type: application/json
 
 {
-    "name" : "Mark Mende"
+    "name" : "Mark Mende",
+    "email" : "markmende32@gmail.com",
+    "password" : "Mark17?q",
+    "role" : "citizen"
 }
 ######################
 ######################

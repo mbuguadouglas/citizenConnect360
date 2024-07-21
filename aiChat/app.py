@@ -2,6 +2,7 @@ from flask import Flask, jsonify,render_template, request,flash
 from dotenv import load_dotenv
 import pyodbc
 import os
+import uuid
 
 load_dotenv('.env')
 app = Flask(__name__)
@@ -20,79 +21,115 @@ connectionString = f"""
     PWD={os.getenv('PASSWORD')};
 """
 
-# connect to mssql database
-conn = pyodbc.connect(connectionString)
-cursor = conn.cursor()
 
 
-# cursor.execute(getAllUsers)
+# function to remove repetitive writing of tasks
+def query_db(query, params=()):
 
-# records = cursor.fetchall()
-# for r in records:
-#     print(f"{r.id}\t{r.name}\t{r.email}")
+    # connect to mssql database
+    conn = pyodbc.connect(connectionString)     
+    cursor = conn.cursor()      #cursor object to interat with db
+
+    # execute the query given
+    cursor.execute(query, params)
+
+    # Get the column names from the cursor description
+    columns = [column[0] for column in cursor.description]
+
+    # declare empty list to store query results
+    results = []
+    for row in cursor.fetchall():
+        # zip(columns, row) pairs each column name with the corresponding value in the row
+        # dict(zip(columns, row)) creates a dictionary for each row with column names as keys
+        results.append(dict(zip(columns, row)))
+
+    # close the db connection
+    conn.close()
+    return results
 
 
 # create a route to get all users from the db
-@app.route('/users', methods=['GET','POST'])
+@app.route('/users', methods=['GET'])
 def get_users():
-    print('radaaaa')
-    if request.method =='GET':
-        # create all the queries to be used
-        getAllUsers = """
-                SELECT 
-                * FROM users;
-            """
 
-        # execute the query
-        cursor.execute(getAllUsers)
+    # create all the queries to be used
+    getUsers = """
+            SELECT 
+            * FROM users;
+        """
 
-        try:
-            users = cursor.fetchall()
-
-            # print the users to the console
-            # for r in users:
-            #     print(f"{r.id}\t{r.name}\t{r.email}")
+    try:
+        data = query_db(getUsers)    
+        return jsonify(data),200
     
-            return render_template('index.html')
-        except Exception as e:
-            print(e)
+    except Exception as e:
+        print(e)
+        return jsonify({"error": str(e)}), 500
 
-    return render_template('users.html',users=users)
-
-
-# create a route endpoint
-# @app.route('/')
-# def home():
-#     return 'hello world'
-
-# # work with get request
-# @app.route('/get-user/<user_id>')
-# def get_user(user_id):
-#     user_data = {
-#         'user_id' : user_id,
-#         'name' : 'Mbugua Douglas',
-#         'email' : 'daagi210@gmail.com'
-#    }
-
-#     #    get query parameters passed from db
-#     extra = request.args.get('extra')
-#     if extra:
-#         user_data['extra'] = extra
-
-#     return jsonify(user_data), 200
+    return render_template('index.html')
 
 
-# # work on post request
-# @app.route('/add-user', methods=['GET','POST'])
-# def add_user():
-#     if request.method == 'POST':
-#         # get data submitted as json
-#         data = request.get_json()
 
-#         # add data to db
+# work with get request. a specific user
+@app.route('/users/<user_id>', methods=['GET'])
+def get_user(user_id):
+    getUser = """
+            SELECT 
+            * FROM users
+            WHERE id=?
+        """
 
-#         return jsonify(data), 200
+    # print(user_id) 
 
+    try:
+        data = query_db(getUser, (user_id,))    
+        return jsonify(data), 200
+
+    except Exception as e:
+        print(e)
+        return jsonify({"error": str(e)}), 500
+
+    return render_template('index.html')
+
+
+# work with create
+@app.route('/users/add-user', methods=['POST'])
+def register_user():
+    # Check if the request contains JSON data
+    if not request.is_json:
+        return jsonify({"error": "Invalid input, JSON required"}), 400
+
+    # Extract data from JSON payload
+    data = request.get_json()
+    name = data.get('name')
+    email = data.get('email')
+    password = data.get('password')
+    role = data.get('role')
+
+    id = str(uuid.uuid4())
+    print(id)
+
+    # Validate input data
+    if not all([id, name, email, password, role]):
+        return jsonify({"error": "Missing data"}), 400
+
+    # Create the SQL INSERT query
+    registerUser = """
+        INSERT INTO users (id, name, email, password, role) 
+        VALUES (?, ?, ?,?,?)
+    """
+    
+    try:
+        # conn = pyodbc.connect(connectionString)
+        # cursor = conn.cursor()
+        # cursor.execute(registerUser, (id, name, email,password,role))
+        # conn.commit()
+        # conn.close()
+        return jsonify({"message": "User created successfully"}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+    return render_template('index.html')
 
 
 
