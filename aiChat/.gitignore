@@ -1,5 +1,2 @@
 # ignore the project secrets
 .env
-
-# ignore the file with api keys until i know how to use them
-model.py
