@@ -4,12 +4,12 @@ POST  http://localhost:4000/views/add-view
 Content-Type: application/json
 
 {
-    "userId" : "3739f68c-f5bf-4a78-ad8f-1367e66e3dc6",
-    "title" : "G.O.Tha fans",
-    "description" : "is there an alternate ending to G.O.T?",
-    "body" : "To verify that NGINX is returning requests correctly, use your browser to make a request to your machine or use curl.",
-    "location" : "Avengers HQ",
-    "imageUrl" : "https://picha-noma"
+    "userId" : "4aad5877-0b05-4fbd-b8a3-e108831e909b",
+    "title" : "The cabinet reappointment is bogus",
+    "description" : "the president and his deputy should leave office immediately!",
+    "body" : "the recent firing and renomination of people into the kenyqn cabinet is bogus. Thieves were fired on Friday only to be returned into office on Monday. It seem to be a mockery on the democracy of the nation and the people",
+    "location" : "Kawangware",
+    "imageUrl" : "https://cdn.pixabay.com/photo/2021/11/10/13/57/resignation-6784035_1280.png"
 }
 
 

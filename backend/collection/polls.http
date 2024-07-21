@@ -5,10 +5,9 @@ Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxYmFhMDA0LWI1Y2YtNDVlOS05NzNlLTQzOTNiOGY3MGIzMyIsIm5hbWUiOiJibHVlIiwiZW1haWwiOiJuYWthbXVyYUBnbWFpbC5jb20iLCJyb2xlIjoiY2l0aXplbiIsImlhdCI6MTcyMTMxODQ5OCwiZXhwIjoxNzIzMDQ2NDk4fQ.0tSHhg4BABqH0fzApRZB95BAzKoU0E6N1L3ZiVvWOzo
 
 {
-    "userId": "cf0ed8e5-c96b-4b52-b7d9-02b3aa253e95",
-    "title": "advanced choices to see how they work",
-    "description": "in this poll we try to find out are your views on the finance bill. should it be passed, or rejected?",
-    "choices": ["no. id like it that way","unsure, i think","maybe"]
+    "userId": "8fdac51a-0182-4f1e-9afa-0d8f388a18ae",
+    "title": "Should the Finance Bill be passed as a law?",
+    "choices": ["yes. it will steer Kenya in the right direction","no. it should not see the light of day","no. it should be ammended first","uncertain as i havent read it well"]
 }
 
 

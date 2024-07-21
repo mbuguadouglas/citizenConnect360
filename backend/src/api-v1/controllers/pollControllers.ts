@@ -15,7 +15,7 @@ const db = new DbHelper()
 
 export async function addPoll(request:Request,response:Response) {
     const id = uid()
-    const {title,description,userId,choices} = request.body
+    const {title,userId,choices} = request.body
     const choicesString = choices.join(",") //convert choices array into a CSV for storage in DB with NVARCHAR(max)
     // console.log(choices)
     // console.log(choicesString)
@@ -33,7 +33,6 @@ export async function addPoll(request:Request,response:Response) {
                 id: id,
                 userId:userId,
                 title:title,
-                description:description,
                 choices:choicesString
             })
 

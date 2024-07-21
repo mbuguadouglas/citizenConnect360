@@ -7,12 +7,6 @@ export const pollSchema = Joi.object({
         'any.required': 'Title is required'
       }),
 
-    description:Joi.string().required().messages({
-      'string.base': 'Description should be a type of text',
-      'string.empty': 'Description is required',
-      'any.required': 'Description is required'
-    }),
-
     userId:Joi.string().required().messages({
       'string.base': 'User ID should be a type of text',
       'string.empty': 'User ID is required',
