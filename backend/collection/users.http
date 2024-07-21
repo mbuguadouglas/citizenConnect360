@@ -55,7 +55,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxYmFhMDA0LWI1Y2YtNDVlOS05N
 
 ######################
 # get a specific user by id
-GET http://localhost:4000/auth/20996421-aab2-4c6f-ad01-10e8186f8081
+GET http://localhost:4000/auth/b6118ff0-993b-44c5-98d3-cf789aef2d6d
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxYmFhMDA0LWI1Y2YtNDVlOS05NzNlLTQzOTNiOGY3MGIzMyIsIm5hbWUiOiJibHVlIiwiZW1haWwiOiJuYWthbXVyYUBnbWFpbC5jb20iLCJyb2xlIjoiY2l0aXplbiIsImlhdCI6MTcyMTMxODQ5OCwiZXhwIjoxNzIzMDQ2NDk4fQ.0tSHhg4BABqH0fzApRZB95BAzKoU0E6N1L3ZiVvWOzo
 
 
@@ -86,7 +86,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxYmFhMDA0LWI1Y2YtNDVlOS05N
 
 
 ######################
-DELETE http://localhost:4000/auth/3739f68c-f5bf-4a78-ad8f-1367e66e3dc6
+DELETE http://localhost:4000/auth/057392d7-7533-4faa-8eb7-d6d88a2df523
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxYmFhMDA0LWI1Y2YtNDVlOS05NzNlLTQzOTNiOGY3MGIzMyIsIm5hbWUiOiJibHVlIiwiZW1haWwiOiJuYWthbXVyYUBnbWFpbC5jb20iLCJyb2xlIjoiY2l0aXplbiIsImlhdCI6MTcyMTMxODQ5OCwiZXhwIjoxNzIzMDQ2NDk4fQ.0tSHhg4BABqH0fzApRZB95BAzKoU0E6N1L3ZiVvWOzo
 
 
