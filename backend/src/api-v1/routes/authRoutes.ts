@@ -7,7 +7,7 @@ const authRouter = Router()
 
 authRouter.post("/register",registerUser)
 authRouter.post("/login",loginUser)
-authRouter.post("/change-password",changePassword)
+authRouter.post("/change-password/:id",changePassword)
 authRouter.post("/forgot-password",forgotPassword)
 authRouter.get("/users", roleBasedToken, getUsers)
 authRouter.get("/user-email", roleBasedToken, getUserByEmail)

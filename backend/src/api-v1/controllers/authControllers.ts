@@ -109,9 +109,10 @@ export async function loginUser (request:Request, response:Response){
 } 
 
 // user intentionally wants to change password
-export async function changePassword (request:Request, response:Response){
+export async function changePassword (request:Request<{id:string}>, response:Response){
     
-    const {email, oldPassword, newPassword} = request.body
+    const id = request.params.id
+    const {newPassword, confirmNewPassword} = request.body
     const { error } = changePasswordSchema.validate(request.body)
 
     try{
@@ -119,8 +120,8 @@ export async function changePassword (request:Request, response:Response){
             return response.status(400).send(error.details[0].message)
         } else {
 
-            const user = (await db.exec('getUserByEmail',{
-                email:email
+            const user = (await db.exec('getUserById',{
+                id:id
             })).recordset as Array<User>
     
             // console.log(user[0])
@@ -128,24 +129,19 @@ export async function changePassword (request:Request, response:Response){
             // if the user exists
             if(user){
     
-                // check if password inputted matches that in db
-                const isValid = await bcrypt.compare(oldPassword, user[0].password)
                 // create new hashed password
-                const newHashedPassword = await bcrypt.hash(newPassword,9)
+                const newHashedPassword = await bcrypt.hash(confirmNewPassword,9)
     
-                if(isValid){
-                    await db.exec('updatePassword',{
-                        id: user[0].id,
-                        password:newHashedPassword,
-                    })
+                await db.exec('updatePassword',{
+                    id: user[0].id,
+                    password:newHashedPassword,
+                })
+               
 
-                    return response.status(200).send({message:"Congratulations! You have updated your password succesfully"})
-                } else {
-                    return response.status(400).send({message:"Ohh no! Seems like the password you entered doesnt match your old one. Try forgot password instead?"}) 
-                }
-    
+                return response.status(200).send({message:"Congratulations! You have updated your password succesfully"})
+              
             } else {
-                return response.status(400).send({message:"what here?"}) 
+                return response.status(400).send({message:"Oh no! Looks like we could not find a user with that id. Review the id and try again?"}) 
             }
     
         }
@@ -158,7 +154,7 @@ export async function changePassword (request:Request, response:Response){
 // user forgot old password an is now reseting a new one
 export async function forgotPassword (request:Request, response:Response){
     
-    const {email, newPassword, confirmNewPassword} = request.body
+    const {email} = request.body
     const { error } = forgotPasswordSchema.validate(request.body)
 
     try{
@@ -175,14 +171,11 @@ export async function forgotPassword (request:Request, response:Response){
             // if the user exists
             if(user){
     
-                const newHashedPassword = await bcrypt.hash(confirmNewPassword,9)
-    
-                await db.exec('updatePassword',{
-                    id: user[0].id,
-                    password:newHashedPassword,
+                await db.exec('activatePasswordReset',{
+                    id: user[0].id
                 })
 
-                return response.status(200).send({message:"Congratulations! You have reset your password succesfully"})
+                return response.status(200).send({message:"Congratulations! A password reset link will be sent to you shortly"})
     
             } else {
                 return response.status(400).send({message:"Oops! Looks like that user doesn't exist. Try again?"}) 
