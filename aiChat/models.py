@@ -6,8 +6,8 @@ from langchain.agents.agent_types import AgentType
 import os
 from dotenv import load_dotenv
 
-load_dotenv('.env')
 
+load_dotenv('.env')
 
 # import environment keys
 KEY=os.getenv('KEY')
@@ -31,7 +31,7 @@ agent_executor = create_sql_agent(
     prefix='You are an A.I that is supposed to interact with my MsSQL database'
 )
 
-# pass query
-result = agent_executor('how many users are in my db')
+# # pass query
+# result = agent_executor('how many users are in my db')
 
-print(result)
+# print(result)

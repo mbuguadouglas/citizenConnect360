@@ -1,5 +1,6 @@
 from flask import Flask, jsonify,render_template, request,flash
 from dotenv import load_dotenv
+from models import agent_executor
 import pyodbc
 import os
 import uuid
@@ -21,9 +22,7 @@ connectionString = f"""
     PWD={os.getenv('PASSWORD')};
 """
 
-
-
-# function to remove repetitive writing of tasks
+# function to remove repetitive writing of queries
 def query_db(query, params=()):
 
     # connect to mssql database
@@ -52,11 +51,8 @@ def query_db(query, params=()):
 @app.route('/users', methods=['GET'])
 def get_users():
 
-    # create all the queries to be used
-    getUsers = """
-            SELECT 
-            * FROM users;
-        """
+    # create the query to be used
+    getUsers = f"SELECT * FROM users"
 
     try:
         data = query_db(getUsers)    
@@ -66,18 +62,13 @@ def get_users():
         print(e)
         return jsonify({"error": str(e)}), 500
 
-    return render_template('index.html')
-
-
 
 # work with get request. a specific user
 @app.route('/users/<user_id>', methods=['GET'])
 def get_user(user_id):
-    getUser = """
-            SELECT 
-            * FROM users
-            WHERE id=?
-        """
+
+    getUser = f"SELECT * FROM users WHERE id=?"
+    
 
     # print(user_id) 
 
@@ -120,16 +111,55 @@ def register_user():
     """
     
     try:
-        # conn = pyodbc.connect(connectionString)
-        # cursor = conn.cursor()
-        # cursor.execute(registerUser, (id, name, email,password,role))
-        # conn.commit()
-        # conn.close()
+        conn = pyodbc.connect(connectionString)
+        cursor = conn.cursor()
+        cursor.execute(registerUser, (id, name, email,password,role))
+        conn.commit()
+        conn.close()
         return jsonify({"message": "User created successfully"}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
     return render_template('index.html')
+
+
+
+@app.route('/educate-chat', methods=['GET','POST'])
+def educate_chat():
+    # Check if the request contains JSON data
+    if not request.is_json:
+        return jsonify({"error": "Invalid input, JSON required"}), 400
+    
+    # Extract data from JSON payload
+    data = request.get_json()
+    id = str(uuid.uuid4())
+    userId = data.get('userId')
+    query = data.get('query')
+
+    # Validate input data
+    if not all ([userId, query]):
+        return jsonify({"error": "Missing query parameter"}), 400
+
+    try:
+        # Use the agent_executor to process the query
+        response = agent_executor(query)
+
+        # add values to the ai table
+        addChat = """
+        INSERT INTO openAi (id, userId, query, response) 
+        VALUES (?, ?, ?, ?)
+        """
+
+        conn = pyodbc.connect(connectionString)
+        cursor = conn.cursor()
+        cursor.execute(addChat, (id, userId, query, response))
+        conn.commit()
+        conn.close()
+
+        return jsonify({"response": response}), 200
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 
