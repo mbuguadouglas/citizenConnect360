@@ -1,14 +1,15 @@
-# from flask import Flask, jsonify, request
+from flask import Flask, jsonify,render_template, request,flash
+from dotenv import load_dotenv
 import pyodbc
 import os
-from dotenv import load_dotenv
-
 
 load_dotenv('.env')
-# app = Flask(__name__)
+app = Flask(__name__)
 
-# import the variables in .env
+# print(os.getenv('USERNAME'), USERNAME)
+# being implicitly converted to admin. work on later
 USERNAME = 'sa'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 # use string interpolation to create a connection string variable
 connectionString = f"""
@@ -21,22 +22,42 @@ connectionString = f"""
 
 # connect to mssql database
 conn = pyodbc.connect(connectionString)
-
-# create all the queries to be used
-getAllUsers = """
-        SELECT 
-        * FROM users;
-"""
-
-
-
 cursor = conn.cursor()
-cursor.execute(getAllUsers)
 
-records = cursor.fetchall()
-for r in records:
-    print(f"{r.id}\t{r.name}\t{r.email}")
 
+# cursor.execute(getAllUsers)
+
+# records = cursor.fetchall()
+# for r in records:
+#     print(f"{r.id}\t{r.name}\t{r.email}")
+
+
+# create a route to get all users from the db
+@app.route('/users', methods=['GET','POST'])
+def get_users():
+    print('radaaaa')
+    if request.method =='GET':
+        # create all the queries to be used
+        getAllUsers = """
+                SELECT 
+                * FROM users;
+            """
+
+        # execute the query
+        cursor.execute(getAllUsers)
+
+        try:
+            users = cursor.fetchall()
+
+            # print the users to the console
+            # for r in users:
+            #     print(f"{r.id}\t{r.name}\t{r.email}")
+    
+            return render_template('index.html')
+        except Exception as e:
+            print(e)
+
+    return render_template('users.html',users=users)
 
 
 # create a route endpoint
@@ -75,28 +96,5 @@ for r in records:
 
 
 
-
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-
-
- 
-
-# # with dotenv
-# SERVER = os.getenv('SERVER')
-# DATABASE = os.getenv('DATABASE')
-# USERNAME = os.getenv('USERNAME')
-# PASSWORD = os.getenv('PASSWORD')
-
-# print(SERVER, DATABASE, USERNAME, PASSWORD)
-
-# # ce
-# connectionString = f'''
-# DRIVER={{ODBC Driver 17 for SQL Server}}
-# SERVER={SERVER}
-# DATABASE={DATABASE}
-# UID={USERNAME}
-# PWD={PASSWORD}
-# '''
+if __name__ == '__main__':
+    app.run(debug=True)
