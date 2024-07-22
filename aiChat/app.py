@@ -146,7 +146,7 @@ def educate_chat():
 
         # add values to the ai table
         addChat = """
-        INSERT INTO openAi (id, userId, query, response) 
+        INSERT INTO aiChats (id, userId, query, response) 
         VALUES (?, ?, ?, ?)
         """
 
