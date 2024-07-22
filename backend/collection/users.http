@@ -4,8 +4,8 @@ POST  http://localhost:4000/auth/register
 Content-Type: application/json
 
 {
-    "name": "Nakamura",
-    "email": "nakamura17@gmail.com",
+    "name": "Jonathan",
+    "email": "joendambuki16@gmail.com",
     "password": "Qwerty12!",
     "acceptTos": "yes"
 }
@@ -28,7 +28,6 @@ Content-Type: application/json
 # change user password
 POST http://localhost:4000/auth/change-password/2f0e8d2-c66c-4cb8-ae18-b695d3d269b9
 Content-Type: application/json
-
 
 {
     "newPassword": "Qwerty12!",
