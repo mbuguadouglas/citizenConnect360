@@ -142,7 +142,10 @@ def educate_chat():
 
     try:
         # Use the agent_executor to process the query
-        response = agent_executor(query)
+        answer = agent_executor(query)
+        questionAsked = answer.get('input')
+        answerGiven = answer.get('output')
+        print(f"THIS IS THE RESPONSE {answerGiven}")
 
         # add values to the ai table
         addChat = """
@@ -152,11 +155,11 @@ def educate_chat():
 
         conn = pyodbc.connect(connectionString)
         cursor = conn.cursor()
-        cursor.execute(addChat, (id, userId, query, response))
+        cursor.execute(addChat, (id, userId, query, answerGiven))
         conn.commit()
         conn.close()
 
-        return jsonify({"response": response}), 200
+        return jsonify({"response": answerGiven}), 200
     
     except Exception as e:
         return jsonify({"error": str(e)}), 500
