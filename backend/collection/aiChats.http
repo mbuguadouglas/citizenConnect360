@@ -1,0 +1,8 @@
+######################
+POST http://127.0.0.1:5000/educate-chat
+Content-Type: application/json
+
+{
+    "userId" : "4aad5877-0b05-4fbd-b8a3-e108831e909b",
+    "query" : "how many users are in my database?"
+}
