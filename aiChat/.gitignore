@@ -1,2 +1,7 @@
 # ignore the project secrets
 .env
+
+# ignore files built by python during runtime
+*.exe
+*.pyc
+
