@@ -2,11 +2,6 @@
 
 <div class="container">
 
-    <!-- display message from backend on DOM -->
-    <div *ngIf="message" class="popup">
-        <label> {{message}} </label>
-    </div>
-
     <!-- image on the left -->
      <div class="login-image">
         <!-- <img src="https://www.svgrepo.com/show/530120/plan-list.svg" alt="login-gif"> -->
@@ -16,6 +11,12 @@
 
     <!-- form on th right -->
      <div class="main-section">
+
+        <!-- display message from backend on DOM -->
+        <div *ngIf="message" class="popup">
+            <label> {{message}} </label>
+        </div>
+
         <!-- navigating back arrow -->
         <label class="back-arrow">
             <i class='bx bx-arrow-back bx-md'></i>
@@ -61,7 +62,7 @@
                 </div>
     
                 <div class="terms">
-                    <input formControlName="acceptTos" type="checkbox">
+                    <input type="checkbox">
                     <div class="error" *ngIf="!form.get('acceptTos')?.touched && form.get('acceptTos')?.hasError('required')"> You must agree to out terms and conditions</div>
                     <label>
                         i agree with citizenConnect360's <a href="#">terms of Service</a>, 

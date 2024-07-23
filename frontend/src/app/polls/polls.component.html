@@ -174,12 +174,12 @@
 
 
         <!-- <div class="button-section" *ngIf="role === citizen"> -->
-        <div class="button-section">
+        <div *ngIf="this.role=='official'" class="button-section">
             <label id="my-incident"> my polls </label>
             <label (click)="addPoll()" id="add-incident"> add poll </label>
         </div>
 
-        <div class="board">
+
 
         <!-- poll section card -->
         <div class="wrapper">
@@ -230,10 +230,8 @@
                 <div class="progress" style='--w:10;'></div>
               </label>
             </div>
-          </div>
 
-
-             <div class="priviledges">
+            <div *ngIf="this.role=='citizen'" class="priviledges">
 
                 <!-- *ngIf="role === official"> -->
                 <div class="action">
@@ -242,14 +240,20 @@
 
                 <!-- *ngIf="role === official"> -->
                 <div class="action">
-                    <label  class="decision" id="delete-poll"> delete poll </label>
+                    <label  class="decision" id="delete-poll"> delete vote </label>
                 </div>
 
             
             </div>
 
+          </div>
+          <!-- close the poll card -->
 
-        </div>
+
+
+
+
+    
 
      </div>
      

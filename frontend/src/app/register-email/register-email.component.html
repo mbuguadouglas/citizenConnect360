@@ -12,19 +12,19 @@
 
     <!-- form on th right -->
      <div class="main-section">
+         <!-- display message from backend on DOM -->
+         <div *ngIf="message" class="popup">
+             <label> {{message}} </label>
+         </div>
+
         <!-- navigating back arrow -->
         <label class="back-arrow">
             <i class='bx bx-arrow-back bx-md'></i>
         </label>
 
-        <!-- display message from backend on DOM -->
-        <div *ngIf="message" class="popup">
-            <label> {{message}} </label>
-        </div>
-
-
         <form (ngSubmit)="onSubmit()" [formGroup]="form" class="register-form">
             <h2> Signup to citizenConnect360 </h2>
+
             <!-- <fieldset> -->
                 <div class="form-group">
                     <label for="email"> Email </label>    <br/>
@@ -41,7 +41,7 @@
     
                 <div class="form-group">
                     <label for="password"> Password </label>    <br/>
-                    <input formControlName="password" type="text" placeholder="Enter password">
+                    <input formControlName="password" type="password" placeholder="Enter password">
                     <div class="error" *ngIf="form.get('password')?.touched && form.get('password')?.invalid"> please enter a valid password
                         <!-- not working -->
                         <p class="error" *ngIf="form.get('password')?.hasError('passwordRegexValidator')"> Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character</p>

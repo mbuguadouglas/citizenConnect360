@@ -16,6 +16,8 @@ export class PollsComponent implements OnInit, OnChanges,AfterViewInit{
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   form!: FormGroup
+  role:string = ''
+  id:string = ''
 
 
   // function for update popup
@@ -36,6 +38,9 @@ export class PollsComponent implements OnInit, OnChanges,AfterViewInit{
 
   
     ngOnInit(): void {
+      // get values from local storage
+      this.role = localStorage.getItem('role') as string
+      this.id = localStorage.getItem('id') as string
       
     }
     

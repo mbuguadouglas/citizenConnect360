@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/authService/auth.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './register-email.component.html',
   styleUrl: './register-email.component.css'
 })
-export class RegisterEmailComponent implements OnInit,OnDestroy{
+export class RegisterEmailComponent implements OnInit{
 
   constructor ( private auth:AuthService ){}
 
@@ -20,7 +20,7 @@ export class RegisterEmailComponent implements OnInit,OnDestroy{
   // create a form
   form!:FormGroup
   message = '' //message from the backend
-  router = Inject(Router)   //allow navigation to the login page
+  router = inject(Router)   //allow navigation to the login page. inject with small i
   sub!:Subscription     //prevent memory leak on component switching
   passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,10}$/
 
@@ -39,8 +39,8 @@ export class RegisterEmailComponent implements OnInit,OnDestroy{
         }, 1500)
       },
       (error)=>{
-        console.log(error)
-        this.message = error.message //severe nesting
+        // console.log(error)
+        this.message = error.error //severe nesting
       })
 
     // clear form on submit
@@ -64,10 +64,5 @@ export class RegisterEmailComponent implements OnInit,OnDestroy{
       acceptTos: new FormControl(null, Validators.required)
     })
   }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe()
-  }
-
 
 }

@@ -21,6 +21,7 @@
     "@ngrx/effects": "^18.0.1",
     "@ngrx/store": "^18.0.1",
     "@ngrx/store-devtools": "^18.0.1",
+    "@reactivex/rxjs": "^6.6.7",
     "@types/chart.js": "^2.9.41",
     "@types/swiper": "^6.0.0",
     "chart.js": "^4.4.3",

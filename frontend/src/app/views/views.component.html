@@ -179,7 +179,7 @@
      <div class="detailed">
 
         <!-- <div class="button-section" *ngIf="role === citizen"> -->
-        <div class="button-section">
+        <div *ngIf="this.role =='citizen' " class="button-section">
             <label id="my-view"> my views </label>
             <label (click)="addView()" id="add-view"> add view </label>
         </div>
@@ -225,7 +225,7 @@
              </div>
 
              
-             <div class="priviledges">
+             <div *ngIf="this.role=='official' || this.role=='citizen'" class="priviledges">
 
                 <!-- allow for users to like comment and dislike -->
                  <!-- *ngIf="role === citizen"> -->
@@ -249,7 +249,7 @@
                 </div>
 
                 <!-- *ngIf="role === official"> -->
-                <div class="action">
+                <div *ngIf="this.role=='official'" class="action">
                     <label (click)="getSummary()" id="get-summary"> get summary </label>
                     <!-- <a routerLink="/educate/:id"  id="get-summary"> get summary </a> -->
                 </div>

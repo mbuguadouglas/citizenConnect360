@@ -12,7 +12,7 @@
         </div>
 
         <!-- menu items -->
-        <div class="menu">
+        <div *ngIf="this.role !='admin'" class="menu" >
             <!-- to be displayed if not authenticated -->
             <ul *ngIf=" !status.showStatus()">
                 <li> 

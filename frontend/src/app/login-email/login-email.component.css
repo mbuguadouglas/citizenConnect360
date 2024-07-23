@@ -114,13 +114,31 @@
 /* ****************************** */
 /* for displaying form validation */
 /* ****************************** */
+.popup {
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: .4rem;
+    width: 90%;
+    margin: 0px auto;
+    border-radius: 15px;
+}
+
+.popup label{
+    color: var(--white);
+    font-size: large;
+    font-weight: bold;
+
+}
 
 .form-group input:focus{
     /* helps prevent overlap with error and succes outline */
     outline: 0;
 }
 
-.register-form .form-group input.ng-invalid.ng-touched{
+.login-form .form-group input.ng-invalid.ng-touched{
     border: 2px solid red !important;
 }
 

@@ -16,6 +16,8 @@ export class ViewsComponent implements OnInit,OnChanges{
   constructor() {}
 
   form!: FormGroup
+  id:string = ''
+  role:string = '' //get role from localstorage
 
 
   // function for update popup
@@ -37,6 +39,10 @@ export class ViewsComponent implements OnInit,OnChanges{
 
   
     ngOnInit(): void {
+      // get values from the local storage
+      this.role = localStorage.getItem('role') as string
+      this.id = localStorage.getItem('id') as string
+  
       
     }
     

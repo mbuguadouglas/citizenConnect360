@@ -132,19 +132,19 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 600;
-    /* color: var(--primary); */
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--primary);
 
-    background: transparent;
     margin-right: 15px;
     transition: 0.3s;
 }
 
 
 .content .btn button:hover{
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: var(--white);
     border-color: var(--primary);
+    background: transparent;
 }
 
 

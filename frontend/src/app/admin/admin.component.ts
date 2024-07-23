@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,15 +8,22 @@ import { RouterModule } from '@angular/router';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent implements AfterViewInit{
+export class AdminComponent implements OnInit{
 
   constructor() {}
 
   @ViewChild('sidebar')
   sidebar!: ElementRef;
+  id:string = ''
+  role:string = ''
 
-  ngAfterViewInit(): void {
-    console.log(this.sidebar)
+  // ngAfterViewInit(): void {
+  //   // console.log(this.sidebar)
+  // }
+
+  ngOnInit(): void {
+    this.id = localStorage.getItem('id') as string
+    this.role = localStorage.getItem('role') as string
   }
 
   showSidebar() {

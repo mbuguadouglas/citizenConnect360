@@ -16,6 +16,9 @@ export class IncidentsComponent implements OnChanges{
   constructor() {}
 
   form!: FormGroup
+  id:string = ''
+  role:string = '' //get role from localstorage
+
 
 
   // function for update popup
@@ -37,6 +40,10 @@ export class IncidentsComponent implements OnChanges{
 
   
     ngOnInit(): void {
+      // get values from the local storage
+      this.role = localStorage.getItem('role') as string
+      this.id = localStorage.getItem('id') as string
+      
       
     }
     

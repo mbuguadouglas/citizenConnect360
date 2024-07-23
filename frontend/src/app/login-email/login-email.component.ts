@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/authService/auth.service';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './login-email.component.html',
   styleUrl: './login-email.component.css'
 })
-export class LoginEmailComponent implements OnInit, OnDestroy{
+export class LoginEmailComponent implements OnInit{
 
   constructor ( 
     private auth:AuthService,
@@ -26,7 +26,7 @@ export class LoginEmailComponent implements OnInit, OnDestroy{
   message:string = '' 
   role:string = ''  
   id:string = ''   
-  router = Inject(Router) //navigate to either admin or dashboard
+  router = inject(Router) //navigate to either admin or dashboard
   sub!:Subscription     //prevent memory leak on component switching
   passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,10}$/
 
@@ -48,6 +48,7 @@ export class LoginEmailComponent implements OnInit, OnDestroy{
         
         // if token exists, save it to the localStorage
         if(response.token){
+          this.message = response.message
           // save token received to system local storage
           this.id = localStorage.getItem('id') as string 
           this.role = localStorage.getItem('role') as string
@@ -55,13 +56,14 @@ export class LoginEmailComponent implements OnInit, OnDestroy{
           // if the token role is admin
           if(this.role === 'admin'){
             // navigate to the admin panel
-            this.router.navigate['/admin']
+          
+            this.router.navigate(['/admin'])
           } else { // if the token role is citizen/govmt-official
 
             setTimeout(()=>{    //delayed to read message on DOM
               // this.status.login()
               this.status.showStatus()
-              this.router.navigate([`dashboard/:{this.id}`])
+              this.router.navigate([`dashboard/`,this.id])  //navigate to dashboard with user id
             }, 1000)
           }
           
@@ -70,7 +72,8 @@ export class LoginEmailComponent implements OnInit, OnDestroy{
       },
       (error)=>{
         console.log(error)
-        this.message = error.message
+        this.message = error.error.message
+        // this.message.style.backgroungColor = red
       })
 
       this.form.reset   //clear form once submitted
@@ -94,12 +97,6 @@ export class LoginEmailComponent implements OnInit, OnDestroy{
       email: new FormControl(null,[Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
     })
-  }
-
-
-  ngOnDestroy(): void {
-    console.log('Login component destroyed')
-    this.sub.unsubscribe()
   }
 
 }
