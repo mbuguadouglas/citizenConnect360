@@ -35,23 +35,26 @@
             <!-- to be displayed it theyre a citizen -->
             <ul *ngIf=" status.showStatus()">
                 <li> 
-                    <a routerLink="/dashboard/:id" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> dashboard </a> 
+                    <!-- THIS METHOD DOESNT MODIFY THE USER ID APPROPRIATELY
+                    <a routerLink="/dashboard/{id}" [routerLink]="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> dashboard </a> 
+                    THIS INSTEAD ATUALLY MODIFIES IT ACCORDINLY-->
+                    <a [routerLink]="['dashboard',this.id]" [routerLink]="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> dashboard </a> 
                 </li>
 
                 <li> 
-                    <a routerLink="/views/:id" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> views </a>
+                    <a [routerLink]="['views',this.id]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> views </a>
                 </li>
 
                 <li> 
-                    <a routerLink="/incidents/:id"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> incidents </a> 
+                    <a [routerLink]="['incidents',this.id]"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> incidents </a> 
                 </li>
  
                 <li> 
-                    <a routerLink="/polls/:id"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> polls </a>
+                    <a [routerLink]="['polls',this.id]"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> polls </a>
                 </li>
 
                 <li> 
-                    <a routerLink="/educate"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> educate </a>
+                    <a [routerLink]="['educate']"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> educate </a>
                 </li>
             </ul>
         </div>

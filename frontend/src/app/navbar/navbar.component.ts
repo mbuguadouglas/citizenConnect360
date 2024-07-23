@@ -19,11 +19,13 @@ export class NavbarComponent implements OnInit{
 
   // for getting the role from local storage
   role:string = ''
+  id:string = ''
 
   ngOnInit(): void {
     
     // get role from local storage
     this.role = localStorage.getItem('role') as string
+    this.id = localStorage.getItem('id') as string
   }
 
 }
