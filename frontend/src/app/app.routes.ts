@@ -29,7 +29,7 @@ export const routes: Routes = [
         {path:'', component:EducateComponent},
         {path:':id', component:EducateChatComponent}
     ]},
-    {path:'admin/:id', component:AdminComponent},
+    {path:'admin', component:AdminComponent},
 
     // add the error 4040 route
     {path:'**', component:Error404Component}

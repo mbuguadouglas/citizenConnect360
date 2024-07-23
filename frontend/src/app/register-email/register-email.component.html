@@ -3,6 +3,11 @@
 
 <div class="container">
 
+    <!-- display message from backend on DOM -->
+    <div *ngIf="message" class="popup">
+        <label> {{message}} </label>
+	</div>
+
     <!-- image on the left -->
      <div class="register-image">
         <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="signup-gif">
@@ -17,26 +22,34 @@
         </label>
 
 
-        <form class="register-form">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" class="register-form">
             <h2> Signup to citizenConnect360 </h2>
             <!-- <fieldset> -->
                 <div class="form-group">
                     <label for="email"> Email </label>    <br/>
-                    <input type="text" placeholder="Enter Email">
+                    <input formControlName="email" type="text" placeholder="Enter Email" >
+                    <div class="error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')"> please enter an email adress</div>
+                    <div class="error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')"> please enter a valid email address</div>        
                 </div>
     
                 <div class="form-group">
                     <label for="username"> Username </label>    <br/>
-                    <input type="text" placeholder="Enter Username">
+                    <input  formControlName="username" type="text" placeholder="Enter Username">
+                    <div class="error" *ngIf="form.get('username')?.touched && form.get('username')?.invalid"> please enter a valid username</div>
                 </div>
     
                 <div class="form-group">
                     <label for="password"> Password </label>    <br/>
-                    <input type="text" placeholder="Enter password">
+                    <input formControlName="password" type="text" placeholder="Enter password">
+                    <div class="error" *ngIf="form.get('password')?.touched && form.get('password')?.invalid"> please enter a valid password
+                        <!-- not working -->
+                        <p class="error" *ngIf="form.get('password')?.hasError('passwordRegexValidator')"> Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character</p>
+                    </div>
                 </div>
 
                 <div class="terms">
-                    <input type="checkbox">
+                    <input formControlName="acceptTos" type="checkbox">
+                    <div class="error" *ngIf="!form.get('acceptTos')?.touched && form.get('acceptTos')?.hasError('required')"> You must agree to out terms and conditions</div>
                     <label> 
                         i agree with citizenConnect360's <a href="#">terms of Service</a>, 
                         <a href="#">privacy policy</a> and default <a href="#">notification 
@@ -45,9 +58,7 @@
                 </div>
 
                 <div class="form-button">
-                    <button> 
-                        Create Account
-                    </button>
+                    <button [disabled]="form.invalid"> Create Account </button>
                 </div>
 
                 <p class="redirect-login">

@@ -108,3 +108,26 @@
     text-align: center;
     color: var(--medium-gray);
 }
+
+
+
+/* ****************************** */
+/* for displaying form validation */
+/* ****************************** */
+
+.form-group input:focus{
+    /* helps prevent overlap with error and succes outline */
+    outline: 0;
+}
+
+.register-form .form-group input.ng-invalid.ng-touched{
+    border: 2px solid red !important;
+}
+
+.error{
+    color: red;
+    font-size: small;
+    font-weight: normal;
+    justify-content: center;
+    font-style: italic;
+}
