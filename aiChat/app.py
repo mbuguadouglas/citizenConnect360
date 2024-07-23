@@ -62,27 +62,6 @@ def get_users():
         print(e)
         return jsonify({"error": str(e)}), 500
 
-
-# work with get request. a specific user
-@app.route('/users/<user_id>', methods=['GET'])
-def get_user(user_id):
-
-    getUser = f"SELECT * FROM users WHERE id=?"
-    
-
-    # print(user_id) 
-
-    try:
-        data = query_db(getUser, (user_id,))    
-        return jsonify(data), 200
-
-    except Exception as e:
-        print(e)
-        return jsonify({"error": str(e)}), 500
-
-    return render_template('index.html')
-
-
 # work with create
 @app.route('/users/add-user', methods=['POST'])
 def register_user():
@@ -123,7 +102,7 @@ def register_user():
     return render_template('index.html')
 
 
-
+# endpoint needed for chatting with db
 @app.route('/educate-chat', methods=['GET','POST'])
 def educate_chat():
     # Check if the request contains JSON data
