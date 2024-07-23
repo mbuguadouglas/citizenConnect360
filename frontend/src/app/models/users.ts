@@ -3,12 +3,18 @@ export interface User{
     name:string,
     email:string,
     password:string,
-    role:string,
+    role?:string,
     avatar?:string,
     isEmailSent?:number, //set property to optional
     isDeleted?:number,  //set property to optional
     awaitApproval?:number
 }
+
+// export interface RegisterRequest{
+//     name:string,
+//     email:string,
+//     password:string
+// }
 
 export interface registerResponse {
     message:string,

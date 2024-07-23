@@ -14,10 +14,11 @@ export class AuthService {
   ) { }
 
   // url for auth routes. should be the path in your backend not your frontend
-  private readonly baseUrl:string = 'http:/localhost:4000/auth/'
+  private readonly baseUrl:string = 'http://localhost:4000/auth/'
   
   // registering new users
   registerUser(newUser:User):Observable<registerResponse>{
+    console.log(newUser)    
     return this.http.post<registerResponse>(this.baseUrl+'register', newUser)
   }
 

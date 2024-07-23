@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/authService/auth.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register-email',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './register-email.component.html',
   styleUrl: './register-email.component.css'
 })
-export class RegisterEmailComponent implements OnInit{
+export class RegisterEmailComponent implements OnInit,OnDestroy{
 
   constructor ( private auth:AuthService ){}
 
@@ -20,18 +21,21 @@ export class RegisterEmailComponent implements OnInit{
   form!:FormGroup
   message = '' //message from the backend
   router = Inject(Router)   //allow navigation to the login page
+  sub!:Subscription     //prevent memory leak on component switching
   passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,10}$/
 
   // method to run when the form is submitted
   onSubmit(){
-    console.log(this.form.value)
+    // console.log(this.form.value)
+    // const { name, email, password, acceptTos } = this.form.value
     this.auth.registerUser(this.form.value).subscribe(
       (response)=>{
+        
         this.message = response.message
-
+        // console.log(response.message)
         // delay redirection, allow user to read message
         setTimeout(()=>{
-          this.router.navigate(['/login'])
+          this.router.navigate(['./auth/login'])
         }, 1500)
       },
       (error)=>{
@@ -43,16 +47,6 @@ export class RegisterEmailComponent implements OnInit{
     this.form.reset
   }
 
-  // pass values to the service then the db
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      email: new FormControl(null, [Validators.required,Validators.email]),
-      username: new FormControl(null, Validators.required),
-      password: new FormControl(null, [Validators.required, this.passwordRegexValidator.bind(this)]),
-      acceptTos: new FormControl(null, Validators.required)
-    })
-  }
-
   // custom synchronous validator. doesnt work!!!
   passwordRegexValidator(control:FormControl):{[x:string]:boolean} | null{
     if (this.passwordRegex.test(control.value)){
@@ -60,5 +54,20 @@ export class RegisterEmailComponent implements OnInit{
     }
     return null
   }
+
+  // pass values to the service then the db
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      email: new FormControl(null, [Validators.required,Validators.email]),
+      name: new FormControl(null, Validators.required),
+      password: new FormControl(null, [Validators.required, this.passwordRegexValidator.bind(this)]),
+      acceptTos: new FormControl(null, Validators.required)
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe()
+  }
+
 
 }
