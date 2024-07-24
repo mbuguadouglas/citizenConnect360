@@ -37,3 +37,7 @@ export interface loginResponse {
         role:string
     }  //change backend to use this. I DID :)
 }
+
+export interface PasswordResteResponse{
+    email:string
+}

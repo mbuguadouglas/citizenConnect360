@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-// import { AuthService } from '../services/authService/auth.service';
+import { AuthService } from '../services/authService/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -18,7 +18,7 @@ import { AuthActions } from '../state/actions/auth.actions';
 export class RegisterEmailComponent implements OnInit{
 
   constructor ( 
-    // private auth:AuthService ->shifted to using observables
+    private auth:AuthService, //->shifted to using observables
     private store:Store<AppState>
    ){}
 

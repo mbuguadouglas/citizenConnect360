@@ -32,11 +32,29 @@ export class AuthService {
     return this.http.get <Array<User>>(this.baseUrl + 'users')
   }
 
-  // forgot password
-  // change password
   // get user by specific id
+  getUser(id:string):Observable<User>{
+    return this.http.get <User>(this.baseUrl + id)
+  }
+  // forgot password
+  forgotUserPassword(email:string):Observable<User>{
+    return this.http.get <User>(this.baseUrl + email)
+  }
+
+  // change password
+  changeUserEmail(id:string):Observable<User>{
+    return this.http.get <User>(this.baseUrl + id)
+  }
+
   // get user by email
+  getUserByEmail(email:string):Observable<User>{
+    return this.http.get <User>(this.baseUrl + email)
+  }
+
   // delete user
+  deleteUser(id:string):Observable<User>{
+    return this.http.delete <User>(this.baseUrl + id)
+  }
 
 
 

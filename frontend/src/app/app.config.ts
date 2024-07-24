@@ -20,14 +20,13 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(withInterceptors([TokenInterceptor])),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideStore({
       'auth':authReducer,
       'incidents':incidentReducer,
       'views':viewReducer,
       'polls':pollReducer,
       'votes':voteReducer,
-
+      
       // auth:authReducer,
       // incidents:incidentReducer,
       // views:viewReducer,
@@ -37,6 +36,7 @@ export const appConfig: ApplicationConfig = {
     provideEffects([
       AuthEffects
     ]),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
     
     ]
 };

@@ -24,7 +24,7 @@ export class AuthEffects{
             // receive only input   from action reaching out to the service
             concatMap( request => this.auth.registerUser(request.user).pipe(
                     map( response => {
-                            this.router.navigate(["/login"]);
+                            this.router.navigate(["login"]);
                             return AuthActions.registerSuccess({response:response})
                         }
                     )
