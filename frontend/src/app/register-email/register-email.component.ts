@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../services/authService/auth.service';
+// import { AuthService } from '../services/authService/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../state';
+import { AuthActions } from '../state/actions/auth.actions';
 
 @Component({
   selector: 'app-register-email',
@@ -14,7 +17,10 @@ import { Subscription } from 'rxjs';
 })
 export class RegisterEmailComponent implements OnInit{
 
-  constructor ( private auth:AuthService ){}
+  constructor ( 
+    // private auth:AuthService ->shifted to using observables
+    private store:Store<AppState>
+   ){}
 
 
   // create a form
@@ -24,27 +30,32 @@ export class RegisterEmailComponent implements OnInit{
   sub!:Subscription     //prevent memory leak on component switching
   passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,10}$/
 
-  // method to run when the form is submitted
-  onSubmit(){
-    // console.log(this.form.value)
-    // const { name, email, password, acceptTos } = this.form.value
-    this.auth.registerUser(this.form.value).subscribe(
-      (response)=>{
+  // // method to run when the form is submitted
+  // onSubmit(){
+  //   // console.log(this.form.value)
+  //   // const { name, email, password, acceptTos } = this.form.value
+  //   this.auth.registerUser(this.form.value).subscribe(
+  //     (response)=>{
         
-        this.message = response.message
-        // console.log(response.message)
-        // delay redirection, allow user to read message
-        setTimeout(()=>{
-          this.router.navigate(['./auth/login'])
-        }, 1500)
-      },
-      (error)=>{
-        // console.log(error)
-        this.message = error.error //severe nesting
-      })
+  //       this.message = response.message
+  //       // console.log(response.message)
+  //       // delay redirection, allow user to read message
+  //       setTimeout(()=>{
+  //         this.router.navigate(['./auth/login'])
+  //       }, 1500)
+  //     },
+  //     (error)=>{
+  //       // console.log(error)
+  //       this.message = error.error //severe nesting
+  //     })
 
-    // clear form on submit
-    this.form.reset
+  //   // clear form on submit
+  //   this.form.reset
+  // }
+
+
+  onSubmit(){
+    this.store.dispatch(AuthActions.register({user:this.form.value}))
   }
 
   // custom synchronous validator. doesnt work!!!
