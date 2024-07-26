@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Poll, pollRequest } from '../models/polls';
+import { PollsService } from '../services/polls/polls.service';
 
 @Component({
   selector: 'app-polls',
@@ -13,11 +15,17 @@ import { RouterModule } from '@angular/router';
 export class PollsComponent implements OnInit, OnChanges,AfterViewInit{
 
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private ps:PollsService
+  ) {}
 
-  form!: FormGroup
+  pollForm!: FormGroup
+  polls:Array<Poll> = []
   role:string = ''
   id:string = ''
+  message:string = ''
 
 
   // function for update popup
@@ -36,17 +44,57 @@ export class PollsComponent implements OnInit, OnChanges,AfterViewInit{
 
   }
 
+  createPoll(){
+    const { title, choices} = this.pollForm.value
+    console.log(this.pollForm.value)
+    const newPoll:pollRequest = { userId:this.id, title, choices}
+    this.ps.addPoll(newPoll).subscribe(
+      response=>{
+        this.message = response.message
+        console.log(response.message)
+      },
+      error =>{
+        console.log(error.message)
+        this.message = error
+      }
+    )
+  }
+
   
     ngOnInit(): void {
       // get values from local storage
       this.role = localStorage.getItem('role') as string
       this.id = localStorage.getItem('id') as string
+
+      //handle the form
+      this.pollForm = new FormGroup({
+      title:new FormControl(null,Validators.required),
+      choices:new FormArray([]),
+      })
+
+      this.ps.getPolls().subscribe( 
+        response=>{
+        this.polls = response
+        console.log(this.polls)
+      })
+         
       
+    }
+
+    addChoices(){
+      // add controll into form choices
+      const controll = new FormControl(null, Validators.required);  //WITHOUT SEMICOLON HERE CODE BREAKS
+      (<FormArray>this.pollForm.get('choices')).push(controll)
+    }
+
+    getChoices(){
+      return (<FormArray>this.pollForm.get('choices')).controls
     }
     
     ngOnChanges(changes: SimpleChanges): void {
       // create and remove the update popup
       this.addPoll()
+
       
     }
 

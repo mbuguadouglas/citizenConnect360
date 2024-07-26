@@ -4,7 +4,7 @@
 
     <!-- create the main page -->
      <!-- brief sneak peek of all existing views -->
-     <div class="brief">
+     <div *ngIf="views" class="brief">
 
         <div class="search">
             <input type="text" placeholder="Search...">
@@ -21,153 +21,36 @@
 
         <div class="bottom">
 
-            <!-- card 1 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_640.jpg" alt="user-avatar">
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> did we really go to the moon? </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> recent events shed doubt on the occurrence of the moon landing... </label>
-                        <span> 7m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
-            <!-- end card 1 -->
-
-            <!-- card 2 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2015/02/19/13/15/man-642075_640.jpg" alt="user-avatar">
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> did we really go to the moon? </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> recent events shed doubt on the occurrence of the moon landing... </label>
-                        <span> 7m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
-            <!-- end card 2 -->
-
-  
-            <div class="card">
-          
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_640.jpg" alt="user-avatar">
-                </div>
-
-         
-                    <div class="bottom-text">
-                    <p class="heading">
-                        <label> did we really go to the moon? </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> recent events shed doubt on the occurrence of the moon landing... </label>
-                        <span> 7m read </span>
-                    </p>
+            <div *ngFor="let view of views">
+                <div class="card" id="{{view.id}}">
+                    <!-- top part -->
+                    <div class="top-image">
+                        <img src="{{view.imageUrl}}" alt="header-image">
+                        <img class="floating" src="https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_640.jpg" alt="user-avatar">
                     </div>
-
-
+    
+                    <!-- bottom part -->
+                     <div class="bottom-text">
+                        <p class="heading">
+                            <label> {{view.title}} </label>
+                            <span> new </span>
+                        </p>
+    
+                        <p class="description">
+                            <label> {{view.description}} </label>
+                            <span> {{view.createdAt}} </span>
+                        </p>
+                     </div>
+    
+    
+                </div>
+                <!-- end card 1 -->
             </div>
+
+
+
   
 
- 
-            <div class="card">
-       
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_640.jpg" alt="user-avatar">
-                </div>
-
-     
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> did we really go to the moon? </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> recent events shed doubt on the occurrence of the moon landing... </label>
-                        <span> 7m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
-
-
-
-            <div class="card">
-      
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_640.jpg" alt="user-avatar">
-                </div>
-
-            
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> did we really go to the moon? </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> recent events shed doubt on the occurrence of the moon landing... </label>
-                        <span> 7m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
-
-
-            <div class="card">
-         
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2017/11/19/07/30/girl-2961959_640.jpg" alt="user-avatar">
-                </div>
-
-    
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> did we really go to the moon? </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> recent events shed doubt on the occurrence of the moon landing... </label>
-                        <span> 7m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
  
 
 
@@ -274,10 +157,46 @@
        <div class="content">
           <div class="close-btn" (click)="addView()">&times;</div>
           <h1> Add View Form </h1>
-             <form>
-                content will be placed hapa
- 
-             </form>
+                <!-- ---------------------- -->
+                             <!-- add hotesl -->
+            <div class="add-view">
+                <div *ngIf="message" class="popup">
+                   <label> {{message}} </label>
+                </div>
+    
+                <form (ngSubmit)="submitView()" [formGroup]="viewForm">
+                   <fieldset>
+                      <div>
+                         <label> Title: </label>
+                         <input formControlName="title" type="text">
+                      </div>
+             
+                      <div>
+                         <label> Description: </label>
+                         <input formControlName="description" type="text">
+                      </div>
+             
+                      <div>
+                         <label> Body: </label>
+                         <input formControlName="body" type="text">
+                      </div>
+    
+                      <div>
+                         <label> Location: </label>
+                         <input formControlName="location" type="text">
+                      </div>
+                
+                      <div>
+                         <label> Image Url: </label>
+                         <input formControlName="imageUrl" type="text">
+                      </div>
+  
+                      <button class="btn"> Add View </button>
+                   </fieldset>
+          
+                </form>
+             </div>
+                <!-- ---------------------- -->
        </div>
   </div>
 

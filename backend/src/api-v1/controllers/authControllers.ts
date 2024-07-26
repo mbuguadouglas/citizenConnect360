@@ -17,7 +17,7 @@ const db = new DbHelper()
 
 export async function registerUser(request:Request,response:Response) {
     const id = uid()
-    const role = Roles.Citizen   //change when you need to add admin
+    const role = Roles.Official  //change when you need to add admin
     const {name,email,password,acceptTos} = request.body
 
     // abort early false ensure entire body is authenticated, despite error on the first one

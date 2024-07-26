@@ -314,8 +314,8 @@
     left:50%;
     transform:translate(-50%,-50%) scale(0);
     background:#fff;
-    width:500px;
-    height:250px;
+    width:60%;
+    height:fit-content;
     z-index:2;
     text-align:center;
     padding:20px;
@@ -627,5 +627,24 @@ label.opt-4 .row .circle::after{
 
 
 
+/* style the adding view form */
+.add-poll{
+    padding: 1rem;
+    /* color: red; */
+}
 
+.add-poll form fieldset{
+    /* background-color: red; */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.add-poll form fieldset .btn{
+    justify-content: center;
+    margin: 0px auto;
+    width: 60%;
+    padding: .2rem;
+}
 

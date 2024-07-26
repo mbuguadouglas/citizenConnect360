@@ -5,11 +5,15 @@ export interface Votes{
     userId:string,
     pollId:string,
     choiceMade:string,
-    isOpen?:number,
-    createdAt?:string,
     isDeleted?:number
 }
 
 export interface votesResponse {
     message:string
+}
+
+export interface votesRequest {
+    userId:string,
+    pollId:string,
+    choiceMade:string
 }

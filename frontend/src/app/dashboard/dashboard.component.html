@@ -1,5 +1,5 @@
 <div class="container">
-    <div #carousel class="carousel">
+    <div *ngIf="this.role=='official' || this.role=='citizen'" #carousel class="carousel" >
 
         <div #list class="list">
 
@@ -85,4 +85,44 @@
         <div #runningTime class="timeRunning"></div>
 
     </div>
+
+
+    <!-- admin dashboard for managing roles -->
+     <div *ngIf="this.role=='admin'">
+        
+        <div *ngIf="users" class="admin-dash" >
+
+            <!-- <div *ngFor="let user of users | searchUser:searchThis" class="users"> -->
+            <div *ngFor="let user of users" class="users">
+            <!-- user image url -->
+            <div class="left" id="{{user.id}}">
+               <img src="https://i.pinimg.com/236x/7a/a4/66/7aa466056aad44cd22cec1ab9ab6699f.jpg" alt="avatar">
+               <!-- <img src="{{user.imageUrl}}" alt="avatar"> -->
+            </div>
+         
+            <!-- main content -->
+             <div class="right">
+               <!-- top -->
+                <div class="content">
+                  <p id="id" > ID: {{user.id}} </p>
+                  <p>
+                     <label> Name: </label><label id="name"> {{user.name}} </label>
+                  </p>
+                  <p>
+                     <label> Email: </label><label id="email"> {{user.email}}</label>
+                  </p>
+                </div>
+               <!-- botton with buttons -->
+                <div class="buttons">
+                  <!-- <button (click)="updatePopup()"> Update </button> -->
+                  <button> Delete </button>
+                </div>
+             </div>
+      
+      
+         </div>
+      
+      
+        </div>
+     </div>
 </div>

@@ -4,7 +4,7 @@
 
     <!-- create the main page -->
      <!-- brief sneak peek of all existing views -->
-     <div class="brief">
+     <div *ngIf="incidents" class="brief">
 
         <div class="search">
             <input type="text" placeholder="Search...">
@@ -19,132 +19,35 @@
             <h2> trending incidents </h2>
         </div>
 
-        <div class="bottom">
+        <div  class="bottom">
 
-            <!-- card 1 -->
-            <div class="card">
+            <div *ngFor="let incident of incidents">
+                            <!-- card 1 -->
+            <div class="card" id="{{incident.id}}">
                 <!-- top part -->
                 <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
+                    <img src="{incident.imageUrl}" alt="header-image">
                     <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
                 </div>
 
                 <!-- bottom part -->
                  <div class="bottom-text">
                     <p class="heading">
-                        <label> president reshuffles entire cabinet </label>
+                        <label> {{incident.title}} </label>
                         <span> new </span>
                     </p>
 
                     <p class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <span> 4m read </span>
+                        <label> {{incident.description}} </label>
+                        <span> Created {{incident.createdAt}} </span>
                     </p>
                  </div>
 
 
             </div>
             <!-- end card 1 -->
-
-            <!-- card 2 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2021/11/05/12/25/woman-6771278_640.jpg" alt="user-avatar">
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> president reshuffles entire cabinet </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <span> 4m read </span>
-                    </p>
-                 </div>
-
-
             </div>
-            <!-- end card 2 -->
 
-            <!-- card 2 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2021/11/05/12/25/woman-6771278_640.jpg" alt="user-avatar">
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> president reshuffles entire cabinet </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <span> 4m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
-            <!-- end card 2 -->
-
-            <!-- card 2 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2021/11/05/12/25/woman-6771278_640.jpg" alt="user-avatar">
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> president reshuffles entire cabinet </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <span> 4m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
-            <!-- end card 2 -->
-             
-            <!-- card 2 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-image">
-                    <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image">
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2021/11/05/12/25/woman-6771278_640.jpg" alt="user-avatar">
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-                    <p class="heading">
-                        <label> president reshuffles entire cabinet </label>
-                        <span> new </span>
-                    </p>
-
-                    <p class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <span> 4m read </span>
-                    </p>
-                 </div>
-
-
-            </div>
-            <!-- end card 2 -->
 
 
         </div>
@@ -249,10 +152,46 @@
        <div class="content">
           <div class="close-btn" (click)="addIncident()">&times;</div>
           <h1> Add Incident Form </h1>
-             <form>
-                content will be placed hapa
- 
-             </form>
+            <!-- ---------------------- -->
+                <!-- add hotesl -->
+                <div class="add-incident">
+                <div *ngIf="message" class="popup">
+                    <label> {{message}} </label>
+                </div>
+    
+                <form (ngSubmit)="submitIncident()" [formGroup]="incidentForm">
+                    <fieldset>
+                        <div>
+                            <label> Title: </label>
+                            <input formControlName="title" type="text">
+                        </div>
+                
+                        <div>
+                            <label> Description: </label>
+                            <input formControlName="description" type="text">
+                        </div>
+                
+                        <div>
+                            <label> Body: </label>
+                            <input formControlName="body" type="text">
+                        </div>
+    
+                        <div>
+                            <label> Location: </label>
+                            <input formControlName="location" type="text">
+                        </div>
+                
+                        <div>
+                            <label> Image Url: </label>
+                            <input formControlName="imageUrl" type="text">
+                        </div>
+    
+                        <button class="btn"> Add Incident </button>
+                    </fieldset>
+            
+                </form>
+                </div>
+            <!-- ---------------------- -->
        </div>
   </div>
 

@@ -27,6 +27,10 @@ export class AuthService {
     return this.http.post <loginResponse>(this.baseUrl+'login',user)
   }
 
+
+
+  // untested from here-----
+
   // get all users from db
   getUsers():Observable<Array<User>>{
     return this.http.get <Array<User>>(this.baseUrl + 'users')

@@ -18,3 +18,12 @@ export interface View{
 export interface viewsResponse {
     message:string
 }
+
+export interface viewRequest {
+    userId:string,
+    title:string,
+    description:string,
+    body:string,
+    location:string,
+    imageUrl:string,
+}

@@ -3,6 +3,7 @@
 
 .container{
     display: flex;
+    /* flex-direction: ; */
     width: 100%;
     /* background-color: red; */
 }
@@ -265,4 +266,80 @@
         padding: 10px 15px;
         font-size: 14px;
     }
+}
+
+
+/* ------------------- */
+/* ADMIN PANEL STYLING */
+/* ------------------- */
+.admin-dash{
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    gap: .7rem;
+    width: 100%;
+    height: 90vh;
+    overflow-y: scroll; /* //LEARN HOW TO PUT SCROLL BAR LIKE IN THE TWITTER CLONE */
+    /* background-color: red; */
+}
+
+/* users div styling.  */
+.admin-dash .users{
+    display: flex;
+    width: 70vw;
+    /* height: 8rem; */
+    border: 1px solid;
+    border-radius: 15px;
+    margin: 0px auto;
+    gap: 1rem;
+    padding: .4rem;
+}
+
+.admin-dash .users .left{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    padding: .4rem;
+    margin: 1rem;
+    overflow: hidden;
+    /* border-radius: 10px; */
+}
+.left image{
+    width: 100%;
+    height: 100%;
+}
+.admin-dash .users .right{
+    width: 75%;
+    padding: .4rem;
+    display: inline-flex;
+    flex-direction: column;
+    /* overflow-y: scroll; */
+}
+
+.right .content #id{
+    font-size: x-small;
+    display: block;
+    text-align: right;
+}
+
+.right .content #name{
+    font-size: large;
+    font-weight: 700;
+}
+.right .content #email{
+    font-style: italic;
+}
+.right .content #bookings{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.admin-dash .buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.admin-dash button{
+    padding: .1rem;
+    width: 25%;
 }

@@ -15,3 +15,9 @@ export interface Poll{
 export interface pollsResponse {
     message:string
 }
+
+export interface pollRequest {
+    userId:string,
+    title:string,
+    choices: Array<string>
+}

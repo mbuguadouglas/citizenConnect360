@@ -4,7 +4,7 @@
 
     <!-- create the main page -->
      <!-- brief sneak peek of all existing views -->
-     <div class="brief">
+     <div *ngIf="polls" class="brief">
 
         <div class="search">
             <input type="text" placeholder="Search...">
@@ -23,16 +23,17 @@
 
         <div class="bottom">
 
-            <!-- card 1 -->
-            <div class="card">
+            <div *ngFor="let poll of polls">
+                            <!-- card 1 -->
+            <div class="card" id="{{poll.id}}">
                 <!-- top part -->
                 <div class="top-text">
                     <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
                     <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
                     <section>
-                        <p class="title"> finance bill poll </p>
-                        <p class="created-by"> by kimani ichungwa </p>
-                        <p class="created-when"> 1 week ago </p>
+                        <p class="title"> {{poll.title}} </p>
+                        <!-- <p class="created-by"> {{poll.userId}} </p> -->
+                        <p class="created-when"> {{poll.createdAt}} </p>
                     </section>
                 </div>
 
@@ -40,7 +41,7 @@
                  <div class="bottom-text">
 
                     <section class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
+                        <label> {{poll.description}} </label>
                         <p>
                             <span> vote </span>
                         </p>
@@ -50,118 +51,7 @@
 
             </div>
             <!-- end card 1 -->
-
-            <!-- card 2 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-text">
-                    <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
-                    <section>
-                        <p class="title"> finance bill poll </p>
-                        <p class="created-by"> by kimani ichungwa </p>
-                        <p class="created-when"> 1 week ago </p>
-                    </section>
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-
-                    <section class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <p>
-                            <span> vote </span>
-                        </p>
-                    </section>
-                 </div>
-
-
             </div>
-            <!-- end card 2 -->
-
-            <!-- card 3 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-text">
-                    <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
-                    <section>
-                        <p class="title"> finance bill poll </p>
-                        <p class="created-by"> by kimani ichungwa </p>
-                        <p class="created-when"> 1 week ago </p>
-                    </section>
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-
-                    <section class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <p>
-                            <span> vote </span>
-                        </p>
-                    </section>
-                 </div>
-
-
-            </div>
-            <!-- end card 3 -->
-
-                        <!-- card 3 -->
-                        <div class="card">
-                            <!-- top part -->
-                            <div class="top-text">
-                                <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
-                                <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
-                                <section>
-                                    <p class="title"> finance bill poll </p>
-                                    <p class="created-by"> by kimani ichungwa </p>
-                                    <p class="created-when"> 1 week ago </p>
-                                </section>
-                            </div>
-            
-                            <!-- bottom part -->
-                             <div class="bottom-text">
-            
-                                <section class="description">
-                                    <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                                    <p>
-                                        <span> vote </span>
-                                    </p>
-                                </section>
-                             </div>
-            
-            
-                        </div>
-                        <!-- end card 3 -->
-
-                                    <!-- card 3 -->
-            <div class="card">
-                <!-- top part -->
-                <div class="top-text">
-                    <!-- <img src="https://images.unsplash.com/photo-1720475376136-bf9bf6c0c782?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8" alt="header-image"> -->
-                    <img class="floating" src="https://cdn.pixabay.com/photo/2018/03/04/23/37/child-3199624_640.jpg" alt="user-avatar">
-                    <section>
-                        <p class="title"> finance bill poll </p>
-                        <p class="created-by"> by kimani ichungwa </p>
-                        <p class="created-when"> 1 week ago </p>
-                    </section>
-                </div>
-
-                <!-- bottom part -->
-                 <div class="bottom-text">
-
-                    <section class="description">
-                        <label> in a recent turn of events, the president has dismissed the entire cabinet </label>
-                        <p>
-                            <span> vote </span>
-                        </p>
-                    </section>
-                 </div>
-
-
-            </div>
-            <!-- end card 3 -->
 
 
         </div>
@@ -173,7 +63,7 @@
 
 
 
-        <!-- <div class="button-section" *ngIf="role === citizen"> -->
+        <!-- <div class="button-section" *ngIf="role === 'citizen'"> -->
         <div *ngIf="this.role=='official'" class="button-section">
             <label id="my-incident"> my polls </label>
             <label (click)="addPoll()" id="add-incident"> add poll </label>
@@ -270,7 +160,35 @@
           <div class="close-btn" (click)="addPoll()">&times;</div>
           <h1> Add Poll </h1>
              <form>
-                content will be placed hapa
+                <!-- ----------------------- -->
+                <div class="add-poll">
+                    <div *ngIf="message" class="popup">
+                       <label> {{message}} </label>
+                    </div>
+        
+                    <form (ngSubmit)="createPoll()" [formGroup]="pollForm">
+                       <fieldset>
+                          <div>
+                             <label> Title: </label>
+                             <input formControlName="title" type="text">
+                          </div>
+                 
+                          <div formArrayName="choices">
+                             <label> Possible choices: </label>
+                             <button (click)="addChoices()"> Add choice</button>
+                             <div *ngFor="let choice of getChoices(); let i=index;">
+                                <input type="text" formControlName="{{i}}">
+                                <button> X </button>
+                             </div>
+                          </div>
+                 
+      
+                          <button class="btn"> Add Poll </button>
+                       </fieldset>
+              
+                    </form>
+                 </div>
+                <!-- ----------------------- -->
  
              </form>
        </div>

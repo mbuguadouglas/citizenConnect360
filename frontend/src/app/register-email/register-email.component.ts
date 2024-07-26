@@ -55,6 +55,7 @@ export class RegisterEmailComponent implements OnInit{
 
 
   onSubmit(){
+    console.log(this.form.value)
     this.store.dispatch(AuthActions.register({user:this.form.value}))
   }
 

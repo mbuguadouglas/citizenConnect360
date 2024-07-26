@@ -52,7 +52,7 @@
                     <li>
                         <a >
                             <i class='bx bx-user'></i>
-                            <span class="nav-item"> users </span>
+                            <span [routerLink]="['/dashboard',this.id]" class="nav-item"> users </span>
                         </a>
                         <span class="tooltip"> users </span>
                     </li>
@@ -172,7 +172,7 @@
                         <div class="govmt-approvals">
                             <div class="top">
                                 <label class="title"> awaiting approval </label>
-                                <label class="btn"> view all <i class="bx bx-chevron-right"></i></label>
+                                <label [routerLink]="['/dashboard',this.id]" class="btn"> view all <i class="bx bx-chevron-right"></i></label>
     
                             </div>
 

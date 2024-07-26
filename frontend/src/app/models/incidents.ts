@@ -17,3 +17,12 @@ export interface Incident{
 export interface incidentsResponse {
     message:string
 }
+
+export interface incidentRequest {
+    userId:string,
+    title:string,
+    description:string,
+    body:string,
+    location:string,
+    imageUrl:string,
+}
