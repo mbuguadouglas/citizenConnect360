@@ -2,11 +2,10 @@
 I am building this project to educate the general masses on government documents (e.g bills being discussed in parliament), Facilitate issue reporting and feedback to the government. It will utilize AI to analyze citizen input and support informed decision-making generally promoting citizen engagement and government responsiveness.
 
 
-## Contributing to Black Python Devs Projects
+## Contributing to citizenConnect360
 
 Follow these steps to begin contributing:
 
-- First step is to set up the local development environment.
 - Bug fixes are always welcome. Start by reviewing the list of bugs.
 - A good way to easily start contributing is to pick and work on a good first issue. I try to make these issues as clear as possible and provide basic info on how the code should be changed, and if something is unclear feel free to ask for more information on the issue. I will respond as soon as I can.
 
@@ -80,7 +79,8 @@ Follow these steps to begin contributing:
     $ ng serve -o
 ```
 
-1. Make your changes, commit and push them to your local repository, then submit a Pull Request. 
+
+Finally Make your changes, commit and push them to your local repository, then submit a Pull Request. 
 
 
 
